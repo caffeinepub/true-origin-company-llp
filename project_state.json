@@ -1,16 +1,27 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 15,
-  "summary": "Website for True Origin Company LLP, a food products company dealing in perishable and non-perishable food products. The site showcases moringa powder, moringa leaf, moringa farm, curry leaves farm, okra farm, and farm imagery. Contact emails updated to info@trueoriginexports.com and sales@trueoriginexports.com (replacing trueorigin@gmail.com). Phone: 9773303026. The site positions the company as professional exporters with export/cargo imagery. A social media video section placeholder is present, with plans to add Instagram, LinkedIn, YouTube, and Facebook links later. The company logo is displayed in the navigation bar. Multi-language support is implemented with a language selector in the top-right corner. The company website URL www.trueoriginintl.com is included. SSL is to be enabled. New pages to be added: Privacy Policy, Terms and Conditions, and a detailed Export Certification/Quality Control/Product Specifications page.",
+  "projectStateVersion": 29,
+  "summary": "Website for True Origin Company LLP (TrueOrigin Exports), a professional agricultural export company. The site now uses updated copy: Hero headline 'Premium Agricultural Exports From India to Global Markets', subheadline emphasizing compliance and logistics, and two CTA buttons ('Request Product Specifications', 'Contact Sales'). About section updated to professional exporter copy with Vision and Mission statements. Products section includes Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, and Custom Agri Sourcing. A Quality & Compliance section highlights documentation (COA, lab reports, phytosanitary certs, etc.). Product page structure updated with detailed Moringa Leaf Powder specs for export-grade buyers. Color palette confirmed: Deep Emerald (#0F3D2E), Soft Gold (#C6A75E), Background (#F4F1EA), Text (#1A1A1A). Fonts: Playfair Display or Libre Baskerville for headings, Poppins or Lato for body. Contact emails: info@trueoriginexports.com and sales@trueoriginexports.com. Phone: 9773303026. Website: www.trueoriginintl.com. Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added later. SSL to be enabled.",
   "architectural_notes": [
     "Static/marketing website for a food products company (perishable and non-perishable goods)",
     "Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added when URLs are provided",
     "Multi-language support required: all content translatable by user preference except company name 'True Origin Company LLP'; language selector in top-right corner of header",
     "Contact emails updated to info@trueoriginexports.com and sales@trueoriginexports.com; SSL to be enabled",
-    "New static pages required: Privacy Policy, Terms & Conditions, Export Certification/Quality Control/Product Specifications"
+    "New static pages required: Privacy Policy, Terms & Conditions, Export Certification/Quality Control/Product Specifications",
+    "Hamburger menu order: Products > Product Specifications > [other items] > Privacy Policy > Contact Us > Certification",
+    "Logo must not change color, format, or font when user scrolls down — logo appearance must remain consistent in both transparent and solid nav scroll states",
+    "Color palette: Primary #0F3D2E (Deep Emerald), Accent #C6A75E (Soft Gold), Background #F4F1EA, Text Dark #1A1A1A; Fonts: Playfair Display or Libre Baskerville (headings), Poppins or Lato (body)",
+    "Products list: Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, Custom Agri Sourcing; Quality & Compliance section with documentation list and quote CTA required on homepage"
   ],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Logo turns white when user scrolls down (nav scroll state change affects logo color)",
+    "A small rectangular white box appears above the hero tagline 'Premium natural food products from the heart of India to the world'",
+    "A block of static text showing contact details (+91 97733 03026, info@trueoriginexports.com, sales@trueoriginexports.com, www.trueoriginintl.com) is appearing visibly on the website and needs to be removed",
+    "Product specification text is rendering as technical/raw text instead of properly formatted content",
+    "'Get In Touch' nav link renders as technical/raw text in the navbar",
+    "Hamburger menu dropdown background is not consistently white — becomes transparent or inconsistent when background page is scrolled"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-multi-section-landing-page-for-true-origin-company-llp-including-a-hero-section-with-company-name-and-tagline-an-about-us-section-describing-the-business-dealing-in-perishable-and-non-perishable-food-products-a-products-section-showcasing-key-offerings-and-a-contact-section-with-placeholder-contact-details",
@@ -171,6 +182,134 @@
         "REQ-20"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-in-the-mobile-hamburger-menu-navbar-add-a-product-specifications-nav-link-positioned-immediately-after-the-existing-products-nav-item-this-link-should-navigate-to-the-export-certification-route-scrolling-to-or-highlighting-the-product-specifications-section-of-that-page-or-navigate-directly-to-export-certification-if-a-dedicated-product-specifications-anchor-is-not-available",
+      "title": "In the mobile hamburger menu (NavBar), add a 'Product Specifications' nav link positioned immediately after the existing 'Products' nav item. This link should navigate to the /export-certification route (scrolling to or highlighting the Product Specifications section of that page), or navigate directly to /export-certification if a dedicated product-specifications anchor is not available.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-mobile-hamburger-menu-navbar-add-a-privacy-policy-nav-link-positioned-immediately-before-the-contact-us-nav-item-this-link-should-navigate-to-the-privacy-policy-route-using-the-router-s-link-component",
+      "title": "In the mobile hamburger menu (NavBar), add a 'Privacy Policy' nav link positioned immediately before the 'Contact Us' nav item. This link should navigate to the /privacy-policy route using the router's Link component.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-mobile-hamburger-menu-navbar-add-an-export-certification-or-certification-nav-link-positioned-immediately-after-the-product-specifications-nav-item-this-link-should-navigate-to-the-export-certification-route-using-the-router-s-link-component",
+      "title": "In the mobile hamburger menu (NavBar), add an 'Export Certification' (or 'Certification') nav link positioned immediately after the 'Product Specifications' nav item. This link should navigate to the /export-certification route using the router's Link component.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-navigation-bar-logo-so-that-it-does-not-change-color-format-or-appearance-when-the-user-scrolls-down-the-logo-image-logo-png-must-render-identically-in-both-the-transparent-top-of-page-and-solid-scrolled-navbar-states-no-white-filter-brightness-or-invert-css-effects-should-be-applied-to-the-logo-element-based-on-scroll-state-remove-any-conditional-styling-e-g-filter-brightness-invert-or-color-class-toggling-that-is-currently-applied-to-the-logo-img-element-in-response-to-the-navbar-s-scroll-state",
+      "title": "Fix the navigation bar logo so that it does not change color, format, or appearance when the user scrolls down. The logo image (logo.png) must render identically in both the transparent (top-of-page) and solid (scrolled) navbar states — no white filter, brightness, or invert CSS effects should be applied to the logo element based on scroll state. Remove any conditional styling (e.g., filter, brightness, invert, or color class toggling) that is currently applied to the logo img element in response to the navbar's scroll state.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-herosection-component-locate-and-remove-the-spurious-small-rectangular-white-box-element-that-appears-above-the-tagline-text-premium-natural-food-products-from-the-heart-of-india-to-the-world-inspect-the-jsx-and-css-for-any-empty-div-span-pseudo-element-before-after-or-wrapper-element-with-a-white-background-border-or-box-shadow-that-is-rendering-as-a-visible-white-rectangle-in-that-area-and-eliminate-it-so-no-such-artifact-is-visible",
+      "title": "In the HeroSection component, locate and remove the spurious small rectangular white box element that appears above the tagline text 'Premium natural food products from the heart of India to the world'. Inspect the JSX and CSS for any empty div, span, pseudo-element (::before / ::after), or wrapper element with a white background, border, or box-shadow that is rendering as a visible white rectangle in that area, and eliminate it so no such artifact is visible.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-locate-and-remove-the-visible-block-of-static-text-displaying-91-97733-03026-info-trueoriginexports-com-sales-trueoriginexports-com-and-www-trueoriginintl-com-that-is-rendering-as-plain-visible-text-somewhere-on-the-website-likely-in-herosection-a-layout-wrapper-or-app-tsx-this-text-must-be-fully-removed-from-the-jsx-html-so-it-no-longer-appears-on-screen-the-actual-contact-details-in-the-contactsection-info-panel-and-footer-must-remain-intact",
+      "title": "Locate and remove the visible block of static text displaying '+91 97733 03026', 'info@trueoriginexports.com', 'sales@trueoriginexports.com', and 'www.trueoriginintl.com' that is rendering as plain visible text somewhere on the website (likely in HeroSection, a layout wrapper, or App.tsx). This text must be fully removed from the JSX/HTML so it no longer appears on screen. The actual contact details in the ContactSection info panel and Footer must remain intact.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-perform-a-thorough-audit-of-the-herosection-component-and-all-related-css-tailwind-classes-to-locate-and-eliminate-any-remaining-small-rectangular-white-box-artifact-visible-in-or-around-the-hero-area-inspect-all-div-span-section-and-pseudo-element-before-after-nodes-for-any-white-off-white-or-light-colored-background-border-box-shadow-or-outline-that-could-be-rendering-as-a-visible-white-rectangle-remove-or-correct-all-such-elements-so-no-white-box-artifact-is-visible-anywhere-in-the-hero-section-at-any-viewport-size",
+      "title": "Perform a thorough audit of the HeroSection component and all related CSS/Tailwind classes to locate and eliminate any remaining small rectangular white box artifact visible in or around the hero area. Inspect all div, span, section, and pseudo-element (::before / ::after) nodes for any white, off-white, or light-colored background, border, box-shadow, or outline that could be rendering as a visible white rectangle. Remove or correct all such elements so no white box artifact is visible anywhere in the hero section at any viewport size.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-herosection-component-with-the-new-headline-premium-agricultural-exports-from-india-to-global-markets-subheadline-trueorigin-exports-delivers-high-quality-responsibly-sourced-natural-food-products-with-complete-compliance-transparency-and-reliable-international-logistics-support-and-two-cta-buttons-request-product-specifications-linking-to-export-certification-and-contact-sales-linking-to-the-contact-section-all-strings-must-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi",
+      "title": "Update the HeroSection component with the new headline 'Premium Agricultural Exports From India to Global Markets', subheadline 'TrueOrigin Exports delivers high-quality, responsibly sourced natural food products with complete compliance, transparency, and reliable international logistics support.', and two CTA buttons: 'Request Product Specifications' (linking to /export-certification) and 'Contact Sales' (linking to the #contact section). All strings must be added to the centralized translations file for English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-aboutsection-component-with-the-professional-exporter-copy-heading-trusted-indian-export-partner-body-paragraph-describing-trueorigin-exports-as-a-professionally-managed-export-company-committed-to-supplying-premium-agricultural-products-to-international-buyers-focusing-on-quality-control-lab-tested-products-export-documentation-accuracy-and-long-term-trade-relationships-include-three-checklist-items-quality-assured-export-documentation-ready-global-shipping-support-add-vision-statement-to-become-a-globally-trusted-supplier-of-premium-indian-agricultural-products-and-mission-statement-to-deliver-safe-high-quality-and-compliant-products-while-creating-long-term-value-for-our-international-partners-all-strings-must-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi",
+      "title": "Update the AboutSection component with the professional exporter copy: heading 'Trusted Indian Export Partner', body paragraph describing TrueOrigin Exports as a professionally managed export company committed to supplying premium agricultural products to international buyers focusing on quality control, lab-tested products, export documentation accuracy, and long-term trade relationships. Include three checklist items: '✔ Quality Assured', '✔ Export Documentation Ready', '✔ Global Shipping Support'. Add Vision statement ('To become a globally trusted supplier of premium Indian agricultural products.') and Mission statement ('To deliver safe, high-quality, and compliant products while creating long-term value for our international partners.'). All strings must be added to the centralized translations file for English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-productssection-component-with-a-new-product-list-under-heading-our-export-products-moringa-leaves-powder-curry-leaves-fresh-vegetables-and-custom-agri-sourcing-add-a-supporting-line-each-product-is-processed-tested-and-packed-according-to-international-export-standards-add-a-view-product-specifications-button-that-navigates-to-export-certification-remove-any-product-cards-not-in-this-list-e-g-okra-lady-finger-standalone-card-if-present-as-a-separate-item-inconsistent-with-the-new-list-all-strings-must-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi",
+      "title": "Update the ProductsSection component with a new product list under heading 'Our Export Products': Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, and Custom Agri Sourcing. Add a supporting line 'Each product is processed, tested, and packed according to international export standards.' Add a 'View Product Specifications' button that navigates to /export-certification. Remove any product cards not in this list (e.g., Okra/Lady Finger standalone card if present as a separate item inconsistent with the new list). All strings must be added to the centralized translations file for English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-quality-compliance-section-to-the-homepage-between-the-products-section-and-the-existing-exportcargosection-or-in-a-logical-position-after-products-the-section-heading-must-be-international-quality-standards-it-must-list-six-documentation-items-certificate-of-analysis-coa-microbial-test-reports-heavy-metal-analysis-pesticide-residue-testing-organic-certification-if-applicable-and-phytosanitary-certification-include-supporting-copy-our-commitment-to-compliance-ensures-smooth-customs-clearance-and-buyer-confidence-end-the-section-with-a-full-width-cta-button-get-a-quote-within-24-hours-that-links-to-the-contact-section-style-the-section-using-the-existing-deep-emerald-0f3d2e-soft-gold-c6a75e-cream-palette-all-strings-must-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi",
+      "title": "Add a new 'Quality & Compliance' section to the homepage between the Products section and the existing ExportCargoSection (or in a logical position after Products). The section heading must be 'International Quality Standards'. It must list six documentation items: Certificate of Analysis (COA), Microbial Test Reports, Heavy Metal Analysis, Pesticide Residue Testing, Organic Certification (if applicable), and Phytosanitary Certification. Include supporting copy: 'Our commitment to compliance ensures smooth customs clearance and buyer confidence.' End the section with a full-width CTA button 'Get a Quote Within 24 Hours' that links to the #contact section. Style the section using the existing Deep Emerald (#0F3D2E) / Soft Gold (#C6A75E) / cream palette. All strings must be added to the centralized translations file for English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-exportcertificationpage-component-s-product-specifications-section-to-include-a-detailed-spec-card-for-moringa-leaf-powder-export-grade-with-the-following-fields-botanical-name-moringa-oleifera-form-fine-powder-color-natural-green-odor-characteristic-moisture-7-mesh-size-80-100-mesh-microbial-limits-as-per-international-standards-heavy-metals-within-permissible-limits-pesticide-residue-as-per-eu-usfda-norms-shelf-life-24-months-storage-condition-store-in-cool-dry-place-include-packaging-options-1-kg-5-kg-25-kg-food-grade-inner-lining-export-ready-cartons-include-documentation-provided-coa-lab-test-report-phytosanitary-certificate-invoice-packing-list-add-a-request-specification-sheet-cta-button-that-links-to-the-contact-section-or-mailto-sales-trueoriginexports-com-all-new-strings-must-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi",
+      "title": "Update the ExportCertificationPage component's Product Specifications section to include a detailed spec card for 'Moringa Leaf Powder – Export Grade' with the following fields: Botanical Name: Moringa Oleifera, Form: Fine Powder, Color: Natural Green, Odor: Characteristic, Moisture: < 7%, Mesh Size: 80–100 mesh, Microbial Limits: As per international standards, Heavy Metals: Within permissible limits, Pesticide Residue: As per EU/USFDA norms, Shelf Life: 24 months, Storage Condition: Store in cool, dry place. Include Packaging Options: 1 kg / 5 kg / 25 kg, food-grade inner lining, export-ready cartons. Include Documentation Provided: COA, Lab Test Report, Phytosanitary Certificate, Invoice & Packing List. Add a 'Request Specification Sheet' CTA button that links to the #contact section or mailto:sales@trueoriginexports.com. All new strings must be added to the centralized translations file for English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-confirm-and-enforce-the-color-palette-and-typography-site-wide-primary-color-must-be-0f3d2e-deep-emerald-accent-c6a75e-soft-gold-background-light-f4f1ea-text-dark-1a1a1a-white-ffffff-headings-must-use-playfair-display-or-libre-baskerville-serif-body-text-must-use-poppins-or-lato-sans-serif-audit-all-components-herosection-aboutsection-productssection-quality-compliance-section-exportcargosection-socialmediasection-contactsection-footer-navbar-exportcertificationpage-privacypolicypage-termsandconditionspage-to-ensure-consistent-application-of-these-tokens-update-tailwind-config-js-and-index-css-if-needed-to-reflect-these-exact-hex-values-as-css-custom-properties",
+      "title": "Confirm and enforce the color palette and typography site-wide. Primary color must be #0F3D2E (Deep Emerald), Accent #C6A75E (Soft Gold), Background Light #F4F1EA, Text Dark #1A1A1A, White #FFFFFF. Headings must use Playfair Display or Libre Baskerville (serif). Body text must use Poppins or Lato (sans-serif). Audit all components (HeroSection, AboutSection, ProductsSection, Quality & Compliance section, ExportCargoSection, SocialMediaSection, ContactSection, Footer, NavBar, ExportCertificationPage, PrivacyPolicyPage, TermsAndConditionsPage) to ensure consistent application of these tokens. Update tailwind.config.js and index.css if needed to reflect these exact hex values as CSS custom properties.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-exportcertificationpage-component-fix-the-product-specifications-section-so-that-all-spec-fields-values-packaging-options-and-documentation-items-render-as-properly-formatted-human-readable-text-instead-of-raw-technical-strings-e-g-escaped-characters-raw-json-template-literal-artifacts-or-unstyled-plain-text-the-spec-card-for-moringa-leaf-powder-export-grade-and-any-other-product-spec-cards-must-display-their-content-using-the-existing-styled-card-table-layout-do-not-change-any-other-section-component-or-file",
+      "title": "In the ExportCertificationPage component, fix the Product Specifications section so that all spec fields, values, packaging options, and documentation items render as properly formatted, human-readable text instead of raw technical strings (e.g., escaped characters, raw JSON, template literal artifacts, or unstyled plain text). The spec card for 'Moringa Leaf Powder – Export Grade' and any other product spec cards must display their content using the existing styled card/table layout. Do not change any other section, component, or file.",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-navbar-component-locate-the-get-in-touch-contact-us-navigation-link-that-is-currently-rendering-as-raw-technical-text-e-g-a-translation-key-string-escaped-characters-or-template-literal-artifact-and-fix-it-so-it-renders-as-the-correct-human-readable-label-using-the-centralized-translations-system-the-nav-link-must-display-properly-in-both-the-desktop-nav-and-the-mobile-hamburger-menu-and-in-all-three-language-modes-english-hindi-marathi",
+      "title": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-navbar-component-fix-the-mobile-hamburger-menu-dropdown-so-that-its-background-is-always-solid-white-ffffff-regardless-of-the-user-s-scroll-position-on-the-underlying-page-the-dropdown-panel-must-not-be-transparent-semi-transparent-or-inherit-the-page-scroll-state-this-must-remain-consistent-even-if-the-user-scrolls-the-background-content-while-the-mobile-menu-is-open-the-dropdown-background-stays-solid-white",
+      "title": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -279,6 +418,98 @@
     {
       "id": "AR-18",
       "summary": "Add a detailed page covering basic export certification, quality control, and product specifications",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Display email addresses next to the email icon in the contact information section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Add Product Specifications as a separate nav item in the hamburger menu, positioned after the Products option",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Add Privacy Policy as a nav item in the hamburger menu, positioned before Contact Us",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Add Export Certification as a nav item in the hamburger menu, positioned after Product Specifications",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "In the ContactSection component, display both email addresses (info@trueoriginexports.com and sales@trueoriginexports.com) as visible text next to the email icon in the contact information panel. Currently the emails may only be linked via mailto; they must also render as readable text labels beside the icon.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Remove the block of text showing '+91 97733 03026, info@trueoriginexports.com, sales@trueoriginexports.com, www.trueoriginintl.com' that appears as visible static text on the website (likely in hero or a section)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Update Hero section: new headline 'Premium Agricultural Exports From India to Global Markets', updated subheadline, and two CTA buttons: 'Request Product Specifications' and 'Contact Sales'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Update About section with professional exporter copy, Vision and Mission statements, and checklist items (Quality Assured, Export Documentation Ready, Global Shipping Support)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Update Products section with new product list: Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, Custom Agri Sourcing; add 'View Product Specifications' button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Add Quality & Compliance section listing documentation provided to international buyers (COA, Microbial Test Reports, Heavy Metal Analysis, Pesticide Residue Testing, Organic Certification, Phytosanitary Certification) and a 'Get a Quote Within 24 Hours' CTA",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Update product specification page with detailed Moringa Leaf Powder export-grade specs (botanical name, moisture, mesh size, microbial limits, packaging options, documentation provided) and a 'Request Specification Sheet' CTA",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Apply confirmed color palette: Primary #0F3D2E (Deep Emerald), Accent #C6A75E (Soft Gold), Background #F4F1EA, Text #1A1A1A; and fonts: Playfair Display/Libre Baskerville for headings, Poppins/Lato for body",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Fix product specification text which is displaying in technical/raw text format — correct rendering only, no other changes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-32",
+      "summary": "Fix 'Get In Touch' / contact nav item rendering as technical/raw text in the navbar",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "After opening the hamburger menu, the dropdown background must be solid white and remain consistent (not transparent) even when the user scrolls the background page",
       "reqIds": [],
       "status": "pending"
     }

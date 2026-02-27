@@ -1,218 +1,148 @@
-import { Badge } from '@/components/ui/badge';
-import { Leaf, Package, Apple, Sprout } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import type { TranslationKeys } from '../translations/translations';
+import { Link } from '@tanstack/react-router';
+import { ArrowRight, Leaf, Sprout, ShoppingBasket, Settings } from 'lucide-react';
 
-type ProductDef = {
-  id: number;
-  nameKey: TranslationKeys;
-  categoryKey: TranslationKeys;
-  image: string;
-  descKey: TranslationKeys;
-  tagKeys: [TranslationKeys, TranslationKeys, TranslationKeys];
-  icon: typeof Leaf;
-};
-
-const productDefs: ProductDef[] = [
-  {
-    id: 1,
-    nameKey: 'products.p1.name',
-    categoryKey: 'products.category.nonPerishable',
-    image: '/assets/generated/moringa-powder.dim_800x800.png',
-    descKey: 'products.p1.desc',
-    tagKeys: ['products.p1.tag1', 'products.p1.tag2', 'products.p1.tag3'],
-    icon: Leaf,
-  },
-  {
-    id: 2,
-    nameKey: 'products.p2.name',
-    categoryKey: 'products.category.perishable',
-    image: '/assets/generated/moringa-leaf.dim_800x800.png',
-    descKey: 'products.p2.desc',
-    tagKeys: ['products.p2.tag1', 'products.p2.tag2', 'products.p2.tag3'],
-    icon: Leaf,
-  },
-  {
-    id: 3,
-    nameKey: 'products.p3.name',
-    categoryKey: 'products.category.nonPerishable',
-    image: '/assets/generated/moringa-leaf.dim_800x800.png',
-    descKey: 'products.p3.desc',
-    tagKeys: ['products.p3.tag1', 'products.p3.tag2', 'products.p3.tag3'],
-    icon: Package,
-  },
-  {
-    id: 4,
-    nameKey: 'products.p4.name',
-    categoryKey: 'products.category.nonPerishable',
-    image: '/assets/generated/moringa-leaf.dim_800x800.png',
-    descKey: 'products.p4.desc',
-    tagKeys: ['products.p4.tag1', 'products.p4.tag2', 'products.p4.tag3'],
-    icon: Apple,
-  },
-  {
-    id: 5,
-    nameKey: 'products.p5.name',
-    categoryKey: 'products.category.nonPerishable',
-    image: '/assets/generated/moringa-powder.dim_800x800.png',
-    descKey: 'products.p5.desc',
-    tagKeys: ['products.p5.tag1', 'products.p5.tag2', 'products.p5.tag3'],
-    icon: Package,
-  },
-];
-
-type FarmImageDef = {
-  src: string;
-  altKey: TranslationKeys;
-  labelKey: TranslationKeys;
-};
-
-const farmImages: FarmImageDef[] = [
-  {
-    src: '/assets/generated/moringa-farm.dim_800x500.png',
-    altKey: 'products.farm.moringa.alt',
-    labelKey: 'products.farm.moringa.label',
-  },
-  {
-    src: '/assets/generated/curry-leaves-farm.dim_800x500.png',
-    altKey: 'products.farm.curry.alt',
-    labelKey: 'products.farm.curry.label',
-  },
-  {
-    src: '/assets/generated/okra-farm.dim_800x500.png',
-    altKey: 'products.farm.okra.alt',
-    labelKey: 'products.farm.okra.label',
-  },
+const productIcons = [
+  <Leaf size={32} />,
+  <Sprout size={32} />,
+  <ShoppingBasket size={32} />,
+  <Settings size={32} />,
 ];
 
 export default function ProductsSection() {
   const { t } = useLanguage();
 
-  const getCategoryStyle = (categoryKey: TranslationKeys) => {
-    if (categoryKey === 'products.category.perishable') {
-      return 'bg-amber/20 text-amber-dark border-amber/30';
-    }
-    return 'bg-moss/15 text-moss border-moss/30';
-  };
+  const products = [
+    {
+      titleKey: 'products.moringaTitle',
+      descKey: 'products.moringaDesc',
+      image: '/assets/generated/moringa-powder.dim_800x800.png',
+      icon: productIcons[0],
+    },
+    {
+      titleKey: 'products.curryLeavesTitle',
+      descKey: 'products.curryLeavesDesc',
+      image: '/assets/generated/curry-leaves-farm.dim_800x500.png',
+      icon: productIcons[1],
+    },
+    {
+      titleKey: 'products.freshVegetablesTitle',
+      descKey: 'products.freshVegetablesDesc',
+      image: '/assets/generated/okra-farm.dim_800x500.png',
+      icon: productIcons[2],
+    },
+    {
+      titleKey: 'products.customSourcingTitle',
+      descKey: 'products.customSourcingDesc',
+      image: '/assets/generated/export-boxes.dim_800x600.png',
+      icon: productIcons[3],
+    },
+  ];
+
+  const farmImages = [
+    {
+      src: '/assets/generated/moringa-farm.dim_800x500.png',
+      altKey: 'products.moringaFarmAlt',
+      labelKey: 'products.moringaFarmLabel',
+    },
+    {
+      src: '/assets/generated/curry-leaves-farm.dim_800x500.png',
+      altKey: 'products.curryLeavesFarmAlt',
+      labelKey: 'products.curryLeavesFarmLabel',
+    },
+    {
+      src: '/assets/generated/okra-farm.dim_800x500.png',
+      altKey: 'products.okraFarmAlt',
+      labelKey: 'products.okraFarmLabel',
+    },
+  ];
 
   return (
-    <section id="products" className="py-24 bg-parchment">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-px w-10 bg-moss" />
-            <span className="text-xs font-medium tracking-widest uppercase text-moss">
-              {t('products.label')}
-            </span>
-            <span className="h-px w-10 bg-moss" />
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-4">
-            {t('products.heading')}
-          </h2>
-          <p className="text-forest/65 text-lg max-w-2xl mx-auto leading-relaxed">
-            {t('products.subheading')}
-          </p>
+    <section id="products" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Label */}
+        <div className="text-center mb-4">
+          <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-softGold">
+            {t('products.sectionLabel')}
+          </span>
         </div>
 
+        {/* Heading */}
+        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-deepEmerald text-center mb-4">
+          {t('products.heading')}
+        </h2>
+
+        {/* Decorative Divider */}
+        <div className="flex justify-center mb-6">
+          <div className="w-16 h-0.5 bg-softGold" />
+        </div>
+
+        {/* Supporting Line */}
+        <p className="font-poppins text-textDark text-center text-base mb-12 max-w-2xl mx-auto">
+          {t('products.supportingLine')}
+        </p>
+
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {productDefs.map((product) => (
-            <article
-              key={product.id}
-              className="group bg-cream rounded-3xl overflow-hidden border border-sage/20 hover:border-moss/40 hover:shadow-product transition-all duration-300 flex flex-col"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {products.map((product, idx) => (
+            <div
+              key={idx}
+              className="group bg-backgroundLight border border-cream-200 hover:border-softGold transition-all duration-300 overflow-hidden shadow-card hover:shadow-gold"
             >
-              {/* Image */}
-              <div className="relative overflow-hidden aspect-square bg-sage/10">
+              {/* Product Image */}
+              <div className="relative h-48 overflow-hidden">
                 <img
                   src={product.image}
-                  alt={t(product.nameKey)}
+                  alt={t(product.titleKey as any)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border backdrop-blur-sm ${getCategoryStyle(product.categoryKey)}`}
-                  >
-                    {t(product.categoryKey)}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-deepEmerald opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               </div>
 
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-display text-xl font-bold text-forest mb-2">
-                  {t(product.nameKey)}
+              {/* Product Info */}
+              <div className="p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-softGold">{product.icon}</span>
+                </div>
+                <h3 className="font-playfair text-lg font-bold text-deepEmerald mb-2">
+                  {t(product.titleKey as any)}
                 </h3>
-                <p className="text-forest/65 text-sm leading-relaxed mb-4 flex-1">
-                  {t(product.descKey)}
+                <p className="font-poppins text-textDark text-sm leading-relaxed">
+                  {t(product.descKey as any)}
                 </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {product.tagKeys.map((tagKey) => (
-                    <Badge
-                      key={tagKey}
-                      variant="outline"
-                      className="text-xs text-moss border-moss/30 bg-moss/5 hover:bg-moss/10"
-                    >
-                      {t(tagKey)}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <button
-                  onClick={() => {
-                    const el = document.querySelector('#contact');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="w-full py-2.5 bg-forest text-cream text-sm font-medium rounded-xl hover:bg-moss transition-colors"
-                >
-                  {t('products.enquire')}
-                </button>
               </div>
-            </article>
+            </div>
           ))}
         </div>
 
-        {/* Farm Imagery Subsection */}
-        <div className="mt-24">
-          {/* Farm Section Header */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="h-px w-10 bg-sage" />
-              <Sprout className="w-4 h-4 text-moss" />
-              <span className="h-px w-10 bg-sage" />
-            </div>
-            <h3 className="font-display text-3xl md:text-4xl font-bold text-forest mb-3">
-              {t('products.farm.heading')}
-            </h3>
-            <p className="text-forest/60 text-base max-w-xl mx-auto leading-relaxed">
-              {t('products.farm.subheading')}
-            </p>
-          </div>
+        {/* CTA Button */}
+        <div className="text-center mb-16">
+          <Link
+            to="/export-certification"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-deepEmerald text-white font-poppins font-semibold hover:bg-forest-700 transition-colors duration-300 shadow-emerald"
+          >
+            {t('products.ctaViewSpecs')}
+            <ArrowRight size={18} />
+          </Link>
+        </div>
 
-          {/* Farm Images Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {farmImages.map((farm) => (
-              <div
-                key={farm.src}
-                className="group relative overflow-hidden rounded-2xl border border-sage/25 shadow-sm hover:shadow-product transition-all duration-300"
-              >
-                <div className="aspect-[8/5] overflow-hidden bg-sage/10">
-                  <img
-                    src={farm.src}
-                    alt={t(farm.altKey)}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                {/* Label overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-forest/80 via-forest/40 to-transparent px-5 py-4">
-                  <span className="text-cream font-display font-semibold text-base tracking-wide drop-shadow">
-                    {t(farm.labelKey)}
-                  </span>
-                </div>
+        {/* Farm Images Subsection */}
+        <div>
+          <h3 className="font-playfair text-2xl font-bold text-deepEmerald text-center mb-8">
+            {t('products.farmSubheading')}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {farmImages.map((farm, idx) => (
+              <div key={idx} className="relative h-56 overflow-hidden group">
+                <img
+                  src={farm.src}
+                  alt={t(farm.altKey as any)}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-deepEmerald/80 to-transparent" />
+                <span className="absolute bottom-4 left-4 font-poppins font-semibold text-white text-sm tracking-wide">
+                  {t(farm.labelKey as any)}
+                </span>
               </div>
             ))}
           </div>

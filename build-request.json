@@ -1,134 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Update contact emails, add Privacy Policy, Terms & Conditions, and Export Certification pages",
-  "projectName": "True Origin Exports",
-  "priority": "normal",
+  "title": "Fix navbar 'Get In Touch' raw text and hamburger menu dropdown background",
+  "projectName": "TrueOrigin Exports",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-16",
-      "text": "Update the ContactSection component and Footer component to replace the existing email address(es) with two email addresses: info@trueoriginexports.com and sales@trueoriginexports.com. Both emails must be displayed as clickable mailto: links. The email label and these two addresses must also be added to the centralized translations file for English, Hindi, and Marathi (the address values themselves must remain unchanged across languages).",
+      "id": "REQ-36",
+      "text": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "info@trueoriginexports.com",
-          "sales@trueoriginexports.com",
-          "Use the above for email address in contact us option."
+          "Nab.get in touch is in technical txt"
         ]
       },
       "acceptanceCriteria": [
-        "ContactSection info panel displays both info@trueoriginexports.com and sales@trueoriginexports.com as clickable mailto: links.",
-        "Footer contact details display both email addresses as clickable mailto: links.",
-        "No legacy email address (trueorigin@gmail.com or any placeholder) remains visible anywhere on the site.",
-        "Email label is translated via the centralized translations system in all three languages (EN, HI, MR).",
-        "Email address values are identical across all language modes."
+        "The 'Get In Touch' / 'Contact Us' nav item renders as readable, human-readable text in the desktop navbar.",
+        "The same nav item renders correctly in the mobile hamburger menu.",
+        "The label displays correctly in all three language modes: English, Hindi, and Marathi.",
+        "No raw translation key strings, escaped characters, or template literal artifacts are visible for this nav item."
       ]
     },
     {
-      "id": "REQ-17",
-      "text": "Create a Privacy Policy page as a new React route/component (e.g., /privacy-policy). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive privacy policy content covering: data collection practices, use of personal information, cookies policy, third-party services, user rights, contact information for privacy inquiries (info@trueoriginexports.com), and the effective date. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Privacy Policy page in the footer.",
+      "id": "REQ-37",
+      "text": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Add the following page privacy policy"
+          "After click on him Berger menu the dropdown background colour should be white and should be consistant even if the user is scrolling the backside menu"
         ]
       },
       "acceptanceCriteria": [
-        "A Privacy Policy page is accessible at a dedicated route (e.g., /privacy-policy).",
-        "The page renders within the existing site layout (nav bar + footer).",
-        "Page content covers data collection, use of information, cookies, third-party services, user rights, privacy contact email, and effective date.",
-        "All text strings are sourced from the centralized translations file and render correctly in EN, HI, and MR.",
-        "A 'Privacy Policy' link in the footer navigates to this page.",
-        "Page styling is consistent with the site's earthy-green and warm-cream theme."
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "text": "Create a Terms and Conditions page as a new React route/component (e.g., /terms-and-conditions). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive terms and conditions content covering: acceptance of terms, use of the website, intellectual property, product information disclaimer, limitation of liability, governing law, dispute resolution, and contact information (info@trueoriginexports.com). All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Terms and Conditions page in the footer.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Terms and condition"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A Terms and Conditions page is accessible at a dedicated route (e.g., /terms-and-conditions).",
-        "The page renders within the existing site layout (nav bar + footer).",
-        "Page content covers acceptance of terms, website usage, intellectual property, product disclaimer, liability limitation, governing law, dispute resolution, and contact details.",
-        "All text strings are sourced from the centralized translations file and render correctly in EN, HI, and MR.",
-        "A 'Terms & Conditions' link in the footer navigates to this page.",
-        "Page styling is consistent with the site's earthy-green and warm-cream theme."
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "text": "Create an Export Certification, Quality Control & Product Specifications page as a new React route/component (e.g., /export-certification). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain detailed content organized into three sections: (1) Export Certifications — covering types of certifications obtained or pursued (e.g., APEDA, FSSAI, Phytosanitary Certificate, Certificate of Origin, HACCP), their purpose, and how they assure buyers; (2) Quality Control — covering sourcing standards, inspection processes, packaging and storage protocols, and traceability; (3) Product Specifications — detailed spec tables or cards for each product (Moringa Powder, Moringa Leaf/Dried, Curry Leaves, Okra/Lady Finger) including scientific name, form, color, moisture content, packaging options, shelf life, and available grades. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to this page in the footer and optionally in the navigation bar.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Basic export certification, quality control and product with detailed specification"
-        ]
-      },
-      "acceptanceCriteria": [
-        "An Export Certification, Quality Control & Product Specifications page is accessible at a dedicated route (e.g., /export-certification).",
-        "The page renders within the existing site layout (nav bar + footer).",
-        "The page is organized into three clearly labeled sections: Export Certifications, Quality Control, and Product Specifications.",
-        "Product Specifications section includes detailed spec information (scientific name, form, color, moisture, packaging, shelf life, grade) for at least Moringa Powder, Moringa Leaf, Curry Leaves, and Okra.",
-        "Export Certifications section mentions at least APEDA, FSSAI, Phytosanitary Certificate, and Certificate of Origin.",
-        "All text strings are sourced from the centralized translations file and render correctly in EN, HI, and MR.",
-        "A link to this page appears in the footer.",
-        "Page styling is consistent with the site's earthy-green and warm-cream theme."
-      ]
-    },
-    {
-      "id": "REQ-20",
-      "text": "Set up client-side routing (e.g., using React Router) in the application to support the new pages: Privacy Policy (/privacy-policy), Terms and Conditions (/terms-and-conditions), and Export Certification (/export-certification). The main landing page must remain the default route (/). The navigation bar and footer links to these pages must use the router's Link component for in-app navigation without full page reloads.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Add the following page privacy policy",
-          "Terms and condition",
-          "Basic export certification, quality control and product with detailed specification"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Navigating to /privacy-policy renders the Privacy Policy page without a full page reload.",
-        "Navigating to /terms-and-conditions renders the Terms and Conditions page without a full page reload.",
-        "Navigating to /export-certification renders the Export Certification page without a full page reload.",
-        "The root route (/) renders the main landing page as before.",
-        "All internal links to these new pages use client-side routing (no full page reloads).",
-        "The back button in the browser navigates correctly between pages."
+        "Opening the hamburger menu displays a dropdown with a solid white background.",
+        "The dropdown background remains solid white when the user scrolls the background page while the menu is open.",
+        "The dropdown does not appear transparent, semi-transparent, or change appearance based on the navbar's scroll state (transparent vs. solid).",
+        "All nav links within the dropdown remain readable against the solid white background.",
+        "Behavior is consistent across mobile viewport sizes."
       ]
     }
   ],
   "constraints": [
-    "Company name 'True Origin Company LLP' must never be translated and must remain in English across all language modes.",
-    "Do not change the backend schema or add any backend functionality.",
-    "All new page text must be added to the centralized translations file (frontend/src/translations/translations.ts) and not hardcoded in components.",
-    "Immutable frontend paths (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui) must not be modified.",
-    "Email address values (info@trueoriginexports.com, sales@trueoriginexports.com) must remain identical in all language modes.",
-    "New pages must use the existing earthy-green and warm-cream visual theme and typography system."
+    "Do not change any section components, backend files, or unrelated frontend files.",
+    "Do not alter the centralized translations file entries beyond fixing the key lookup for the 'Get In Touch' nav label.",
+    "The immutable paths (useInternetIdentity, useActor, main.tsx, ui components) must not be modified."
   ],
   "nonGoals": [
-    "No server-side SSL configuration — SSL is handled at the platform/deployment level, not in the application code.",
-    "No backend data storage for policy pages — all content is static and rendered from the frontend.",
-    "No CMS or admin interface for editing policy or specification content.",
-    "No new product images are required for the new pages.",
-    "No changes to existing sections (Hero, About, Products, Export, Social Media) other than the email update in Contact and Footer."
+    "Redesigning the navbar layout or adding new nav items.",
+    "Changing the desktop navbar scroll behavior or appearance.",
+    "Modifying any page section components (Hero, About, Products, etc.).",
+    "Updating translations for any strings other than the 'Get In Touch' nav label fix."
   ],
   "imageRequirements": {
     "required": [],

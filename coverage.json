@@ -1,81 +1,31 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T21:04:59.334Z",
+  "generatedAt": "2026-02-27T23:19:18.012Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 5,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-16",
-        "summary": "Update the ContactSection component and Footer component to replace the existing email address(es) with two email addresses: info@trueoriginexports.com and sales@trueoriginexports.com. Both emails must be displayed as clickable mailto: links. The email label and these two addresses must also be added to the centralized translations file for English, Hindi, and Marathi (the address values themselves must remain unchanged across languages).",
+        "id": "REQ-36",
+        "summary": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/ContactSection.tsx",
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/ContactSection.tsx",
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/App.tsx"
         ]
       },
       {
-        "id": "REQ-17",
-        "summary": "Create a Privacy Policy page as a new React route/component (e.g., /privacy-policy). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive privacy policy content covering: data collection practices, use of personal information, cookies policy, third-party services, user rights, contact information for privacy inquiries (info@trueoriginexports.com), and the effective date. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Privacy Policy page in the footer.",
+        "id": "REQ-37",
+        "summary": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/PrivacyPolicyPage.tsx",
-          "frontend/src/components/Footer.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/PrivacyPolicyPage.tsx",
-          "frontend/src/components/Footer.tsx"
-        ]
-      },
-      {
-        "id": "REQ-18",
-        "summary": "Create a Terms and Conditions page as a new React route/component (e.g., /terms-and-conditions). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive terms and conditions content covering: acceptance of terms, use of the website, intellectual property, product information disclaimer, limitation of liability, governing law, dispute resolution, and contact information (info@trueoriginexports.com). All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Terms and Conditions page in the footer.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/TermsAndConditionsPage.tsx",
-          "frontend/src/components/Footer.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/TermsAndConditionsPage.tsx",
-          "frontend/src/components/Footer.tsx"
-        ]
-      },
-      {
-        "id": "REQ-19",
-        "summary": "Create an Export Certification, Quality Control & Product Specifications page as a new React route/component (e.g., /export-certification). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain detailed content organized into three sections: (1) Export Certifications — covering types of certifications obtained or pursued (e.g., APEDA, FSSAI, Phytosanitary Certificate, Certificate of Origin, HACCP), their purpose, and how they assure buyers; (2) Quality Control — covering sourcing standards, inspection processes, packaging and storage protocols, and traceability; (3) Product Specifications — detailed spec tables or cards for each product (Moringa Powder, Moringa Leaf/Dried, Curry Leaves, Okra/Lady Finger) including scientific name, form, color, moisture content, packaging options, shelf life, and available grades. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to this page in the footer and optionally in the navigation bar.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/ExportCertificationPage.tsx",
-          "frontend/src/components/Footer.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/translations/translations.ts",
-          "frontend/src/components/ExportCertificationPage.tsx",
-          "frontend/src/components/Footer.tsx"
-        ]
-      },
-      {
-        "id": "REQ-20",
-        "summary": "Set up client-side routing (e.g., using React Router) in the application to support the new pages: Privacy Policy (/privacy-policy), Terms and Conditions (/terms-and-conditions), and Export Certification (/export-certification). The main landing page must remain the default route (/). The navigation bar and footer links to these pages must use the router's Link component for in-app navigation without full page reloads.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/package.json",
           "frontend/src/App.tsx"
         ],
         "matchedFiles": [
@@ -90,11 +40,6 @@
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
-    "frontend/src/components/ContactSection.tsx",
-    "frontend/src/components/ExportCertificationPage.tsx",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/PrivacyPolicyPage.tsx",
-    "frontend/src/components/TermsAndConditionsPage.tsx",
     "frontend/src/translations/translations.ts",
     "project_state.json",
     "scratch/component-selection.json",

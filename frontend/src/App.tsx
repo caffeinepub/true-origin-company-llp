@@ -7,6 +7,7 @@ import {
   Outlet,
   useNavigate,
   useRouterState,
+  Link,
 } from '@tanstack/react-router';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -81,9 +82,7 @@ function NavBar() {
             <img
               src="/assets/generated/logo.dim_400x300.png"
               alt="True Origin Exports"
-              className={`h-12 w-auto object-contain transition-all duration-300 ${
-                showScrolled ? 'brightness-100' : 'brightness-0 invert'
-              }`}
+              className="h-12 w-auto object-contain"
             />
           </button>
 
@@ -130,18 +129,71 @@ function NavBar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — always solid white, unaffected by scroll state */}
       {menuOpen && (
-        <div className="md:hidden bg-cream/98 backdrop-blur-md border-t border-sage/20 px-6 py-4 flex flex-col gap-4 shadow-lg">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className="text-left text-base font-medium text-forest/80 hover:text-forest py-1 transition-colors"
-            >
-              {t(link.key)}
-            </button>
-          ))}
+        <div
+          className="md:hidden border-t border-sage/20 px-6 py-4 flex flex-col gap-1 shadow-lg"
+          style={{ backgroundColor: '#ffffff' }}
+        >
+          {/* Home */}
+          <button
+            onClick={() => handleNavClick('#home')}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.home')}
+          </button>
+          {/* About */}
+          <button
+            onClick={() => handleNavClick('#about')}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.about')}
+          </button>
+          {/* Products */}
+          <button
+            onClick={() => handleNavClick('#products')}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.products')}
+          </button>
+          {/* Product Specifications — after Products */}
+          <Link
+            to="/export-certification"
+            onClick={() => setMenuOpen(false)}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.productSpecifications')}
+          </Link>
+          {/* Export Certification — after Product Specifications */}
+          <Link
+            to="/export-certification"
+            onClick={() => setMenuOpen(false)}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.exportCertification')}
+          </Link>
+          {/* Exports */}
+          <button
+            onClick={() => handleNavClick('#exports')}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.exports')}
+          </button>
+          {/* Privacy Policy — before Contact */}
+          <Link
+            to="/privacy-policy"
+            onClick={() => setMenuOpen(false)}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.privacyPolicy')}
+          </Link>
+          {/* Contact */}
+          <button
+            onClick={() => handleNavClick('#contact')}
+            className="text-left text-base font-medium text-forest/80 hover:text-forest py-2 transition-colors"
+          >
+            {t('nav.contact')}
+          </button>
           <button
             onClick={() => handleNavClick('#contact')}
             className="mt-2 px-5 py-2.5 bg-forest text-cream text-sm font-medium rounded-full hover:bg-moss transition-colors text-center"

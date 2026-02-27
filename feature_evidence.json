@@ -2,92 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-contactsection-component-and-footer-component-to-replace-the-existing-email-address-es-with-two-email-addresses-info-trueoriginexports-com-and-sales-trueoriginexports-com-both-emails-must-be-displayed-as-clickable-mailto-links-the-email-label-and-these-two-addresses-must-also-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi-the-address-values-themselves-must-remain-unchanged-across-languages",
-      "featureTitle": "Update the ContactSection component and Footer component to replace the existing email address(es) with two email addresses: info@trueoriginexports.com and sales@trueoriginexports.com. Both emails must be displayed as clickable mailto: links. The email label and these two addresses must also be added to the centralized translations file for English, Hindi, and Marathi (the address values themselves must remain unchanged across languages).",
-      "files": [
-        "frontend/src/components/ContactSection.tsx",
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/translations/translations.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
-      ],
-      "testIds": [
-        "REQ-16"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-a-privacy-policy-page-as-a-new-react-route-component-e-g-privacy-policy-the-page-must-follow-the-existing-earthy-green-and-warm-cream-visual-theme-include-the-site-navigation-bar-and-footer-and-contain-comprehensive-privacy-policy-content-covering-data-collection-practices-use-of-personal-information-cookies-policy-third-party-services-user-rights-contact-information-for-privacy-inquiries-info-trueoriginexports-com-and-the-effective-date-all-user-facing-text-must-be-integrated-with-the-centralized-translations-system-for-english-hindi-and-marathi-add-a-link-to-the-privacy-policy-page-in-the-footer",
-      "featureTitle": "Create a Privacy Policy page as a new React route/component (e.g., /privacy-policy). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive privacy policy content covering: data collection practices, use of personal information, cookies policy, third-party services, user rights, contact information for privacy inquiries (info@trueoriginexports.com), and the effective date. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Privacy Policy page in the footer.",
-      "files": [
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/PrivacyPolicyPage.tsx",
-        "frontend/src/translations/translations.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
-      ],
-      "testIds": [
-        "REQ-17"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-a-terms-and-conditions-page-as-a-new-react-route-component-e-g-terms-and-conditions-the-page-must-follow-the-existing-earthy-green-and-warm-cream-visual-theme-include-the-site-navigation-bar-and-footer-and-contain-comprehensive-terms-and-conditions-content-covering-acceptance-of-terms-use-of-the-website-intellectual-property-product-information-disclaimer-limitation-of-liability-governing-law-dispute-resolution-and-contact-information-info-trueoriginexports-com-all-user-facing-text-must-be-integrated-with-the-centralized-translations-system-for-english-hindi-and-marathi-add-a-link-to-the-terms-and-conditions-page-in-the-footer",
-      "featureTitle": "Create a Terms and Conditions page as a new React route/component (e.g., /terms-and-conditions). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive terms and conditions content covering: acceptance of terms, use of the website, intellectual property, product information disclaimer, limitation of liability, governing law, dispute resolution, and contact information (info@trueoriginexports.com). All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Terms and Conditions page in the footer.",
-      "files": [
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/TermsAndConditionsPage.tsx",
-        "frontend/src/translations/translations.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
-      ],
-      "testIds": [
-        "REQ-18"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-an-export-certification-quality-control-product-specifications-page-as-a-new-react-route-component-e-g-export-certification-the-page-must-follow-the-existing-earthy-green-and-warm-cream-visual-theme-include-the-site-navigation-bar-and-footer-and-contain-detailed-content-organized-into-three-sections-1-export-certifications-covering-types-of-certifications-obtained-or-pursued-e-g-apeda-fssai-phytosanitary-certificate-certificate-of-origin-haccp-their-purpose-and-how-they-assure-buyers-2-quality-control-covering-sourcing-standards-inspection-processes-packaging-and-storage-protocols-and-traceability-3-product-specifications-detailed-spec-tables-or-cards-for-each-product-moringa-powder-moringa-leaf-dried-curry-leaves-okra-lady-finger-including-scientific-name-form-color-moisture-content-packaging-options-shelf-life-and-available-grades-all-user-facing-text-must-be-integrated-with-the-centralized-translations-system-for-english-hindi-and-marathi-add-a-link-to-this-page-in-the-footer-and-optionally-in-the-navigation-bar",
-      "featureTitle": "Create an Export Certification, Quality Control & Product Specifications page as a new React route/component (e.g., /export-certification). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain detailed content organized into three sections: (1) Export Certifications — covering types of certifications obtained or pursued (e.g., APEDA, FSSAI, Phytosanitary Certificate, Certificate of Origin, HACCP), their purpose, and how they assure buyers; (2) Quality Control — covering sourcing standards, inspection processes, packaging and storage protocols, and traceability; (3) Product Specifications — detailed spec tables or cards for each product (Moringa Powder, Moringa Leaf/Dried, Curry Leaves, Okra/Lady Finger) including scientific name, form, color, moisture content, packaging options, shelf life, and available grades. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to this page in the footer and optionally in the navigation bar.",
-      "files": [
-        "frontend/src/components/ExportCertificationPage.tsx",
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/translations/translations.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
-      ],
-      "testIds": [
-        "REQ-19"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-set-up-client-side-routing-e-g-using-react-router-in-the-application-to-support-the-new-pages-privacy-policy-privacy-policy-terms-and-conditions-terms-and-conditions-and-export-certification-export-certification-the-main-landing-page-must-remain-the-default-route-the-navigation-bar-and-footer-links-to-these-pages-must-use-the-router-s-link-component-for-in-app-navigation-without-full-page-reloads",
-      "featureTitle": "Set up client-side routing (e.g., using React Router) in the application to support the new pages: Privacy Policy (/privacy-policy), Terms and Conditions (/terms-and-conditions), and Export Certification (/export-certification). The main landing page must remain the default route (/). The navigation bar and footer links to these pages must use the router's Link component for in-app navigation without full page reloads.",
+      "featureId": "feature-in-the-navbar-component-locate-the-get-in-touch-contact-us-navigation-link-that-is-currently-rendering-as-raw-technical-text-e-g-a-translation-key-string-escaped-characters-or-template-literal-artifact-and-fix-it-so-it-renders-as-the-correct-human-readable-label-using-the-centralized-translations-system-the-nav-link-must-display-properly-in-both-the-desktop-nav-and-the-mobile-hamburger-menu-and-in-all-three-language-modes-english-hindi-marathi",
+      "featureTitle": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
       "files": [
         "frontend/src/App.tsx"
       ],
@@ -100,7 +16,26 @@
         "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-20"
+        "REQ-36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-navbar-component-fix-the-mobile-hamburger-menu-dropdown-so-that-its-background-is-always-solid-white-ffffff-regardless-of-the-user-s-scroll-position-on-the-underlying-page-the-dropdown-panel-must-not-be-transparent-semi-transparent-or-inherit-the-page-scroll-state-this-must-remain-consistent-even-if-the-user-scrolls-the-background-content-while-the-mobile-menu-is-open-the-dropdown-background-stays-solid-white",
+      "featureTitle": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-37"
       ],
       "confidence": "high"
     }

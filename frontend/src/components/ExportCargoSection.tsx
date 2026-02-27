@@ -1,92 +1,77 @@
-import { Globe, Package, Ship, Award } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import type { TranslationKeys } from '../translations/translations';
-
-type HighlightDef = {
-  icon: typeof Ship;
-  titleKey: TranslationKeys;
-  descKey: TranslationKeys;
-};
-
-const highlightDefs: HighlightDef[] = [
-  { icon: Ship, titleKey: 'export.h1.title', descKey: 'export.h1.desc' },
-  { icon: Package, titleKey: 'export.h2.title', descKey: 'export.h2.desc' },
-  { icon: Globe, titleKey: 'export.h3.title', descKey: 'export.h3.desc' },
-  { icon: Award, titleKey: 'export.h4.title', descKey: 'export.h4.desc' },
-];
+import { FileCheck, Package, Globe } from 'lucide-react';
 
 export default function ExportCargoSection() {
   const { t } = useLanguage();
 
+  const highlights = [
+    {
+      icon: <FileCheck size={24} />,
+      titleKey: 'exportCargo.highlight1Title',
+      descKey: 'exportCargo.highlight1Desc',
+    },
+    {
+      icon: <Package size={24} />,
+      titleKey: 'exportCargo.highlight2Title',
+      descKey: 'exportCargo.highlight2Desc',
+    },
+    {
+      icon: <Globe size={24} />,
+      titleKey: 'exportCargo.highlight3Title',
+      descKey: 'exportCargo.highlight3Desc',
+    },
+  ];
+
   return (
-    <section id="exports" className="py-24 bg-cream">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-px w-10 bg-moss" />
-            <span className="text-xs font-medium tracking-widest uppercase text-moss">
-              {t('export.label')}
-            </span>
-            <span className="h-px w-10 bg-moss" />
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-4">
-            {t('export.heading1')}
-            <br />
-            <span className="text-moss">{t('export.heading2')}</span>
-          </h2>
-          <p className="text-forest/65 text-lg max-w-2xl mx-auto leading-relaxed">
-            {t('export.subheading')}
-          </p>
+    <section id="logistics" className="py-20 bg-backgroundLight">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Label */}
+        <div className="text-center mb-4">
+          <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-softGold">
+            {t('exportCargo.sectionLabel')}
+          </span>
         </div>
 
-        {/* Images */}
-        <div className="grid md:grid-cols-2 gap-6 mb-14">
-          <div className="relative rounded-3xl overflow-hidden shadow-card group">
-            <img
-              src="/assets/generated/cargo-ship.dim_1200x600.png"
-              alt={t('export.img1.title')}
-              className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-6">
-              <span className="text-cream font-display text-lg font-semibold drop-shadow">
-                {t('export.img1.title')}
-              </span>
-              <p className="text-cream/80 text-sm mt-0.5">{t('export.img1.sub')}</p>
-            </div>
-          </div>
+        {/* Heading */}
+        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-deepEmerald text-center mb-4">
+          {t('exportCargo.heading')}
+        </h2>
 
-          <div className="relative rounded-3xl overflow-hidden shadow-card group">
-            <img
-              src="/assets/generated/export-boxes.dim_800x600.png"
-              alt={t('export.img2.title')}
-              className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-6">
-              <span className="text-cream font-display text-lg font-semibold drop-shadow">
-                {t('export.img2.title')}
-              </span>
-              <p className="text-cream/80 text-sm mt-0.5">{t('export.img2.sub')}</p>
-            </div>
-          </div>
+        {/* Decorative Divider */}
+        <div className="flex justify-center mb-6">
+          <div className="w-16 h-0.5 bg-softGold" />
+        </div>
+
+        <p className="font-poppins text-textDark text-center text-base mb-12 max-w-2xl mx-auto">
+          {t('exportCargo.subheading')}
+        </p>
+
+        {/* Cargo Image */}
+        <div className="relative h-64 md:h-80 overflow-hidden mb-12">
+          <img
+            src="/assets/generated/cargo-ship.dim_1200x600.png"
+            alt={t('exportCargo.imageAlt')}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-deepEmerald/60 to-transparent" />
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {highlightDefs.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {highlights.map((item, idx) => (
             <div
-              key={item.titleKey}
-              className="p-6 bg-parchment rounded-2xl border border-sage/20 hover:border-moss/40 hover:shadow-card transition-all group text-center"
+              key={idx}
+              className="bg-white border-t-4 border-softGold p-6 shadow-card hover:shadow-gold transition-shadow duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-forest/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-forest/15 transition-colors">
-                <item.icon className="w-6 h-6 text-forest" />
+              <div className="w-12 h-12 bg-deepEmerald flex items-center justify-center mb-4 text-softGold">
+                {item.icon}
               </div>
-              <h3 className="font-display text-base font-semibold text-forest mb-2">
-                {t(item.titleKey)}
+              <h3 className="font-playfair text-lg font-bold text-deepEmerald mb-2">
+                {t(item.titleKey as any)}
               </h3>
-              <p className="text-forest/60 text-sm leading-relaxed">{t(item.descKey)}</p>
+              <p className="font-poppins text-textDark text-sm leading-relaxed">
+                {t(item.descKey as any)}
+              </p>
             </div>
           ))}
         </div>

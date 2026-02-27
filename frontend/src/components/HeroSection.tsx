@@ -1,80 +1,103 @@
-import { ArrowDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from '@tanstack/react-router';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function HeroSection() {
   const { t } = useLanguage();
 
-  const handleScroll = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const handleContactSales = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollDown = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/generated/farm.png')" }}
-        aria-hidden="true"
+        style={{
+          backgroundImage: 'url(/assets/generated/hero-bg.dim_1600x900.png)',
+          border: 'none',
+        }}
       />
 
-      {/* Gradient Overlay */}
+      {/* Overlay */}
       <div
         className="absolute inset-0"
         style={{
-          background:
-            'linear-gradient(to bottom, rgba(30,50,20,0.62) 0%, rgba(20,40,15,0.72) 60%, rgba(15,30,10,0.85) 100%)',
+          background: 'linear-gradient(135deg, rgba(15,61,46,0.88) 0%, rgba(15,61,46,0.70) 50%, rgba(15,61,46,0.55) 100%)',
+          border: 'none',
         }}
-        aria-hidden="true"
       />
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream/15 border border-cream/30 text-cream/90 text-xs font-medium tracking-widest uppercase mb-8 backdrop-blur-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block" />
-          {t('hero.badge')}
+        <div className="inline-flex items-center gap-2 mb-6">
+          <span
+            className="inline-block w-2 h-2 rounded-full bg-softGold"
+            style={{ border: 'none' }}
+          />
+          <span className="text-softGold font-poppins text-sm font-semibold tracking-widest uppercase">
+            {t('hero.badge')}
+          </span>
+          <span
+            className="inline-block w-2 h-2 rounded-full bg-softGold"
+            style={{ border: 'none' }}
+          />
         </div>
 
-        {/* Heading — company name never translated */}
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-cream leading-tight mb-6">
-          True Origin
-          <br />
-          <span className="text-gold">Company LLP</span>
+        {/* Headline */}
+        <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          {t('hero.headline')}
         </h1>
 
-        {/* Tagline */}
-        <p className="font-body text-lg md:text-xl text-cream/85 max-w-2xl mx-auto leading-relaxed mb-10">
-          {t('hero.tagline')}
+        {/* Subheadline */}
+        <p className="font-poppins text-lg md:text-xl text-cream-100 opacity-90 max-w-3xl mx-auto mb-10 leading-relaxed">
+          {t('hero.subheadline')}
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => handleScroll('#products')}
-            className="px-8 py-3.5 bg-gold text-forest font-semibold rounded-full hover:bg-gold/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm"
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link
+            to="/export-certification"
+            className="inline-flex items-center gap-2 px-8 py-4 font-poppins font-semibold text-deepEmerald bg-softGold rounded-none hover:bg-gold-400 transition-all duration-300 shadow-gold text-base"
+            style={{ border: 'none' }}
           >
-            {t('hero.cta.products')}
-          </button>
+            {t('hero.ctaRequestSpecs')}
+            <ArrowRight size={18} />
+          </Link>
+
           <button
-            onClick={() => handleScroll('#about')}
-            className="px-8 py-3.5 bg-cream/15 text-cream font-medium rounded-full border border-cream/40 hover:bg-cream/25 transition-all backdrop-blur-sm text-sm"
+            onClick={handleContactSales}
+            className="inline-flex items-center gap-2 px-8 py-4 font-poppins font-semibold text-white border-2 border-softGold rounded-none hover:bg-softGold hover:text-deepEmerald transition-all duration-300 text-base"
           >
-            {t('hero.cta.about')}
+            {t('hero.ctaContactSales')}
           </button>
         </div>
+
+        {/* Tagline */}
+        <p className="font-playfair italic text-softGold text-base md:text-lg mt-10 opacity-80">
+          "{t('hero.tagline')}"
+        </p>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Down Indicator */}
       <button
-        onClick={() => handleScroll('#about')}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cream/60 hover:text-cream transition-colors animate-bounce"
+        onClick={handleScrollDown}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-softGold opacity-70 hover:opacity-100 transition-opacity animate-bounce"
         aria-label="Scroll down"
       >
-        <ArrowDown className="w-6 h-6" />
+        <ChevronDown size={32} />
       </button>
     </section>
   );
