@@ -1,0 +1,30 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add company logo to navigation bar and footer",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "summary": "Add the True Origin Exports logo to the navigation bar and footer",
+      "acceptanceCriteria": [
+        "The True Origin Exports logo image is displayed in the navigation bar on the left side",
+        "The logo is sized appropriately for the nav bar (approx. 40–48px tall)",
+        "The logo is visible in both the transparent (top of page) and solid (scrolled) nav states",
+        "The logo also appears in the site footer alongside the brand information",
+        "Clicking the logo scrolls back to the top / home section"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add the True Origin Exports logo image (frontend/public/assets/generated/logo.dim_400x300.png) to the left side of the navigation bar. Ensure the logo is sized to approximately 40–48px in height, wrapped in a clickable link that scrolls to the top/home section when clicked. The logo must be visible in both the transparent (at top of page) and solid (scrolled) navigation states, using appropriate contrast or styling adjustments as needed."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add the True Origin Exports logo image (frontend/public/assets/generated/logo.dim_400x300.png) to the footer section alongside the existing brand information. Position the logo appropriately (e.g., above or next to the brand name) and size it to fit the footer context (suggest 60–80px height). Ensure the logo complements the existing footer layout without disrupting contact details, links, or copyright information."
+        }
+      ]
+    }
+  ]
+}

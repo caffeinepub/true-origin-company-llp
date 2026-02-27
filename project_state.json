@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Website for True Origin Company LLP, a food products company dealing in perishable and non-perishable food products. The site showcases moringa powder, moringa leaf, and farm imagery. Real contact details (phone: 9773303026, email: trueorigin@gmail.com) are included. The site positions the company as professional exporters with export/cargo imagery. A social media video section placeholder is present, with plans to add Instagram, LinkedIn, YouTube, and Facebook links later.",
+  "architectural_notes": [
+    "Static/marketing website for a food products company (perishable and non-perishable goods)",
+    "Real contact details: phone 9773303026, email trueorigin@gmail.com",
+    "Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added when URLs are provided"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Edit Images\n- Crop to remove the white background, keeping only the globe-and-leaf emblem with 'TrueOrigin EXPORTS' text on a transparent background (IMG_5015.jpeg > logo.dim_400x300.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-section-landing-page-for-true-origin-company-llp-including-a-hero-section-with-company-name-and-tagline-an-about-us-section-describing-the-business-dealing-in-perishable-and-non-perishable-food-products-a-products-section-showcasing-key-offerings-and-a-contact-section-with-placeholder-contact-details",
+      "title": "Create a multi-section landing page for True Origin Company LLP, including: a hero section with company name and tagline, an 'About Us' section describing the business (dealing in perishable and non-perishable food products), a 'Products' section showcasing key offerings, and a 'Contact' section with placeholder contact details.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-generated-images-moringa-powder-png-moringa-leaf-png-farm-png-hero-bg-png-as-static-assets-from-frontend-public-assets-generated-use-the-farm-image-as-the-hero-background-moringa-powder-and-moringa-leaf-images-in-the-products-section-and-the-hero-bg-as-a-decorative-or-supplemental-background-element",
+      "title": "Render the generated images (moringa-powder.png, moringa-leaf.png, farm.png, hero-bg.png) as static assets from frontend/public/assets/generated. Use the farm image as the hero background, moringa powder and moringa leaf images in the Products section, and the hero-bg as a decorative or supplemental background element.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-earthy-green-and-warm-cream-visual-theme-throughout-the-website-use-natural-organic-feeling-typography-e-g-a-serif-display-font-for-headings-paired-with-a-clean-sans-serif-for-body-text-the-layout-should-feel-clean-trustworthy-and-premium-appropriate-for-a-natural-food-products-brand-apply-this-theme-consistently-across-all-sections-cards-buttons-and-the-navigation-bar",
+      "title": "Apply a cohesive earthy-green and warm-cream visual theme throughout the website. Use natural, organic-feeling typography (e.g., a serif display font for headings paired with a clean sans-serif for body text). The layout should feel clean, trustworthy, and premium — appropriate for a natural food products brand. Apply this theme consistently across all sections, cards, buttons, and the navigation bar.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-moringa-tablet-product-card-from-the-products-section-entirely",
+      "title": "Remove the 'Moringa Tablet' product card from the Products section entirely.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-moringa-seed-oil-product-card-from-the-products-section",
+      "title": "Remove the 'Moringa Seed Oil' product card from the Products section.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-any-years-of-experience-stat-or-claim-from-the-about-section-or-anywhere-else-on-the-page-the-company-has-just-started-so-no-experience-duration-should-be-displayed",
+      "title": "Remove any 'years of experience' stat or claim from the About section (or anywhere else on the page). The company has just started, so no experience duration should be displayed.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-section-with-the-real-company-contact-details-phone-number-9773303026-and-email-trueorigin-gmail-com-replace-any-placeholder-values",
+      "title": "Update the Contact section with the real company contact details: phone number 9773303026 and email trueorigin@gmail.com. Replace any placeholder values.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-dedicated-social-media-section-or-clearly-marked-subsection-to-the-page-as-a-placeholder-for-social-media-videos-the-section-should-display-a-visually-styled-empty-state-with-a-heading-such-as-follow-us-or-our-latest-updates-placeholder-video-embed-slots-e-g-2-3-placeholder-cards-with-a-play-icon-and-label-and-a-note-that-links-are-coming-soon-include-empty-disabled-icon-slots-for-instagram-linkedin-youtube-and-facebook-so-urls-can-be-wired-up-in-a-future-update",
+      "title": "Add a dedicated 'Social Media' section (or clearly marked subsection) to the page as a placeholder for social media videos. The section should display a visually styled empty state with a heading such as 'Follow Us' or 'Our Latest Updates', placeholder video embed slots (e.g., 2–3 placeholder cards with a play icon and label), and a note that links are coming soon. Include empty/disabled icon slots for Instagram, LinkedIn, YouTube, and Facebook so URLs can be wired up in a future update.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-export-cargo-visual-section-or-subsection-within-about-products-that-features-the-generated-export-and-cargo-images-to-communicate-that-true-origin-company-llp-is-a-professional-exporter-the-section-should-include-a-short-heading-such-as-global-exports-and-brief-supporting-copy-about-the-company-s-export-capabilities",
+      "title": "Add an 'Export & Cargo' visual section (or subsection within About/Products) that features the generated export and cargo images to communicate that True Origin Company LLP is a professional exporter. The section should include a short heading such as 'Global Exports' and brief supporting copy about the company's export capabilities.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-uploaded-true-origin-exports-logo-to-be-saved-as-frontend-public-assets-generated-logo-png-to-the-navigation-bar-display-it-on-the-left-side-of-the-nav-replacing-or-accompanying-the-current-text-based-brand-name-the-logo-should-be-appropriately-sized-for-a-navigation-bar-height-40-48px-and-must-be-visible-against-the-nav-background-on-both-scroll-states-transparent-and-solid",
+      "title": "Add the uploaded True Origin Exports logo (to be saved as frontend/public/assets/generated/logo.png) to the navigation bar. Display it on the left side of the nav, replacing or accompanying the current text-based brand name. The logo should be appropriately sized for a navigation bar (height ~40–48px) and must be visible against the nav background on both scroll states (transparent and solid).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Company website for True Origin Company LLP featuring food products",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Display images of moringa powder, moringa leaf, and farm",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Remove Moringa tablet product from the website",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Remove years of experience claim (company just started)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add contact phone number 9773303026 and email trueorigin@gmail.com to contact section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a placeholder/space for social media videos section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Remove moringa oil from products/cart",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add export and cargo images to convey professional exporter status",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add social media links (Instagram, LinkedIn, YouTube, Facebook) — URLs to be provided later",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add the company logo to the website (navigation bar or header)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "True Origin Company LLP",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

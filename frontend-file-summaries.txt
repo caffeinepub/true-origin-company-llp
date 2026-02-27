@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application shell with fixed navigation bar featuring the True Origin Exports logo image (white/inverted when transparent, full-color when scrolled), nav links with matching color states, and renders all page sections in order.",
+  "frontend/src/components/HeroSection.tsx": "Full-screen hero section with the farm.png background image, dark gradient overlay, company name, tagline about natural food products, and two CTA buttons with a scroll indicator.",
+  "frontend/src/components/AboutSection.tsx": "About Us section with company description, value proposition cards, and updated stats (100% Natural, 5+ Products, Global Reach) — the \"10+ Years Experience\" stat has been replaced.",
+  "frontend/src/components/ProductsSection.tsx": "Products showcase grid displaying five moringa-based products (Moringa Tablet and Moringa Seed Oil removed) — Powder, Fresh Leaves, Dried Leaves, Tea, and Capsules — with images, badges, descriptions, and enquiry CTAs.",
+  "frontend/src/components/ContactSection.tsx": "Contact section on dark forest-green background with real company details — phone number 9773303026 (tel: link) and email trueorigin@gmail.com (mailto: link) — plus a functional enquiry form.",
+  "frontend/src/components/Footer.tsx": "Site footer with the True Origin Exports logo image (white-inverted) in the brand column, contact details, quick links, product list, copyright, and caffeine.ai attribution.",
+  "frontend/src/index.css": "Global styles with earthy-green and warm-cream OKLCH color palette, Playfair Display serif font for headings, Inter sans-serif for body, and smooth scroll behavior.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with brand-specific color tokens (forest, moss, sage, cream, parchment, gold), Playfair Display/Inter font families, custom border radii, and shadow utilities.",
+  "frontend/src/components/ExportCargoSection.tsx": "New section showcasing True Origin's professional export capabilities with two cargo/export images (cargo-ship and export-boxes), a heading, descriptive copy, and four export highlight cards (Sea & Air Freight, Packaging, Global Reach, Quality Certified).",
+  "frontend/src/components/SocialMediaSection.tsx": "New \"Follow Our Journey\" section with three placeholder video cards (Coming Soon) and four inactive social media icon slots (Instagram, LinkedIn, YouTube, Facebook) styled with the earthy-green and warm-cream theme."
+}

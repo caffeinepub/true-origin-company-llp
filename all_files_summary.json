@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Empty Motoko actor serving as the backend entry point with no implemented functionality.",
+  "feature_evidence.json": "Feature evidence report linking the True Origin Exports logo navigation bar feature to relevant source files, components, and test IDs.",
+  "frontend-file-summaries.txt": "JSON map of frontend source files to short human-readable summaries describing each component's purpose and content.",
+  "frontend/index.css": "Tailwind CSS entry file defining CSS custom properties for light and dark theme color tokens used throughout the app.",
+  "frontend/index.html": "HTML shell for the React app with a root div and module script entry point, titled 'True Origin Company LLP'.",
+  "frontend/src/App.tsx": "Main app shell with a fixed navigation bar featuring the True Origin Exports logo, scroll-aware styling, desktop/mobile nav links, and renders all page sections in order.",
+  "frontend/src/components/AboutSection.tsx": "About Us section displaying company description, three value proposition cards, and stats (100% Natural, 5+ Products, Global Reach).",
+  "frontend/src/components/ContactSection.tsx": "Contact section on a dark forest-green background with real company phone and email links plus a functional enquiry form with submission feedback.",
+  "frontend/src/components/ExportCargoSection.tsx": "Export section showcasing True Origin's international shipping capabilities with two cargo images and four highlight cards covering freight, packaging, global reach, and quality certification.",
+  "frontend/src/components/Footer.tsx": "Renders the site footer with brand info, quick navigation links, product links, contact details, and a copyright notice with smooth-scroll behavior.",
+  "frontend/src/components/HeroSection.tsx": "Full-screen hero section with a farm background image, overlay gradient, headline, tagline, CTA buttons, and a scroll-down indicator.",
+  "frontend/src/components/ProductsSection.tsx": "Displays a grid of five moringa product cards (powder, leaves, dried leaves, tea, capsules) with images, descriptions, category badges, and tags.",
+  "frontend/src/components/SocialMediaSection.tsx": "Shows a 'coming soon' social media section with disabled platform icons (Instagram, LinkedIn, YouTube, Facebook) and placeholder video cards.",
+  "frontend/src/hooks/useActor.ts": "Custom hook that creates and caches an ICP backend actor (authenticated or anonymous) using React Query, invalidating dependent queries when the identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and hook, managing AuthClient creation, login, logout, and identity persistence with status tracking.",
+  "frontend/src/index.css": "Global CSS file that imports Google Fonts (Playfair Display, Inter), sets up Tailwind directives, and defines an earthy green/warm cream OKLCH color palette with semantic CSS custom properties for both light and dark modes.",
+  "frontend/src/main.tsx": "React app entry point that wraps the App component with QueryClientProvider (React Query) and InternetIdentityProvider before mounting to the DOM.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the default theme with custom OKLCH-based brand colors (forest, moss, sage, cream, gold), custom fonts, border radii, box shadows, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Project state metadata file tracking the version, architectural notes, known issues, and a list of implemented features for the True Origin Company LLP marketing website, including contact details and planned social media integration."
+}

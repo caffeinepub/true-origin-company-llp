@@ -1,0 +1,43 @@
+{
+  "kind": "build_request",
+  "title": "Add company logo to navigation bar and footer",
+  "projectName": "True Origin Company LLP",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Add the uploaded True Origin Exports logo (to be saved as frontend/public/assets/generated/logo.png) to the navigation bar. Display it on the left side of the nav, replacing or accompanying the current text-based brand name. The logo should be appropriately sized for a navigation bar (height ~40–48px) and must be visible against the nav background on both scroll states (transparent and solid).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the logo to the website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The True Origin Exports logo image is displayed in the navigation bar on the left side",
+        "The logo is sized appropriately for the nav bar (approx. 40–48px tall)",
+        "The logo is visible in both the transparent (top of page) and solid (scrolled) nav states",
+        "The logo also appears in the site footer alongside the brand information",
+        "Clicking the logo scrolls back to the top / home section"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui",
+    "Logo image must be served as a static asset from frontend/public/assets/generated/"
+  ],
+  "nonGoals": [
+    "Redesigning the navigation bar layout beyond adding the logo",
+    "Changing the existing color theme or typography",
+    "Adding new page sections"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": [
+      "Crop to remove the white background, keeping only the globe-and-leaf emblem with 'TrueOrigin EXPORTS' text on a transparent background (IMG_5015.jpeg > logo.dim_400x300.png)"
+    ]
+  }
+}
