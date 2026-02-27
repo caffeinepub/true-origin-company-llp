@@ -1,46 +1,59 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T23:19:18.012Z",
+  "generatedAt": "2026-02-27T23:42:21.165Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 3,
+    "implemented": 0,
     "items": [
       {
-        "id": "REQ-36",
-        "summary": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
-        "status": "implemented",
+        "id": "REQ-41",
+        "summary": "Audit the centralized translations file (frontend/src/translations/translations.ts) for all three language codes (en, hi, mr) and ensure every translation value is a plain, human-readable string. Replace any raw JSON objects, escaped characters, template literal artifacts, untranslated key strings, or stringified arrays with proper readable prose or formatted text. No translation value should ever render as a technical string on screen.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/App.tsx"
+          "frontend/src/translations/translations.ts"
         ],
-        "matchedFiles": [
-          "frontend/src/App.tsx"
-        ]
+        "matchedFiles": []
       },
       {
-        "id": "REQ-37",
-        "summary": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
-        "status": "implemented",
+        "id": "REQ-42",
+        "summary": "Audit every component that consumes the language context (NavBar, HeroSection, AboutSection, ProductsSection, QualityComplianceSection, ExportCargoSection, SocialMediaSection, ContactSection, Footer, ExportCertificationPage, PrivacyPolicyPage, TermsAndConditionsPage) and fix any location where a raw translation key, escaped character sequence, JSON fragment, or template literal artifact is being rendered as visible text instead of the resolved translation string. Each component must call the t() helper correctly and interpolate values where needed.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/App.tsx"
+          "frontend/src/App.tsx",
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/AboutSection.tsx",
+          "frontend/src/components/ProductsSection.tsx",
+          "frontend/src/components/QualityComplianceSection.tsx",
+          "frontend/src/components/ExportCargoSection.tsx",
+          "frontend/src/components/SocialMediaSection.tsx",
+          "frontend/src/components/ContactSection.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/components/ExportCertificationPage.tsx",
+          "frontend/src/components/PrivacyPolicyPage.tsx",
+          "frontend/src/components/TermsAndConditionsPage.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/App.tsx"
-        ]
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-43",
+        "summary": "Add complete Hindi (hi) and Marathi (mr) translations for any key that currently has a missing, empty, or placeholder value in those language codes within frontend/src/translations/translations.ts. Every key present in the English (en) object must have a corresponding non-empty, human-readable value in both hi and mr, so that switching to Hindi or Marathi never causes a raw key fallback to be displayed.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/translations/translations.ts"
+        ],
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
-    "frontend/src/translations/translations.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

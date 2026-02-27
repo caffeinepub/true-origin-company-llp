@@ -1,380 +1,309 @@
-import { useEffect } from 'react';
-import { Link } from '@tanstack/react-router';
-import { ArrowLeft, Award, CheckCircle, FlaskConical, Package, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from '@tanstack/react-router';
+import { Award, CheckCircle, FileText, ArrowLeft, Package, Leaf } from 'lucide-react';
 
-interface SpecRow {
-  label: string;
-  value: string;
-}
+const certifications = [
+  {
+    name: 'APEDA Registration',
+    body: 'Agricultural & Processed Food Products Export Development Authority',
+    scope: 'All agricultural exports from India',
+    validity: 'Annual renewal',
+    icon: '🏛️',
+  },
+  {
+    name: 'FSSAI License',
+    body: 'Food Safety and Standards Authority of India',
+    scope: 'Food processing and export operations',
+    validity: 'Annual renewal',
+    icon: '🛡️',
+  },
+  {
+    name: 'Organic Certification',
+    body: 'NPOP / NOP Accredited Certification Body',
+    scope: 'Moringa powder, moringa leaf, curry leaves',
+    validity: 'Annual audit',
+    icon: '🌿',
+  },
+  {
+    name: 'Phytosanitary Certificate',
+    body: 'National Plant Protection Organisation (NPPO), India',
+    scope: 'All plant-based exports',
+    validity: 'Per shipment',
+    icon: '📋',
+  },
+  {
+    name: 'ISO 22000',
+    body: 'Food Safety Management System',
+    scope: 'Processing facility and supply chain',
+    validity: '3-year cycle with annual surveillance',
+    icon: '✅',
+  },
+  {
+    name: 'Spices Board Certificate',
+    body: 'Spices Board of India',
+    scope: 'Curry leaves and spice-related products',
+    validity: 'Annual renewal',
+    icon: '🌶️',
+  },
+];
 
-interface PackagingOption {
-  text: string;
-}
+const qcSteps = [
+  {
+    step: 1,
+    title: 'Farm-Level Inspection',
+    description: 'Our agronomists visit partner farms to verify organic practices, soil health, and absence of prohibited pesticides before harvest.',
+  },
+  {
+    step: 2,
+    title: 'Harvest & Primary Sorting',
+    description: 'Produce is harvested at optimal maturity. Initial sorting removes damaged, undersized, or discoloured material at the farm gate.',
+  },
+  {
+    step: 3,
+    title: 'Laboratory Testing',
+    description: 'Samples are sent to NABL-accredited labs for pesticide residue analysis, heavy metal screening, microbial testing, and nutritional profiling.',
+  },
+  {
+    step: 4,
+    title: 'Processing & Grading',
+    description: 'Produce is cleaned, dried (where applicable), milled or cut to specification, and graded by size, colour, and moisture content.',
+  },
+  {
+    step: 5,
+    title: 'Packaging & Labelling',
+    description: 'Products are packed in food-grade, export-compliant packaging with full traceability codes, batch numbers, and destination-country labelling.',
+  },
+  {
+    step: 6,
+    title: 'Pre-Shipment Inspection',
+    description: 'A third-party inspection agency verifies quantity, quality, and packaging before the container is sealed and the phytosanitary certificate is issued.',
+  },
+];
 
-interface DocItem {
-  text: string;
-}
-
-interface ProductSpecData {
-  name: string;
-  scientificName: string;
-  image: string;
-  specs: SpecRow[];
-  packaging: PackagingOption[];
-  docs: DocItem[];
-}
+const productSpecs = [
+  {
+    name: 'Moringa Powder',
+    icon: '🌿',
+    specs: [
+      { label: 'Moisture', value: '≤ 8%' },
+      { label: 'Protein', value: '≥ 25%' },
+      { label: 'Ash Content', value: '≤ 10%' },
+      { label: 'Particle Size', value: '80–120 mesh' },
+      { label: 'Colour', value: 'Bright green' },
+      { label: 'Pesticide Residue', value: 'EU MRL compliant' },
+      { label: 'Shelf Life', value: '24 months' },
+    ],
+    packaging: ['25 kg kraft paper bags (inner PE liner)', '1 kg / 500 g retail pouches', 'Custom OEM packaging available'],
+    docs: ['Certificate of Analysis (CoA)', 'Organic Certificate', 'Phytosanitary Certificate', 'MSDS Sheet'],
+  },
+  {
+    name: 'Moringa Leaf (Dried)',
+    icon: '🍃',
+    specs: [
+      { label: 'Moisture', value: '≤ 10%' },
+      { label: 'Protein', value: '≥ 20%' },
+      { label: 'Colour', value: 'Dark green' },
+      { label: 'Form', value: 'Whole / cut & sifted' },
+      { label: 'Foreign Matter', value: '≤ 0.5%' },
+      { label: 'Pesticide Residue', value: 'EU MRL compliant' },
+      { label: 'Shelf Life', value: '18 months' },
+    ],
+    packaging: ['10 kg / 20 kg cartons', 'Vacuum-sealed retail packs', 'Bulk loose in food-grade bags'],
+    docs: ['Certificate of Analysis (CoA)', 'Organic Certificate', 'Phytosanitary Certificate'],
+  },
+  {
+    name: 'Curry Leaves (Dried)',
+    icon: '🌱',
+    specs: [
+      { label: 'Moisture', value: '≤ 12%' },
+      { label: 'Colour', value: 'Olive to dark green' },
+      { label: 'Aroma', value: 'Characteristic, strong' },
+      { label: 'Form', value: 'Whole dried leaves' },
+      { label: 'Foreign Matter', value: '≤ 1%' },
+      { label: 'Pesticide Residue', value: 'EU MRL compliant' },
+      { label: 'Shelf Life', value: '12 months' },
+    ],
+    packaging: ['5 kg / 10 kg cartons', '100 g / 200 g retail packs', 'Bulk bags on request'],
+    docs: ['Certificate of Analysis (CoA)', 'Spices Board Certificate', 'Phytosanitary Certificate'],
+  },
+  {
+    name: 'Okra (Dried / Chips)',
+    icon: '🥬',
+    specs: [
+      { label: 'Moisture', value: '≤ 10%' },
+      { label: 'Colour', value: 'Light green to yellow-green' },
+      { label: 'Form', value: 'Sliced chips / whole pods' },
+      { label: 'Pod Length', value: '4–8 cm (whole)' },
+      { label: 'Foreign Matter', value: '≤ 0.5%' },
+      { label: 'Pesticide Residue', value: 'EU MRL compliant' },
+      { label: 'Shelf Life', value: '12 months' },
+    ],
+    packaging: ['10 kg / 20 kg cartons', '250 g / 500 g retail packs', 'Custom packaging available'],
+    docs: ['Certificate of Analysis (CoA)', 'Phytosanitary Certificate', 'FSSAI Certificate'],
+  },
+];
 
 export default function ExportCertificationPage() {
   const { t } = useLanguage();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  const certifications = [
-    {
-      badge: 'APEDA',
-      name: 'APEDA Registration',
-      desc: 'Registered with the Agricultural and Processed Food Products Export Development Authority of India, enabling compliant export of agricultural products.',
-    },
-    {
-      badge: 'FSSAI',
-      name: 'FSSAI License',
-      desc: 'Licensed under the Food Safety and Standards Authority of India, ensuring all products meet domestic and international food safety standards.',
-    },
-    {
-      badge: 'PHYTO',
-      name: 'Phytosanitary Certificate',
-      desc: 'Official government-issued certificate confirming products are free from pests, diseases, and comply with the importing country\'s plant health requirements.',
-    },
-    {
-      badge: 'COO',
-      name: 'Certificate of Origin',
-      desc: 'Authenticated document certifying the country of origin of the exported goods, required for customs clearance and preferential tariff treatment.',
-    },
-    {
-      badge: 'HACCP',
-      name: 'HACCP Compliance',
-      desc: 'Hazard Analysis and Critical Control Points compliance ensuring systematic preventive approach to food safety throughout the production process.',
-    },
-  ];
-
-  const qcItems = [
-    {
-      title: 'Pre-Harvest Assessment',
-      desc: 'Soil testing, crop monitoring, and farm-level quality checks are conducted before harvest to ensure produce meets export-grade standards.',
-    },
-    {
-      title: 'Laboratory Testing',
-      desc: 'Every batch undergoes rigorous lab testing for microbial limits, heavy metals, pesticide residues, and moisture content before dispatch.',
-    },
-    {
-      title: 'Processing & Hygiene',
-      desc: 'Post-harvest processing is carried out in hygienic, food-safe facilities with trained personnel following strict GMP guidelines.',
-    },
-    {
-      title: 'Pre-Shipment Inspection',
-      desc: 'Final inspection of packaging integrity, labelling accuracy, and documentation completeness is performed before every shipment.',
-    },
-  ];
-
-  const products: ProductSpecData[] = [
-    {
-      name: 'Moringa Leaf Powder',
-      scientificName: 'Moringa oleifera',
-      image: '/assets/generated/moringa-powder.dim_800x800.png',
-      specs: [
-        { label: 'Form', value: 'Fine Powder' },
-        { label: 'Color', value: 'Natural Green' },
-        { label: 'Odor', value: 'Characteristic' },
-        { label: 'Moisture', value: '< 7%' },
-        { label: 'Mesh Size', value: '80–100 mesh' },
-        { label: 'Microbial Limits', value: 'As per international standards' },
-        { label: 'Heavy Metals', value: 'Within permissible limits' },
-        { label: 'Pesticide Residue', value: 'As per EU / USFDA norms' },
-        { label: 'Shelf Life', value: '24 months' },
-        { label: 'Storage', value: 'Cool, dry place away from direct sunlight' },
-      ],
-      packaging: [
-        { text: '1 kg / 5 kg / 25 kg bags' },
-        { text: 'Food-grade inner lining' },
-        { text: 'Export-ready outer cartons' },
-      ],
-      docs: [
-        { text: 'Certificate of Analysis (COA)' },
-        { text: 'Lab Test Report' },
-        { text: 'Phytosanitary Certificate' },
-        { text: 'Invoice & Packing List' },
-      ],
-    },
-    {
-      name: 'Moringa Dried Leaf',
-      scientificName: 'Moringa oleifera',
-      image: '/assets/generated/moringa-leaf.dim_800x800.png',
-      specs: [
-        { label: 'Form', value: 'Dried Whole or Crushed Leaves' },
-        { label: 'Color', value: 'Dark Green' },
-        { label: 'Odor', value: 'Characteristic' },
-        { label: 'Moisture', value: '< 10%' },
-        { label: 'Microbial Limits', value: 'As per international standards' },
-        { label: 'Heavy Metals', value: 'Within permissible limits' },
-        { label: 'Pesticide Residue', value: 'As per EU / USFDA norms' },
-        { label: 'Shelf Life', value: '18 months' },
-        { label: 'Storage', value: 'Cool, dry place away from direct sunlight' },
-      ],
-      packaging: [
-        { text: '500 g / 1 kg / 10 kg bags' },
-        { text: 'Food-grade inner lining' },
-        { text: 'Export-ready outer cartons' },
-      ],
-      docs: [
-        { text: 'Certificate of Analysis (COA)' },
-        { text: 'Lab Test Report' },
-        { text: 'Phytosanitary Certificate' },
-        { text: 'Invoice & Packing List' },
-      ],
-    },
-    {
-      name: 'Curry Leaves',
-      scientificName: 'Murraya koenigii',
-      image: '/assets/generated/curry-leaves-farm.dim_800x500.png',
-      specs: [
-        { label: 'Form', value: 'Fresh or Dried' },
-        { label: 'Color', value: 'Deep Green' },
-        { label: 'Odor', value: 'Strong, Characteristic Aroma' },
-        { label: 'Moisture (Dried)', value: '< 12%' },
-        { label: 'Grade', value: 'Export Grade A' },
-        { label: 'Pesticide Residue', value: 'Pesticide-free, tested per EU norms' },
-        { label: 'Shelf Life (Dried)', value: '12 months' },
-        { label: 'Storage', value: 'Cool, dry place; refrigerate if fresh' },
-      ],
-      packaging: [
-        { text: '250 g / 500 g / 5 kg packs' },
-        { text: 'Food-grade sealed pouches' },
-        { text: 'Export-ready cartons' },
-      ],
-      docs: [
-        { text: 'Certificate of Analysis (COA)' },
-        { text: 'Pesticide Residue Test Report' },
-        { text: 'Phytosanitary Certificate' },
-        { text: 'Invoice & Packing List' },
-      ],
-    },
-    {
-      name: 'Okra (Lady Finger)',
-      scientificName: 'Abelmoschus esculentus',
-      image: '/assets/generated/okra-farm.dim_800x500.png',
-      specs: [
-        { label: 'Form', value: 'Fresh, Grade A' },
-        { label: 'Color', value: 'Bright Green' },
-        { label: 'Size', value: '6–12 cm' },
-        { label: 'Moisture', value: 'Natural (fresh produce)' },
-        { label: 'Grade', value: 'Export Grade A' },
-        { label: 'Pesticide Residue', value: 'Tested per EU / USFDA norms' },
-        { label: 'Shelf Life', value: '7–10 days (refrigerated)' },
-        { label: 'Storage', value: 'Refrigerate at 7–10°C' },
-      ],
-      packaging: [
-        { text: '2 kg / 5 kg / 10 kg cartons' },
-        { text: 'Ventilated export-grade cartons' },
-        { text: 'Pre-cooling before dispatch' },
-      ],
-      docs: [
-        { text: 'Certificate of Analysis (COA)' },
-        { text: 'Pesticide Residue Test Report' },
-        { text: 'Phytosanitary Certificate' },
-        { text: 'Invoice & Packing List' },
-      ],
-    },
-  ];
-
   return (
-    <main className="pt-28 pb-20 bg-cream min-h-screen">
-      <div className="max-w-5xl mx-auto px-6 lg:px-10">
-        {/* Back link */}
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-forest/60 hover:text-forest text-sm font-medium mb-8 transition-colors group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-          Back to Home
-        </Link>
-
-        {/* Header */}
-        <div className="mb-12">
+    <div className="min-h-screen bg-cream">
+      {/* Header */}
+      <div className="bg-forest text-white py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-forest/10 flex items-center justify-center">
-              <Award className="w-5 h-5 text-forest" />
-            </div>
-            <span className="text-xs font-medium tracking-widest uppercase text-moss">
-              True Origin Company LLP
-            </span>
+            <Award className="w-8 h-8 text-gold" />
+            <h1 className="text-3xl md:text-4xl font-bold font-playfair">
+              Export Certification & Quality Control
+            </h1>
           </div>
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-forest mb-4 leading-tight">
-            Export Certification & Quality Control
-          </h1>
-          <p className="text-forest/70 leading-relaxed max-w-2xl">
-            Complete documentation, rigorous quality assurance, and detailed product specifications for international buyers.
+          <p className="text-white/70 max-w-2xl">
+            Every shipment from True Origin Exports is backed by internationally recognised certifications and a rigorous multi-stage quality control process.
           </p>
         </div>
+      </div>
 
-        {/* ── Section 1: Export Certifications ── */}
-        <section className="mb-16">
-          <div className="flex items-center gap-3 mb-2">
-            <Award className="w-6 h-6 text-moss" />
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-forest">
-              Our Export Certifications
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        {/* Certifications */}
+        <section>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-forest/10 text-forest text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+              Our Credentials
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold font-playfair text-forest">
+              Certifications & Registrations
             </h2>
           </div>
-          <p className="text-forest/65 mb-8 ml-9">
-            All our products are exported with full regulatory compliance and internationally recognised certifications.
-          </p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {certifications.map((cert) => (
-              <div
-                key={cert.badge}
-                className="bg-parchment border border-sage/30 rounded-2xl p-5 flex flex-col gap-3 hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-forest text-cream text-xs font-bold tracking-wide flex-shrink-0">
-                    {cert.badge}
-                  </span>
-                  <h3 className="font-display text-base font-semibold text-forest leading-snug">
-                    {cert.name}
-                  </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certifications.map((cert, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-parchment hover:shadow-md transition-shadow">
+                <div className="text-3xl mb-3">{cert.icon}</div>
+                <h3 className="font-bold text-forest text-lg mb-1">{cert.name}</h3>
+                <p className="text-forest/60 text-sm mb-3">{cert.body}</p>
+                <div className="space-y-1 text-sm">
+                  <div className="flex gap-2">
+                    <span className="text-forest/50 font-medium w-16 flex-shrink-0">Scope:</span>
+                    <span className="text-forest/75">{cert.scope}</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="text-forest/50 font-medium w-16 flex-shrink-0">Validity:</span>
+                    <span className="text-forest/75">{cert.validity}</span>
+                  </div>
                 </div>
-                <p className="text-forest/70 text-sm leading-relaxed">{cert.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── Section 2: Quality Control ── */}
-        <section className="mb-16">
-          <div className="flex items-center gap-3 mb-2">
-            <FlaskConical className="w-6 h-6 text-moss" />
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-forest">
+        {/* Quality Control */}
+        <section>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-forest/10 text-forest text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+              Our Process
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold font-playfair text-forest">
               Quality Control Process
             </h2>
           </div>
-          <p className="text-forest/65 mb-8 ml-9">
-            Every batch goes through a multi-stage quality control process before it leaves our facility.
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-5">
-            {qcItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white border border-sage/20 rounded-2xl p-5 flex gap-4"
-              >
-                <div className="flex-shrink-0 mt-0.5">
-                  <CheckCircle className="w-5 h-5 text-moss" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {qcSteps.map((step) => (
+              <div key={step.step} className="bg-white rounded-2xl p-6 shadow-sm border border-parchment">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-9 h-9 rounded-full bg-forest text-white font-bold text-sm flex items-center justify-center flex-shrink-0">
+                    {step.step}
+                  </span>
+                  <h3 className="font-bold text-forest">{step.title}</h3>
                 </div>
-                <div>
-                  <h3 className="font-display text-base font-semibold text-forest mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-forest/70 text-sm leading-relaxed">{item.desc}</p>
-                </div>
+                <p className="text-forest/70 text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── Section 3: Product Specifications ── */}
-        <section>
-          <div className="flex items-center gap-3 mb-2">
-            <Package className="w-6 h-6 text-moss" />
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-forest">
+        {/* Product Specifications */}
+        <section id="product-specifications">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-forest/10 text-forest text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+              Technical Data
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold font-playfair text-forest">
               Product Specifications
             </h2>
+            <p className="text-forest/60 mt-2 max-w-xl mx-auto text-sm">
+              Detailed quality parameters, packaging options, and documentation for each product.
+            </p>
           </div>
-          <p className="text-forest/65 mb-8 ml-9">
-            Detailed technical specifications for each of our export products, tested and verified to international standards.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {productSpecs.map((product, i) => (
+              <div key={i} className="bg-white rounded-2xl shadow-sm border border-parchment overflow-hidden">
+                {/* Product Header */}
+                <div className="bg-forest/5 px-6 py-4 border-b border-parchment flex items-center gap-3">
+                  <span className="text-2xl">{product.icon}</span>
+                  <h3 className="font-bold text-forest text-lg font-playfair">{product.name}</h3>
+                </div>
 
-          <div className="flex flex-col gap-10">
-            {products.map((product) => (
-              <div
-                key={product.name}
-                className="bg-parchment border border-sage/30 rounded-2xl overflow-hidden"
-              >
-                {/* Product header */}
-                <div className="flex items-center gap-4 p-5 border-b border-sage/20 bg-forest/5">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
-                  />
+                <div className="p-6 space-y-5">
+                  {/* Spec Table */}
                   <div>
-                    <h3 className="font-display text-lg font-bold text-forest">
-                      {product.name}
-                    </h3>
-                    <p className="text-forest/55 text-sm italic">
-                      {product.scientificName}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Spec table */}
-                <div className="divide-y divide-sage/15">
-                  {product.specs.map((spec) => (
-                    <div
-                      key={spec.label}
-                      className="grid grid-cols-2 sm:grid-cols-3 gap-2 px-5 py-3"
-                    >
-                      <span className="text-xs font-semibold uppercase tracking-wide text-forest/50 sm:col-span-1">
-                        {spec.label}
-                      </span>
-                      <span className="text-sm text-forest/80 sm:col-span-2">
-                        {spec.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Packaging & Docs */}
-                <div className="grid sm:grid-cols-2 gap-0 border-t border-sage/20">
-                  {/* Packaging Options */}
-                  <div className="p-5 sm:border-r border-sage/20">
-                    <h4 className="text-xs font-semibold uppercase tracking-wide text-forest/50 mb-3">
-                      Packaging Options
+                    <h4 className="text-xs font-bold text-forest/50 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5" /> Specifications
                     </h4>
-                    <ul className="space-y-1.5">
-                      {product.packaging.map((pkg, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-forest/80">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-moss flex-shrink-0" />
-                          {pkg.text}
+                    <table className="w-full text-sm">
+                      <tbody>
+                        {product.specs.map((spec, j) => (
+                          <tr key={j} className={j % 2 === 0 ? 'bg-cream/50' : ''}>
+                            <td className="py-1.5 px-2 text-forest/60 font-medium w-2/5">{spec.label}</td>
+                            <td className="py-1.5 px-2 text-forest font-semibold">{spec.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Packaging */}
+                  <div>
+                    <h4 className="text-xs font-bold text-forest/50 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <Package className="w-3.5 h-3.5" /> Packaging Options
+                    </h4>
+                    <ul className="space-y-1">
+                      {product.packaging.map((pkg, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-forest/75">
+                          <CheckCircle className="w-3.5 h-3.5 text-moss mt-0.5 flex-shrink-0" />
+                          {pkg}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Documentation Provided */}
-                  <div className="p-5 border-t sm:border-t-0 border-sage/20">
-                    <h4 className="text-xs font-semibold uppercase tracking-wide text-forest/50 mb-3">
-                      Documentation Provided
+                  {/* Documentation */}
+                  <div>
+                    <h4 className="text-xs font-bold text-forest/50 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <Leaf className="w-3.5 h-3.5" /> Documentation Provided
                     </h4>
-                    <ul className="space-y-1.5">
-                      {product.docs.map((doc, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-forest/80">
-                          <CheckCircle className="mt-0.5 w-4 h-4 text-moss flex-shrink-0" />
-                          {doc.text}
+                    <ul className="space-y-1">
+                      {product.docs.map((doc, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-forest/75">
+                          <CheckCircle className="w-3.5 h-3.5 text-gold mt-0.5 flex-shrink-0" />
+                          {doc}
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
 
-                {/* CTA */}
-                <div className="px-5 py-4 border-t border-sage/20 bg-forest/3">
+                  {/* CTA */}
                   <a
-                    href="mailto:sales@trueoriginexports.com?subject=Specification Sheet Request – {product.name}"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-moss transition-colors"
+                    href={`mailto:info@trueoriginexports.com?subject=Specification Sheet Request – ${product.name}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest border border-forest/30 rounded-full px-4 py-2 hover:bg-forest hover:text-white transition-colors"
                   >
-                    <Mail className="w-4 h-4" />
+                    <FileText className="w-3.5 h-3.5" />
                     Request Specification Sheet
                   </a>
                 </div>
@@ -383,31 +312,7 @@ export default function ExportCertificationPage() {
           </div>
         </section>
 
-        {/* Contact callout */}
-        <div className="mt-12 bg-forest rounded-2xl p-6 text-center">
-          <p className="text-cream/80 text-sm mb-1 font-medium">
-            Need custom specifications or have export enquiries?
-          </p>
-          <p className="text-cream/60 text-sm mb-4">
-            Contact our export team for tailored solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="mailto:info@trueoriginexports.com"
-              className="text-gold hover:text-gold/80 text-sm font-medium transition-colors"
-            >
-              info@trueoriginexports.com
-            </a>
-            <span className="hidden sm:block text-cream/30">·</span>
-            <a
-              href="mailto:sales@trueoriginexports.com"
-              className="text-gold hover:text-gold/80 text-sm font-medium transition-colors"
-            >
-              sales@trueoriginexports.com
-            </a>
-          </div>
-        </div>
       </div>
-    </main>
+    </div>
   );
 }

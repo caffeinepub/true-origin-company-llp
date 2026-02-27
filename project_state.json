@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 29,
+  "projectStateVersion": 33,
   "summary": "Website for True Origin Company LLP (TrueOrigin Exports), a professional agricultural export company. The site now uses updated copy: Hero headline 'Premium Agricultural Exports From India to Global Markets', subheadline emphasizing compliance and logistics, and two CTA buttons ('Request Product Specifications', 'Contact Sales'). About section updated to professional exporter copy with Vision and Mission statements. Products section includes Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, and Custom Agri Sourcing. A Quality & Compliance section highlights documentation (COA, lab reports, phytosanitary certs, etc.). Product page structure updated with detailed Moringa Leaf Powder specs for export-grade buyers. Color palette confirmed: Deep Emerald (#0F3D2E), Soft Gold (#C6A75E), Background (#F4F1EA), Text (#1A1A1A). Fonts: Playfair Display or Libre Baskerville for headings, Poppins or Lato for body. Contact emails: info@trueoriginexports.com and sales@trueoriginexports.com. Phone: 9773303026. Website: www.trueoriginintl.com. Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added later. SSL to be enabled.",
   "architectural_notes": [
     "Static/marketing website for a food products company (perishable and non-perishable goods)",
@@ -19,7 +19,10 @@
     "A block of static text showing contact details (+91 97733 03026, info@trueoriginexports.com, sales@trueoriginexports.com, www.trueoriginintl.com) is appearing visibly on the website and needs to be removed",
     "Product specification text is rendering as technical/raw text instead of properly formatted content",
     "'Get In Touch' nav link renders as technical/raw text in the navbar",
-    "Hamburger menu dropdown background is not consistently white — becomes transparent or inconsistent when background page is scrolled"
+    "Hamburger menu dropdown background is not consistently white — becomes transparent or inconsistent when background page is scrolled",
+    "Privacy Policy page content is rendering as technical/raw text instead of properly formatted content",
+    "Mobile hamburger 'Product Specifications' link incorrectly navigates to Export Certification details instead of product specifications",
+    "Multiple sections may still have text rendering as raw translation keys, escaped characters, or JSON artifacts instead of human-readable content"
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -310,6 +313,30 @@
         "REQ-37"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-in-the-mobile-hamburger-menu-navbar-add-an-about-us-nav-link-positioned-immediately-after-the-existing-about-nav-item-this-link-should-navigate-to-the-about-anchor-section-on-the-main-landing-page-using-smooth-scrolling-or-the-router-s-navigation-mechanism-the-label-must-use-the-centralized-translations-system-for-english-hindi-and-marathi",
+      "title": "In the mobile hamburger menu (NavBar), add an 'About Us' nav link positioned immediately after the existing 'About' nav item. This link should navigate to the #about anchor section on the main landing page using smooth scrolling or the router's navigation mechanism. The label must use the centralized translations system for English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-privacypolicypage-component-fix-all-content-sections-so-that-they-render-as-properly-formatted-human-readable-text-locate-all-translation-keys-consumed-by-the-component-in-the-centralized-translations-file-and-ensure-their-values-are-plain-readable-prose-not-raw-json-escaped-characters-template-literal-artifacts-or-untranslated-key-strings-every-section-heading-paragraph-list-item-and-label-must-display-as-normal-readable-text-in-english-hindi-and-marathi",
+      "title": "In the PrivacyPolicyPage component, fix all content sections so that they render as properly formatted, human-readable text. Locate all translation keys consumed by the component in the centralized translations file and ensure their values are plain readable prose (not raw JSON, escaped characters, template literal artifacts, or untranslated key strings). Every section heading, paragraph, list item, and label must display as normal readable text in English, Hindi, and Marathi.",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-mobile-hamburger-menu-navbar-fix-the-product-specifications-nav-link-so-that-it-navigates-to-a-dedicated-product-specifications-view-either-the-product-specifications-section-within-the-export-certification-page-using-an-anchor-such-as-product-specifications-or-a-clearly-scoped-product-specs-route-rather-than-landing-on-the-export-certification-details-certifications-quality-control-section-the-link-must-scroll-to-or-highlight-the-product-specifications-section-specifically",
+      "title": "In the mobile hamburger menu (NavBar), fix the 'Product Specifications' nav link so that it navigates to a dedicated product specifications view — either the Product Specifications section within the /export-certification page (using an anchor such as #product-specifications), or a clearly scoped product specs route — rather than landing on the Export Certification details (certifications/quality control) section. The link must scroll to or highlight the Product Specifications section specifically.",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -511,6 +538,54 @@
       "id": "AR-33",
       "summary": "After opening the hamburger menu, the dropdown background must be solid white and remain consistent (not transparent) even when the user scrolls the background page",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-34",
+      "summary": "Add 'About Us' link in the mobile hamburger menu positioned after the 'About' item",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-35",
+      "summary": "Fix Privacy Policy page content rendering as technical/raw text — display as properly formatted human-readable content",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-36",
+      "summary": "Fix mobile hamburger menu 'Product Specifications' link so it navigates to the product specifications section/page, not the Export Certification details page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-37",
+      "summary": "Ensure all text across the entire website renders in human-readable format — no raw keys, escaped characters, JSON artifacts, or template literal strings visible anywhere",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-38",
+      "summary": "Audit the centralized translations file (frontend/src/translations/translations.ts) for all three language codes (en, hi, mr) and ensure every translation value is a plain, human-readable string. Replace any raw JSON objects, escaped characters, template literal artifacts, untranslated key strings, or stringified arrays with proper readable prose or formatted text. No translation value should ever render as a technical string on screen.",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-39",
+      "summary": "Audit every component that consumes the language context (NavBar, HeroSection, AboutSection, ProductsSection, QualityComplianceSection, ExportCargoSection, SocialMediaSection, ContactSection, Footer, ExportCertificationPage, PrivacyPolicyPage, TermsAndConditionsPage) and fix any location where a raw translation key, escaped character sequence, JSON fragment, or template literal artifact is being rendered as visible text instead of the resolved translation string. Each component must call the t() helper correctly and interpolate values where needed.",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-40",
+      "summary": "Add complete Hindi (hi) and Marathi (mr) translations for any key that currently has a missing, empty, or placeholder value in those language codes within frontend/src/translations/translations.ts. Every key present in the English (en) object must have a corresponding non-empty, human-readable value in both hi and mr, so that switching to Hindi or Marathi never causes a raw key fallback to be displayed.",
+      "reqIds": [
+        "REQ-43"
+      ],
       "status": "pending"
     }
   ],

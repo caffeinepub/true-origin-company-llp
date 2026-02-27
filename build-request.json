@@ -1,59 +1,80 @@
 {
   "kind": "build_request",
-  "title": "Fix navbar 'Get In Touch' raw text and hamburger menu dropdown background",
+  "title": "Fix all text rendering to human-readable format across the entire site",
   "projectName": "TrueOrigin Exports",
   "priority": "high",
   "requirements": [
     {
-      "id": "REQ-36",
-      "text": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
+      "id": "REQ-41",
+      "text": "Audit the centralized translations file (frontend/src/translations/translations.ts) for all three language codes (en, hi, mr) and ensure every translation value is a plain, human-readable string. Replace any raw JSON objects, escaped characters, template literal artifacts, untranslated key strings, or stringified arrays with proper readable prose or formatted text. No translation value should ever render as a technical string on screen.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Nab.get in touch is in technical txt"
+          "All the text should be in human readable format"
         ]
       },
       "acceptanceCriteria": [
-        "The 'Get In Touch' / 'Contact Us' nav item renders as readable, human-readable text in the desktop navbar.",
-        "The same nav item renders correctly in the mobile hamburger menu.",
-        "The label displays correctly in all three language modes: English, Hindi, and Marathi.",
-        "No raw translation key strings, escaped characters, or template literal artifacts are visible for this nav item."
+        "Every value in the translations object for 'en', 'hi', and 'mr' is a plain string of readable text.",
+        "No translation value contains raw JSON, escaped characters (e.g., \\n, \\\"), template literal syntax, or untranslated key names.",
+        "Switching between English, Hindi, and Marathi in the language selector renders correct readable text in all three modes."
       ]
     },
     {
-      "id": "REQ-37",
-      "text": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
+      "id": "REQ-42",
+      "text": "Audit every component that consumes the language context (NavBar, HeroSection, AboutSection, ProductsSection, QualityComplianceSection, ExportCargoSection, SocialMediaSection, ContactSection, Footer, ExportCertificationPage, PrivacyPolicyPage, TermsAndConditionsPage) and fix any location where a raw translation key, escaped character sequence, JSON fragment, or template literal artifact is being rendered as visible text instead of the resolved translation string. Each component must call the t() helper correctly and interpolate values where needed.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "After click on him Berger menu the dropdown background colour should be white and should be consistant even if the user is scrolling the backside menu"
+          "All the text should be in human readable format"
         ]
       },
       "acceptanceCriteria": [
-        "Opening the hamburger menu displays a dropdown with a solid white background.",
-        "The dropdown background remains solid white when the user scrolls the background page while the menu is open.",
-        "The dropdown does not appear transparent, semi-transparent, or change appearance based on the navbar's scroll state (transparent vs. solid).",
-        "All nav links within the dropdown remain readable against the solid white background.",
-        "Behavior is consistent across mobile viewport sizes."
+        "No component renders a raw translation key (e.g., 'hero.headline' or 'nav.contact') as visible on-screen text.",
+        "No component renders escaped characters or JSON fragments as visible text.",
+        "All headings, body paragraphs, labels, button text, list items, and alt text display as clean, readable prose in all three language modes.",
+        "The ExportCertificationPage product spec cards display all field names, values, packaging options, and documentation items as properly styled, readable text.",
+        "The PrivacyPolicyPage and TermsAndConditionsPage display all section headings, paragraphs, and list items as readable prose.",
+        "The NavBar desktop and mobile menu display all nav link labels as readable text in English, Hindi, and Marathi.",
+        "The QualityComplianceSection, HeroSection, AboutSection, ProductsSection, ExportCargoSection, SocialMediaSection, ContactSection, and Footer all display fully readable text in all language modes."
+      ]
+    },
+    {
+      "id": "REQ-43",
+      "text": "Add complete Hindi (hi) and Marathi (mr) translations for any key that currently has a missing, empty, or placeholder value in those language codes within frontend/src/translations/translations.ts. Every key present in the English (en) object must have a corresponding non-empty, human-readable value in both hi and mr, so that switching to Hindi or Marathi never causes a raw key fallback to be displayed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "All the text should be in human readable format"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Every translation key defined under 'en' also has a non-empty value under 'hi' and 'mr'.",
+        "Switching the language selector to Hindi or Marathi never causes any visible raw key string on any page or component.",
+        "The LanguageContext t() fallback to English is a safety net only and is not needed for any currently defined key."
       ]
     }
   ],
   "constraints": [
-    "Do not change any section components, backend files, or unrelated frontend files.",
-    "Do not alter the centralized translations file entries beyond fixing the key lookup for the 'Get In Touch' nav label.",
-    "The immutable paths (useInternetIdentity, useActor, main.tsx, ui components) must not be modified."
+    "Do not modify any files listed in frontend.immutablePaths.",
+    "Do not change any visual design, layout, routing, or feature logic — only fix text rendering issues.",
+    "The company name 'True Origin Company LLP' must remain untranslated in all language modes.",
+    "Contact detail values (phone number, email addresses, website URL) must remain unchanged across all languages — only their labels may be translated."
   ],
   "nonGoals": [
-    "Redesigning the navbar layout or adding new nav items.",
-    "Changing the desktop navbar scroll behavior or appearance.",
-    "Modifying any page section components (Hero, About, Products, etc.).",
-    "Updating translations for any strings other than the 'Get In Touch' nav label fix."
+    "Adding new sections, pages, or features.",
+    "Changing the color palette, typography, or layout.",
+    "Adding new languages beyond English, Hindi, and Marathi.",
+    "Modifying backend logic.",
+    "Changing routing configuration."
   ],
   "imageRequirements": {
     "required": [],

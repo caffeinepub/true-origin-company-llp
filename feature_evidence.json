@@ -1,43 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-in-the-navbar-component-locate-the-get-in-touch-contact-us-navigation-link-that-is-currently-rendering-as-raw-technical-text-e-g-a-translation-key-string-escaped-characters-or-template-literal-artifact-and-fix-it-so-it-renders-as-the-correct-human-readable-label-using-the-centralized-translations-system-the-nav-link-must-display-properly-in-both-the-desktop-nav-and-the-mobile-hamburger-menu-and-in-all-three-language-modes-english-hindi-marathi",
-      "featureTitle": "In the NavBar component, locate the 'Get In Touch' / 'Contact Us' navigation link that is currently rendering as raw technical text (e.g., a translation key string, escaped characters, or template literal artifact) and fix it so it renders as the correct human-readable label using the centralized translations system. The nav link must display properly in both the desktop nav and the mobile hamburger menu, and in all three language modes (English, Hindi, Marathi).",
-      "files": [
-        "frontend/src/App.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
-      ],
-      "testIds": [
-        "REQ-36"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-in-the-navbar-component-fix-the-mobile-hamburger-menu-dropdown-so-that-its-background-is-always-solid-white-ffffff-regardless-of-the-user-s-scroll-position-on-the-underlying-page-the-dropdown-panel-must-not-be-transparent-semi-transparent-or-inherit-the-page-scroll-state-this-must-remain-consistent-even-if-the-user-scrolls-the-background-content-while-the-mobile-menu-is-open-the-dropdown-background-stays-solid-white",
-      "featureTitle": "In the NavBar component, fix the mobile hamburger menu dropdown so that its background is always solid white (#FFFFFF) regardless of the user's scroll position on the underlying page. The dropdown panel must not be transparent, semi-transparent, or inherit the page scroll state. This must remain consistent: even if the user scrolls the background content while the mobile menu is open, the dropdown background stays solid white.",
-      "files": [
-        "frontend/src/App.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0"
-      ],
-      "testIds": [
-        "REQ-37"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }
