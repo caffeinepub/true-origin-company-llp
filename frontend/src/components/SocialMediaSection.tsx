@@ -1,22 +1,18 @@
 import { Play } from 'lucide-react';
 import { SiInstagram, SiLinkedin, SiYoutube, SiFacebook } from 'react-icons/si';
+import { useLanguage } from '../contexts/LanguageContext';
+import type { TranslationKeys } from '../translations/translations';
 
-const placeholderVideos = [
-  {
-    id: 1,
-    title: 'Farm to Export — Our Process',
-    description: 'A behind-the-scenes look at how we source, process, and pack our moringa products for global export.',
-  },
-  {
-    id: 2,
-    title: 'Moringa Harvest Season',
-    description: 'Watch our farmers hand-pick fresh moringa leaves at peak nutritional value from our partner farms.',
-  },
-  {
-    id: 3,
-    title: 'Quality & Packaging Standards',
-    description: 'See how we ensure every batch meets international food safety and export compliance standards.',
-  },
+type VideoDef = {
+  id: number;
+  titleKey: TranslationKeys;
+  descKey: TranslationKeys;
+};
+
+const videoDefs: VideoDef[] = [
+  { id: 1, titleKey: 'social.v1.title', descKey: 'social.v1.desc' },
+  { id: 2, titleKey: 'social.v2.title', descKey: 'social.v2.desc' },
+  { id: 3, titleKey: 'social.v3.title', descKey: 'social.v3.desc' },
 ];
 
 const socialLinks = [
@@ -51,6 +47,8 @@ const socialLinks = [
 ];
 
 export default function SocialMediaSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="social" className="py-24 bg-parchment">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -59,16 +57,15 @@ export default function SocialMediaSection() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="h-px w-10 bg-moss" />
             <span className="text-xs font-medium tracking-widest uppercase text-moss">
-              Stay Connected
+              {t('social.label')}
             </span>
             <span className="h-px w-10 bg-moss" />
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-4">
-            Follow Our Journey
+            {t('social.heading')}
           </h2>
           <p className="text-forest/65 text-lg max-w-2xl mx-auto leading-relaxed">
-            We're building our social presence to share farm stories, product updates, and
-            export milestones. Stay tuned — exciting content is coming soon!
+            {t('social.subheading')}
           </p>
         </div>
 
@@ -78,12 +75,12 @@ export default function SocialMediaSection() {
             <div
               key={social.name}
               className={`flex items-center gap-3 px-6 py-3.5 rounded-2xl border ${social.bg} ${social.border} opacity-60 cursor-not-allowed select-none`}
-              title={`${social.name} — Coming Soon`}
+              title={`${social.name} — ${t('social.comingSoon')}`}
             >
               <social.icon className={`w-5 h-5 ${social.color}`} />
               <span className="text-sm font-medium text-forest/60">{social.name}</span>
               <span className="text-[10px] font-medium tracking-widest uppercase text-forest/40 bg-forest/10 px-2 py-0.5 rounded-full">
-                Soon
+                {t('social.comingSoon')}
               </span>
             </div>
           ))}
@@ -91,7 +88,7 @@ export default function SocialMediaSection() {
 
         {/* Video Placeholder Cards */}
         <div className="grid md:grid-cols-3 gap-7">
-          {placeholderVideos.map((video) => (
+          {videoDefs.map((video) => (
             <div
               key={video.id}
               className="group bg-cream rounded-3xl overflow-hidden border border-sage/20 hover:border-moss/30 hover:shadow-card transition-all duration-300"
@@ -110,7 +107,7 @@ export default function SocialMediaSection() {
                     <Play className="w-6 h-6 text-forest/60 ml-0.5" />
                   </div>
                   <span className="text-xs font-medium tracking-widest uppercase text-forest/40 bg-cream/70 px-3 py-1 rounded-full backdrop-blur-sm">
-                    Coming Soon
+                    {t('social.comingSoon')}
                   </span>
                 </div>
               </div>
@@ -118,9 +115,9 @@ export default function SocialMediaSection() {
               {/* Card Content */}
               <div className="p-5">
                 <h3 className="font-display text-base font-semibold text-forest mb-1.5">
-                  {video.title}
+                  {t(video.titleKey)}
                 </h3>
-                <p className="text-forest/55 text-sm leading-relaxed">{video.description}</p>
+                <p className="text-forest/55 text-sm leading-relaxed">{t(video.descKey)}</p>
               </div>
             </div>
           ))}
@@ -128,7 +125,7 @@ export default function SocialMediaSection() {
 
         {/* Bottom note */}
         <p className="text-center text-forest/40 text-sm mt-10">
-          Social media links will be activated soon. Check back for updates!
+          {t('social.bottomNote')}
         </p>
       </div>
     </section>

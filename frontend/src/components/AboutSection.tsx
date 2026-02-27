@@ -1,27 +1,27 @@
 import { ShieldCheck, Sprout, Truck } from 'lucide-react';
-
-const values = [
-  {
-    icon: Sprout,
-    title: 'Farm-Fresh Quality',
-    description:
-      'We source directly from trusted farms, ensuring every product retains its natural goodness and nutritional value.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Purity Guaranteed',
-    description:
-      'Rigorous quality checks at every stage — from harvest to packaging — so you receive only the finest produce.',
-  },
-  {
-    icon: Truck,
-    title: 'Reliable Supply Chain',
-    description:
-      'Our robust logistics network ensures timely delivery of both perishable and non-perishable goods, fresh every time.',
-  },
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+
+  const values = [
+    {
+      icon: Sprout,
+      titleKey: 'about.value1.title' as const,
+      descKey: 'about.value1.desc' as const,
+    },
+    {
+      icon: ShieldCheck,
+      titleKey: 'about.value2.title' as const,
+      descKey: 'about.value2.desc' as const,
+    },
+    {
+      icon: Truck,
+      titleKey: 'about.value3.title' as const,
+      descKey: 'about.value3.desc' as const,
+    },
+  ];
+
   return (
     <section id="about" className="py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -29,7 +29,7 @@ export default function AboutSection() {
         <div className="flex items-center gap-3 mb-4">
           <span className="h-px w-10 bg-moss" />
           <span className="text-xs font-medium tracking-widest uppercase text-moss">
-            Who We Are
+            {t('about.label')}
           </span>
         </div>
 
@@ -37,36 +37,30 @@ export default function AboutSection() {
           {/* Text Content */}
           <div>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-forest leading-tight mb-6">
-              Rooted in Nature,
+              {t('about.heading1')}
               <br />
-              <span className="text-moss">Driven by Quality</span>
+              <span className="text-moss">{t('about.heading2')}</span>
             </h2>
             <p className="text-forest/70 text-lg leading-relaxed mb-5">
-              <strong className="text-forest font-semibold">True Origin Company LLP</strong> is a
-              dedicated food products company specialising in both{' '}
-              <em>perishable</em> and <em>non-perishable</em> food products. We believe that
-              what you eat should come from the most authentic, natural sources possible.
+              {t('about.para1')}
             </p>
             <p className="text-forest/70 leading-relaxed mb-8">
-              From the lush green fields of moringa farms to carefully processed powders and
-              dried leaves, our products carry the essence of nature's best. We work closely
-              with farmers, maintain strict quality standards, and deliver products that
-              nourish and sustain.
+              {t('about.para2')}
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-sage/30">
               {[
-                { value: '100%', label: 'Natural' },
-                { value: '5+', label: 'Products' },
-                { value: 'Global', label: 'Reach' },
+                { value: '100%', labelKey: 'about.stat.natural' as const },
+                { value: '5+', labelKey: 'about.stat.products' as const },
+                { value: '🌍', labelKey: 'about.stat.reach' as const },
               ].map((stat) => (
-                <div key={stat.label} className="text-center">
+                <div key={stat.labelKey} className="text-center">
                   <div className="font-display text-3xl font-bold text-forest mb-1">
                     {stat.value}
                   </div>
                   <div className="text-xs text-moss font-medium tracking-wide uppercase">
-                    {stat.label}
+                    {t(stat.labelKey)}
                   </div>
                 </div>
               ))}
@@ -77,7 +71,7 @@ export default function AboutSection() {
           <div className="flex flex-col gap-5">
             {values.map((val) => (
               <div
-                key={val.title}
+                key={val.titleKey}
                 className="flex gap-5 p-6 bg-parchment rounded-2xl border border-sage/20 hover:border-moss/40 hover:shadow-card transition-all group"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-forest/10 flex items-center justify-center group-hover:bg-forest/15 transition-colors">
@@ -85,9 +79,9 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-forest mb-1.5">
-                    {val.title}
+                    {t(val.titleKey)}
                   </h3>
-                  <p className="text-forest/65 text-sm leading-relaxed">{val.description}</p>
+                  <p className="text-forest/65 text-sm leading-relaxed">{t(val.descKey)}</p>
                 </div>
               </div>
             ))}

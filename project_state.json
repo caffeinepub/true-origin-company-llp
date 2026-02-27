@@ -1,15 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
-  "summary": "Website for True Origin Company LLP, a food products company dealing in perishable and non-perishable food products. The site showcases moringa powder, moringa leaf, and farm imagery. Real contact details (phone: 9773303026, email: trueorigin@gmail.com) are included. The site positions the company as professional exporters with export/cargo imagery. A social media video section placeholder is present, with plans to add Instagram, LinkedIn, YouTube, and Facebook links later.",
+  "projectStateVersion": 15,
+  "summary": "Website for True Origin Company LLP, a food products company dealing in perishable and non-perishable food products. The site showcases moringa powder, moringa leaf, moringa farm, curry leaves farm, okra farm, and farm imagery. Contact emails updated to info@trueoriginexports.com and sales@trueoriginexports.com (replacing trueorigin@gmail.com). Phone: 9773303026. The site positions the company as professional exporters with export/cargo imagery. A social media video section placeholder is present, with plans to add Instagram, LinkedIn, YouTube, and Facebook links later. The company logo is displayed in the navigation bar. Multi-language support is implemented with a language selector in the top-right corner. The company website URL www.trueoriginintl.com is included. SSL is to be enabled. New pages to be added: Privacy Policy, Terms and Conditions, and a detailed Export Certification/Quality Control/Product Specifications page.",
   "architectural_notes": [
     "Static/marketing website for a food products company (perishable and non-perishable goods)",
-    "Real contact details: phone 9773303026, email trueorigin@gmail.com",
-    "Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added when URLs are provided"
+    "Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added when URLs are provided",
+    "Multi-language support required: all content translatable by user preference except company name 'True Origin Company LLP'; language selector in top-right corner of header",
+    "Contact emails updated to info@trueoriginexports.com and sales@trueoriginexports.com; SSL to be enabled",
+    "New static pages required: Privacy Policy, Terms & Conditions, Export Certification/Quality Control/Product Specifications"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Edit Images\n- Crop to remove the white background, keeping only the globe-and-leaf emblem with 'TrueOrigin EXPORTS' text on a transparent background (IMG_5015.jpeg > logo.dim_400x300.png)",
   "existing_features": [
     {
       "id": "feature-create-a-multi-section-landing-page-for-true-origin-company-llp-including-a-hero-section-with-company-name-and-tagline-an-about-us-section-describing-the-business-dealing-in-perishable-and-non-perishable-food-products-a-products-section-showcasing-key-offerings-and-a-contact-section-with-placeholder-contact-details",
@@ -90,6 +91,86 @@
         "REQ-10"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-create-a-language-selection-context-provider-that-stores-the-user-s-chosen-language-and-exposes-a-translation-function-support-at-least-english-hindi-and-one-additional-regionally-relevant-language-e-g-marathi-or-gujarati-all-translatable-strings-across-the-site-must-be-defined-in-a-centralized-translations-file-keyed-by-language-code-the-company-name-true-origin-company-llp-must-never-be-translated-and-must-remain-in-english-in-all-language-modes",
+      "title": "Create a language selection context/provider that stores the user's chosen language and exposes a translation function. Support at least English, Hindi, and one additional regionally relevant language (e.g., Marathi or Gujarati). All translatable strings across the site must be defined in a centralized translations file keyed by language code. The company name 'True Origin Company LLP' must never be translated and must remain in English in all language modes.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-language-selector-ui-control-to-the-right-hand-side-of-the-navigation-bar-the-control-should-display-the-currently-selected-language-e-g-en-hi-and-open-a-dropdown-listing-the-available-languages-selecting-a-language-immediately-applies-the-translation-site-wide-the-control-must-be-visible-and-functional-in-both-the-transparent-top-of-page-and-solid-scrolled-nav-states-and-must-also-be-accessible-in-the-mobile-nav-menu",
+      "title": "Add a language selector UI control to the right-hand side of the navigation bar. The control should display the currently selected language (e.g., 'EN', 'HI') and open a dropdown listing the available languages. Selecting a language immediately applies the translation site-wide. The control must be visible and functional in both the transparent (top of page) and solid (scrolled) nav states, and must also be accessible in the mobile nav menu.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-translate-all-user-facing-text-in-every-section-and-component-herosection-aboutsection-productssection-exportcargosection-socialmediasection-contactsection-footer-and-nav-links-using-the-centralized-translations-system-each-component-must-consume-the-language-context-to-render-its-strings-static-image-alt-text-should-also-be-translated-where-applicable",
+      "title": "Translate all user-facing text in every section and component — HeroSection, AboutSection, ProductsSection, ExportCargoSection, SocialMediaSection, ContactSection, Footer, and nav links — using the centralized translations system. Each component must consume the language context to render its strings. Static image alt text should also be translated where applicable.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-company-website-url-www-trueoriginintl-com-as-a-clickable-hyperlink-href-https-www-trueoriginintl-com-in-the-footer-component-alongside-the-existing-contact-details-phone-and-email-also-display-it-in-the-contactsection-s-contact-info-panel-the-url-must-be-translated-as-a-label-e-g-website-using-the-centralized-translations-system-for-english-hindi-and-marathi-while-the-url-value-itself-remains-unchanged-across-all-languages",
+      "title": "Add the company website URL 'www.trueoriginintl.com' as a clickable hyperlink (href='https://www.trueoriginintl.com') in the Footer component alongside the existing contact details (phone and email). Also display it in the ContactSection's contact info panel. The URL must be translated as a label (e.g., 'Website:') using the centralized translations system for English, Hindi, and Marathi, while the URL value itself remains unchanged across all languages.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-three-new-farm-product-images-moringa-farm-curry-leaves-farm-and-okra-farm-as-static-assets-at-frontend-public-assets-generated-filenames-moringa-farm-png-curry-leaves-farm-png-okra-farm-png-display-these-images-on-the-website-either-within-the-products-section-as-contextual-farm-imagery-for-the-respective-products-or-in-a-dedicated-our-farms-visual-subsection-all-image-alt-text-must-use-the-centralized-translations-system",
+      "title": "Add three new farm/product images — moringa farm, curry leaves farm, and okra farm — as static assets at frontend/public/assets/generated/ (filenames: moringa-farm.png, curry-leaves-farm.png, okra-farm.png). Display these images on the website, either within the Products section as contextual farm imagery for the respective products or in a dedicated 'Our Farms' visual subsection. All image alt text must use the centralized translations system.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contactsection-component-and-footer-component-to-replace-the-existing-email-address-es-with-two-email-addresses-info-trueoriginexports-com-and-sales-trueoriginexports-com-both-emails-must-be-displayed-as-clickable-mailto-links-the-email-label-and-these-two-addresses-must-also-be-added-to-the-centralized-translations-file-for-english-hindi-and-marathi-the-address-values-themselves-must-remain-unchanged-across-languages",
+      "title": "Update the ContactSection component and Footer component to replace the existing email address(es) with two email addresses: info@trueoriginexports.com and sales@trueoriginexports.com. Both emails must be displayed as clickable mailto: links. The email label and these two addresses must also be added to the centralized translations file for English, Hindi, and Marathi (the address values themselves must remain unchanged across languages).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-privacy-policy-page-as-a-new-react-route-component-e-g-privacy-policy-the-page-must-follow-the-existing-earthy-green-and-warm-cream-visual-theme-include-the-site-navigation-bar-and-footer-and-contain-comprehensive-privacy-policy-content-covering-data-collection-practices-use-of-personal-information-cookies-policy-third-party-services-user-rights-contact-information-for-privacy-inquiries-info-trueoriginexports-com-and-the-effective-date-all-user-facing-text-must-be-integrated-with-the-centralized-translations-system-for-english-hindi-and-marathi-add-a-link-to-the-privacy-policy-page-in-the-footer",
+      "title": "Create a Privacy Policy page as a new React route/component (e.g., /privacy-policy). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive privacy policy content covering: data collection practices, use of personal information, cookies policy, third-party services, user rights, contact information for privacy inquiries (info@trueoriginexports.com), and the effective date. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Privacy Policy page in the footer.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-terms-and-conditions-page-as-a-new-react-route-component-e-g-terms-and-conditions-the-page-must-follow-the-existing-earthy-green-and-warm-cream-visual-theme-include-the-site-navigation-bar-and-footer-and-contain-comprehensive-terms-and-conditions-content-covering-acceptance-of-terms-use-of-the-website-intellectual-property-product-information-disclaimer-limitation-of-liability-governing-law-dispute-resolution-and-contact-information-info-trueoriginexports-com-all-user-facing-text-must-be-integrated-with-the-centralized-translations-system-for-english-hindi-and-marathi-add-a-link-to-the-terms-and-conditions-page-in-the-footer",
+      "title": "Create a Terms and Conditions page as a new React route/component (e.g., /terms-and-conditions). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive terms and conditions content covering: acceptance of terms, use of the website, intellectual property, product information disclaimer, limitation of liability, governing law, dispute resolution, and contact information (info@trueoriginexports.com). All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Terms and Conditions page in the footer.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-export-certification-quality-control-product-specifications-page-as-a-new-react-route-component-e-g-export-certification-the-page-must-follow-the-existing-earthy-green-and-warm-cream-visual-theme-include-the-site-navigation-bar-and-footer-and-contain-detailed-content-organized-into-three-sections-1-export-certifications-covering-types-of-certifications-obtained-or-pursued-e-g-apeda-fssai-phytosanitary-certificate-certificate-of-origin-haccp-their-purpose-and-how-they-assure-buyers-2-quality-control-covering-sourcing-standards-inspection-processes-packaging-and-storage-protocols-and-traceability-3-product-specifications-detailed-spec-tables-or-cards-for-each-product-moringa-powder-moringa-leaf-dried-curry-leaves-okra-lady-finger-including-scientific-name-form-color-moisture-content-packaging-options-shelf-life-and-available-grades-all-user-facing-text-must-be-integrated-with-the-centralized-translations-system-for-english-hindi-and-marathi-add-a-link-to-this-page-in-the-footer-and-optionally-in-the-navigation-bar",
+      "title": "Create an Export Certification, Quality Control & Product Specifications page as a new React route/component (e.g., /export-certification). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain detailed content organized into three sections: (1) Export Certifications — covering types of certifications obtained or pursued (e.g., APEDA, FSSAI, Phytosanitary Certificate, Certificate of Origin, HACCP), their purpose, and how they assure buyers; (2) Quality Control — covering sourcing standards, inspection processes, packaging and storage protocols, and traceability; (3) Product Specifications — detailed spec tables or cards for each product (Moringa Powder, Moringa Leaf/Dried, Curry Leaves, Okra/Lady Finger) including scientific name, form, color, moisture content, packaging options, shelf life, and available grades. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to this page in the footer and optionally in the navigation bar.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-set-up-client-side-routing-e-g-using-react-router-in-the-application-to-support-the-new-pages-privacy-policy-privacy-policy-terms-and-conditions-terms-and-conditions-and-export-certification-export-certification-the-main-landing-page-must-remain-the-default-route-the-navigation-bar-and-footer-links-to-these-pages-must-use-the-router-s-link-component-for-in-app-navigation-without-full-page-reloads",
+      "title": "Set up client-side routing (e.g., using React Router) in the application to support the new pages: Privacy Policy (/privacy-policy), Terms and Conditions (/terms-and-conditions), and Export Certification (/export-certification). The main landing page must remain the default route (/). The navigation bar and footer links to these pages must use the router's Link component for in-app navigation without full page reloads.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -150,6 +231,54 @@
     {
       "id": "AR-10",
       "summary": "Add the company logo to the website (navigation bar or header)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add multi-language support: translate all website content based on user language preference, keeping the company name unchanged. Place a language selection option in the top-right corner of the first page/header.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add the company website URL www.trueoriginintl.com to the site (e.g., in the footer or contact section)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add moringa, curry leaves, and okra farm images to the website",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Update contact emails to info@trueoriginexports.com and sales@trueoriginexports.com in the Contact section (replacing trueorigin@gmail.com)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Enable SSL for the website",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Add a Privacy Policy page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Add a Terms and Conditions page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Add a detailed page covering basic export certification, quality control, and product specifications",
       "reqIds": [],
       "status": "pending"
     }

@@ -1,15 +1,37 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T20:02:21.572Z",
-  "summary": "The diff implements REQ-10 across the navigation bar (App.tsx) and footer (Footer.tsx). The logo is displayed on the left side of the nav, sized at h-12 (~48px), with brightness/invert handling for both transparent and scrolled states. Clicking the logo scrolls to #home. The footer also includes the logo image. The image source used is '/assets/generated/logo.dim_400x300.png', which matches the processed image filename from the build request. All acceptance criteria appear to be addressed.",
-  "missing_requirements": [],
+  "generatedAt": "2026-02-27T21:04:59.330Z",
+  "summary": "The diff implements all five requirements (REQ-16 through REQ-20) with good coverage. New pages for Privacy Policy, Terms & Conditions, and Export Certification are created; routing via @tanstack/react-router is set up; email addresses are updated in ContactSection and Footer; translations are added to the centralized file. A few minor gaps exist: the PrivacyPolicyPage and TermsAndConditionsPage contain hardcoded English strings not sourced from the translations file, and the layout wrapper behavior for sub-routes is unclear from the truncated diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-17",
+      "requirement": "All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi.",
+      "reason": "PrivacyPolicyPage.tsx contains hardcoded English strings such as 'Back to Home' and 'Questions about this policy? Contact us at:' that are not sourced from the centralized translations file.",
+      "evidence": [
+        "frontend/src/components/PrivacyPolicyPage.tsx"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "requirement": "All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi.",
+      "reason": "TermsAndConditionsPage.tsx contains hardcoded English strings such as 'Back to Home' and 'Questions about these terms? Contact us at:' that are not sourced from the centralized translations file.",
+      "evidence": [
+        "frontend/src/components/TermsAndConditionsPage.tsx"
+      ]
+    }
+  ],
   "hallucinated_features": [],
-  "confidence": 0.92,
+  "confidence": 0.75,
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/App.tsx",
+    "frontend/src/components/ContactSection.tsx",
+    "frontend/src/components/ExportCertificationPage.tsx",
     "frontend/src/components/Footer.tsx",
+    "frontend/src/components/PrivacyPolicyPage.tsx",
+    "frontend/src/components/TermsAndConditionsPage.tsx",
+    "frontend/src/translations/translations.ts",
     "project_state.json"
   ]
 }

@@ -1,43 +1,137 @@
 {
   "kind": "build_request",
-  "title": "Add company logo to navigation bar and footer",
-  "projectName": "True Origin Company LLP",
+  "title": "Update contact emails, add Privacy Policy, Terms & Conditions, and Export Certification pages",
+  "projectName": "True Origin Exports",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-10",
-      "text": "Add the uploaded True Origin Exports logo (to be saved as frontend/public/assets/generated/logo.png) to the navigation bar. Display it on the left side of the nav, replacing or accompanying the current text-based brand name. The logo should be appropriately sized for a navigation bar (height ~40–48px) and must be visible against the nav background on both scroll states (transparent and solid).",
+      "id": "REQ-16",
+      "text": "Update the ContactSection component and Footer component to replace the existing email address(es) with two email addresses: info@trueoriginexports.com and sales@trueoriginexports.com. Both emails must be displayed as clickable mailto: links. The email label and these two addresses must also be added to the centralized translations file for English, Hindi, and Marathi (the address values themselves must remain unchanged across languages).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Add the logo to the website"
+          "info@trueoriginexports.com",
+          "sales@trueoriginexports.com",
+          "Use the above for email address in contact us option."
         ]
       },
       "acceptanceCriteria": [
-        "The True Origin Exports logo image is displayed in the navigation bar on the left side",
-        "The logo is sized appropriately for the nav bar (approx. 40–48px tall)",
-        "The logo is visible in both the transparent (top of page) and solid (scrolled) nav states",
-        "The logo also appears in the site footer alongside the brand information",
-        "Clicking the logo scrolls back to the top / home section"
+        "ContactSection info panel displays both info@trueoriginexports.com and sales@trueoriginexports.com as clickable mailto: links.",
+        "Footer contact details display both email addresses as clickable mailto: links.",
+        "No legacy email address (trueorigin@gmail.com or any placeholder) remains visible anywhere on the site.",
+        "Email label is translated via the centralized translations system in all three languages (EN, HI, MR).",
+        "Email address values are identical across all language modes."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Create a Privacy Policy page as a new React route/component (e.g., /privacy-policy). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive privacy policy content covering: data collection practices, use of personal information, cookies policy, third-party services, user rights, contact information for privacy inquiries (info@trueoriginexports.com), and the effective date. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Privacy Policy page in the footer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the following page privacy policy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A Privacy Policy page is accessible at a dedicated route (e.g., /privacy-policy).",
+        "The page renders within the existing site layout (nav bar + footer).",
+        "Page content covers data collection, use of information, cookies, third-party services, user rights, privacy contact email, and effective date.",
+        "All text strings are sourced from the centralized translations file and render correctly in EN, HI, and MR.",
+        "A 'Privacy Policy' link in the footer navigates to this page.",
+        "Page styling is consistent with the site's earthy-green and warm-cream theme."
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Create a Terms and Conditions page as a new React route/component (e.g., /terms-and-conditions). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain comprehensive terms and conditions content covering: acceptance of terms, use of the website, intellectual property, product information disclaimer, limitation of liability, governing law, dispute resolution, and contact information (info@trueoriginexports.com). All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to the Terms and Conditions page in the footer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Terms and condition"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A Terms and Conditions page is accessible at a dedicated route (e.g., /terms-and-conditions).",
+        "The page renders within the existing site layout (nav bar + footer).",
+        "Page content covers acceptance of terms, website usage, intellectual property, product disclaimer, liability limitation, governing law, dispute resolution, and contact details.",
+        "All text strings are sourced from the centralized translations file and render correctly in EN, HI, and MR.",
+        "A 'Terms & Conditions' link in the footer navigates to this page.",
+        "Page styling is consistent with the site's earthy-green and warm-cream theme."
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Create an Export Certification, Quality Control & Product Specifications page as a new React route/component (e.g., /export-certification). The page must follow the existing earthy-green and warm-cream visual theme, include the site navigation bar and footer, and contain detailed content organized into three sections: (1) Export Certifications — covering types of certifications obtained or pursued (e.g., APEDA, FSSAI, Phytosanitary Certificate, Certificate of Origin, HACCP), their purpose, and how they assure buyers; (2) Quality Control — covering sourcing standards, inspection processes, packaging and storage protocols, and traceability; (3) Product Specifications — detailed spec tables or cards for each product (Moringa Powder, Moringa Leaf/Dried, Curry Leaves, Okra/Lady Finger) including scientific name, form, color, moisture content, packaging options, shelf life, and available grades. All user-facing text must be integrated with the centralized translations system for English, Hindi, and Marathi. Add a link to this page in the footer and optionally in the navigation bar.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Basic export certification, quality control and product with detailed specification"
+        ]
+      },
+      "acceptanceCriteria": [
+        "An Export Certification, Quality Control & Product Specifications page is accessible at a dedicated route (e.g., /export-certification).",
+        "The page renders within the existing site layout (nav bar + footer).",
+        "The page is organized into three clearly labeled sections: Export Certifications, Quality Control, and Product Specifications.",
+        "Product Specifications section includes detailed spec information (scientific name, form, color, moisture, packaging, shelf life, grade) for at least Moringa Powder, Moringa Leaf, Curry Leaves, and Okra.",
+        "Export Certifications section mentions at least APEDA, FSSAI, Phytosanitary Certificate, and Certificate of Origin.",
+        "All text strings are sourced from the centralized translations file and render correctly in EN, HI, and MR.",
+        "A link to this page appears in the footer.",
+        "Page styling is consistent with the site's earthy-green and warm-cream theme."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Set up client-side routing (e.g., using React Router) in the application to support the new pages: Privacy Policy (/privacy-policy), Terms and Conditions (/terms-and-conditions), and Export Certification (/export-certification). The main landing page must remain the default route (/). The navigation bar and footer links to these pages must use the router's Link component for in-app navigation without full page reloads.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the following page privacy policy",
+          "Terms and condition",
+          "Basic export certification, quality control and product with detailed specification"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigating to /privacy-policy renders the Privacy Policy page without a full page reload.",
+        "Navigating to /terms-and-conditions renders the Terms and Conditions page without a full page reload.",
+        "Navigating to /export-certification renders the Export Certification page without a full page reload.",
+        "The root route (/) renders the main landing page as before.",
+        "All internal links to these new pages use client-side routing (no full page reloads).",
+        "The back button in the browser navigates correctly between pages."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui",
-    "Logo image must be served as a static asset from frontend/public/assets/generated/"
+    "Company name 'True Origin Company LLP' must never be translated and must remain in English across all language modes.",
+    "Do not change the backend schema or add any backend functionality.",
+    "All new page text must be added to the centralized translations file (frontend/src/translations/translations.ts) and not hardcoded in components.",
+    "Immutable frontend paths (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui) must not be modified.",
+    "Email address values (info@trueoriginexports.com, sales@trueoriginexports.com) must remain identical in all language modes.",
+    "New pages must use the existing earthy-green and warm-cream visual theme and typography system."
   ],
   "nonGoals": [
-    "Redesigning the navigation bar layout beyond adding the logo",
-    "Changing the existing color theme or typography",
-    "Adding new page sections"
+    "No server-side SSL configuration — SSL is handled at the platform/deployment level, not in the application code.",
+    "No backend data storage for policy pages — all content is static and rendered from the frontend.",
+    "No CMS or admin interface for editing policy or specification content.",
+    "No new product images are required for the new pages.",
+    "No changes to existing sections (Hero, About, Products, Export, Social Media) other than the email update in Contact and Footer."
   ],
   "imageRequirements": {
     "required": [],
-    "edits": [
-      "Crop to remove the white background, keeping only the globe-and-leaf emblem with 'TrueOrigin EXPORTS' text on a transparent background (IMG_5015.jpeg > logo.dim_400x300.png)"
-    ]
+    "edits": []
   }
 }

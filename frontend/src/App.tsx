@@ -1,4 +1,13 @@
 import { useState, useEffect } from 'react';
+import {
+  createRootRoute,
+  createRoute,
+  createRouter,
+  RouterProvider,
+  Outlet,
+  useNavigate,
+  useRouterState,
+} from '@tanstack/react-router';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ExportCargoSection from './components/ExportCargoSection';
@@ -6,11 +15,20 @@ import ProductsSection from './components/ProductsSection';
 import SocialMediaSection from './components/SocialMediaSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import LanguageSelector from './components/LanguageSelector';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import TermsAndConditionsPage from './components/TermsAndConditionsPage';
+import ExportCertificationPage from './components/ExportCertificationPage';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 
-export default function App() {
+function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
+  const navigate = useNavigate();
+  const routerState = useRouterState();
+  const isHome = routerState.location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -18,80 +36,91 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // On non-home pages, always show scrolled style
+  const showScrolled = scrolled || !isHome;
+
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Products', href: '#products' },
-    { label: 'Exports', href: '#exports' },
-    { label: 'Contact', href: '#contact' },
+    { key: 'nav.home' as const, href: '#home' },
+    { key: 'nav.about' as const, href: '#about' },
+    { key: 'nav.products' as const, href: '#products' },
+    { key: 'nav.exports' as const, href: '#exports' },
+    { key: 'nav.contact' as const, href: '#contact' },
   ];
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!isHome) {
+      navigate({ to: '/' }).then(() => {
+        setTimeout(() => {
+          const el = document.querySelector(href);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      });
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div className="min-h-screen bg-cream font-body text-forest">
-      {/* Navigation */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-cream/95 backdrop-blur-md shadow-nav border-b border-sage/20'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between h-18 py-3">
-            {/* Logo */}
-            <button
-              onClick={() => handleNavClick('#home')}
-              className="flex items-center group"
-              aria-label="True Origin Exports – scroll to top"
-            >
-              <img
-                src="/assets/generated/logo.dim_400x300.png"
-                alt="True Origin Exports"
-                className={`h-12 w-auto object-contain transition-all duration-300 ${
-                  scrolled ? 'brightness-100' : 'brightness-0 invert'
-                }`}
-              />
-            </button>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        showScrolled
+          ? 'bg-cream/95 backdrop-blur-md shadow-nav border-b border-sage/20'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="flex items-center justify-between h-18 py-3">
+          {/* Logo */}
+          <button
+            onClick={() => handleNavClick('#home')}
+            className="flex items-center group"
+            aria-label="True Origin Exports – scroll to top"
+          >
+            <img
+              src="/assets/generated/logo.dim_400x300.png"
+              alt="True Origin Exports"
+              className={`h-12 w-auto object-contain transition-all duration-300 ${
+                showScrolled ? 'brightness-100' : 'brightness-0 invert'
+              }`}
+            />
+          </button>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className={`text-sm font-medium transition-colors relative group ${
-                    scrolled
-                      ? 'text-forest/80 hover:text-forest'
-                      : 'text-cream/90 hover:text-cream'
-                  }`}
-                >
-                  {link.label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-moss group-hover:w-full transition-all duration-300 rounded-full" />
-                </button>
-              ))}
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
               <button
-                onClick={() => handleNavClick('#contact')}
-                className={`px-5 py-2 text-sm font-medium rounded-full transition-colors shadow-sm ${
-                  scrolled
-                    ? 'bg-forest text-cream hover:bg-moss'
-                    : 'bg-cream/20 text-cream border border-cream/40 hover:bg-cream/30'
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`text-sm font-medium transition-colors relative group ${
+                  showScrolled
+                    ? 'text-forest/80 hover:text-forest'
+                    : 'text-cream/90 hover:text-cream'
                 }`}
               >
-                Get in Touch
+                {t(link.key)}
+                <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-moss group-hover:w-full transition-all duration-300 rounded-full" />
               </button>
-            </nav>
-
-            {/* Mobile Menu Toggle */}
+            ))}
             <button
-              className={`md:hidden p-2 transition-colors ${
-                scrolled ? 'text-forest' : 'text-cream'
+              onClick={() => handleNavClick('#contact')}
+              className={`px-5 py-2 text-sm font-medium rounded-full transition-colors shadow-sm ${
+                showScrolled
+                  ? 'bg-forest text-cream hover:bg-moss'
+                  : 'bg-cream/20 text-cream border border-cream/40 hover:bg-cream/30'
               }`}
+            >
+              {t('nav.getInTouch')}
+            </button>
+            <LanguageSelector isScrolled={showScrolled} />
+          </nav>
+
+          {/* Mobile: Language Selector + Menu Toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector isScrolled={showScrolled} />
+            <button
+              className={`p-2 transition-colors ${showScrolled ? 'text-forest' : 'text-cream'}`}
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
@@ -99,39 +128,101 @@ export default function App() {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="md:hidden bg-cream/98 backdrop-blur-md border-t border-sage/20 px-6 py-4 flex flex-col gap-4 shadow-lg">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-left text-base font-medium text-forest/80 hover:text-forest py-1 transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-cream/98 backdrop-blur-md border-t border-sage/20 px-6 py-4 flex flex-col gap-4 shadow-lg">
+          {navLinks.map((link) => (
             <button
-              onClick={() => handleNavClick('#contact')}
-              className="mt-2 px-5 py-2.5 bg-forest text-cream text-sm font-medium rounded-full hover:bg-moss transition-colors text-center"
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className="text-left text-base font-medium text-forest/80 hover:text-forest py-1 transition-colors"
             >
-              Get in Touch
+              {t(link.key)}
             </button>
-          </div>
-        )}
-      </header>
-
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ExportCargoSection />
-        <ProductsSection />
-        <SocialMediaSection />
-        <ContactSection />
-      </main>
-
-      <Footer />
-    </div>
+          ))}
+          <button
+            onClick={() => handleNavClick('#contact')}
+            className="mt-2 px-5 py-2.5 bg-forest text-cream text-sm font-medium rounded-full hover:bg-moss transition-colors text-center"
+          >
+            {t('nav.getInTouch')}
+          </button>
+        </div>
+      )}
+    </header>
   );
+}
+
+function Layout() {
+  return (
+    <LanguageProvider>
+      <div className="min-h-screen bg-cream font-body text-forest">
+        <NavBar />
+        <Outlet />
+        <Footer />
+      </div>
+    </LanguageProvider>
+  );
+}
+
+function HomePage() {
+  return (
+    <main>
+      <HeroSection />
+      <AboutSection />
+      <ExportCargoSection />
+      <ProductsSection />
+      <SocialMediaSection />
+      <ContactSection />
+    </main>
+  );
+}
+
+// Routes
+const rootRoute = createRootRoute({
+  component: Layout,
+});
+
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: HomePage,
+});
+
+const privacyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/privacy-policy',
+  component: PrivacyPolicyPage,
+});
+
+const termsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/terms-and-conditions',
+  component: TermsAndConditionsPage,
+});
+
+const exportCertRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/export-certification',
+  component: ExportCertificationPage,
+});
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  privacyRoute,
+  termsRoute,
+  exportCertRoute,
+]);
+
+const router = createRouter({ routeTree });
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }

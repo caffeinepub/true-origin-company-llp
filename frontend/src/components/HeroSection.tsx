@@ -1,6 +1,9 @@
 import { ArrowDown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   const handleScroll = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -33,10 +36,10 @@ export default function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream/15 border border-cream/30 text-cream/90 text-xs font-medium tracking-widest uppercase mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block" />
-          Natural · Pure · Trusted
+          {t('hero.badge')}
         </div>
 
-        {/* Heading */}
+        {/* Heading — company name never translated */}
         <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-cream leading-tight mb-6">
           True Origin
           <br />
@@ -45,8 +48,7 @@ export default function HeroSection() {
 
         {/* Tagline */}
         <p className="font-body text-lg md:text-xl text-cream/85 max-w-2xl mx-auto leading-relaxed mb-10">
-          From nature's finest farms to your table — we bring you premium perishable and
-          non-perishable food products rooted in purity and quality.
+          {t('hero.tagline')}
         </p>
 
         {/* CTAs */}
@@ -55,13 +57,13 @@ export default function HeroSection() {
             onClick={() => handleScroll('#products')}
             className="px-8 py-3.5 bg-gold text-forest font-semibold rounded-full hover:bg-gold/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm"
           >
-            Explore Our Products
+            {t('hero.cta.products')}
           </button>
           <button
             onClick={() => handleScroll('#about')}
             className="px-8 py-3.5 bg-cream/15 text-cream font-medium rounded-full border border-cream/40 hover:bg-cream/25 transition-all backdrop-blur-sm text-sm"
           >
-            Learn About Us
+            {t('hero.cta.about')}
           </button>
         </div>
       </div>
