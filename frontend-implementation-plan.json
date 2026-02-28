@@ -1,29 +1,76 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix Hero 'Contact Sales' CTA button rendering as raw translation key",
+  "title": "Fix ExportCargoSection, SocialMediaSection, and ContactSection raw translation key rendering",
   "requirements": [
     {
-      "id": "REQ-51",
-      "summary": "Fix the 'Contact Sales' CTA button in HeroSection to render human-readable translations instead of raw translation keys in all three languages (English, Hindi, Marathi)",
+      "id": "REQ-56",
+      "summary": "Fix all nine translation keys in ExportCargoSection so they resolve to human-readable text instead of raw key strings, ensuring exact camelCase matching between component usage and translations.ts definitions",
       "acceptanceCriteria": [
-        "The 'Contact Sales' CTA button in HeroSection renders the human-readable label 'Contact Sales' when the language is set to English.",
-        "The button renders the correct Hindi translation when the language is set to Hindi — no raw key or artifact is visible.",
-        "The button renders the correct Marathi translation when the language is set to Marathi — no raw key or artifact is visible.",
-        "The translation key used in HeroSection JSX exactly matches the key present in translations.ts for all three language codes.",
-        "No raw translation key string (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or similar) is ever visible on screen for this button.",
-        "No other HeroSection content, layout, or functionality is changed."
+        "ExportCargoSection renders 'Export & Cargo' (or translated equivalent) as the section label — never the raw string 'EXPORTCARGO.SECTIONLABEL'",
+        "exportCargo.heading renders as 'Global Exports' in English, with correct Hindi and Marathi equivalents",
+        "exportCargo.subheading renders as a readable sentence in all three language modes",
+        "All three highlight title/desc pairs (highlight1, highlight2, highlight3) render as readable English, Hindi, and Marathi text",
+        "No raw key string, escaped character, or JSON fragment is visible in the ExportCargoSection at any viewport size in any language mode",
+        "The translation keys in ExportCargoSection.tsx exactly match the keys defined in translations.ts (correct camelCase, no uppercase mismatch)"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/HeroSection.tsx",
+          "path": "frontend/src/components/ExportCargoSection.tsx",
           "operation": "modify",
-          "description": "Review the current translation key used for the 'Contact Sales' CTA button in the JSX. Correct the key if it is malformed (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or similar) to match the exact key defined in translations.ts. Ensure the button's text content uses the t() function with the corrected key and that no other content, styling, or link target is changed."
+          "description": "Update all t() translation helper calls to use exact camelCase key names: 'exportCargo.sectionLabel' (not 'EXPORTCARGO.SECTIONLABEL'), 'exportCargo.heading', 'exportCargo.subheading', 'exportCargo.highlight1Title', 'exportCargo.highlight1Desc', 'exportCargo.highlight2Title', 'exportCargo.highlight2Desc', 'exportCargo.highlight3Title', and 'exportCargo.highlight3Desc'. Verify each key matches the translations.ts structure exactly (camelCase dot-notation). Ensure the component correctly receives and uses the t() function from LanguageContext."
         },
         {
           "path": "frontend/src/translations/translations.ts",
           "operation": "modify",
-          "description": "Locate the translation key for the 'Contact Sales' CTA button used by HeroSection (e.g., 'Hero.ctaContactSales' or the corrected key identified in HeroSection.tsx). Ensure that this key exists in the nested translations object for all three language codes (en, hi, mr) and that each value is a plain human-readable string: 'Contact Sales' for English, the correct Hindi translation, and the correct Marathi translation. Remove any raw JSON syntax, escaped characters, template literal artifacts, or incorrect key names that would cause a raw key to display on screen."
+          "description": "Add or update all nine exportCargo translation keys for all three language codes (en, hi, mr) with non-empty human-readable strings. English values: 'exportCargo.sectionLabel' = 'Export & Cargo', 'exportCargo.heading' = 'Global Exports', 'exportCargo.subheading' = a concise supporting sentence about TrueOrigin Exports' professional export and shipping capabilities, 'exportCargo.highlight1Title' = 'Export Documentation', 'exportCargo.highlight1Desc' = a concise description of export documentation readiness, 'exportCargo.highlight2Title' = 'Secure Packaging', 'exportCargo.highlight2Desc' = a concise description of packaging standards, 'exportCargo.highlight3Title' = 'Global Reach', 'exportCargo.highlight3Desc' = a concise description of international shipping capability. Provide appropriate Hindi and Marathi translations for all nine keys. Ensure no raw key strings, JSON objects, or template literal artifacts remain."
+        }
+      ]
+    },
+    {
+      "id": "REQ-57",
+      "summary": "Fix social.sectionLabel and social.heading translation keys in SocialMediaSection so they resolve to human-readable text instead of raw key strings",
+      "acceptanceCriteria": [
+        "SocialMediaSection renders the section label as human-readable text (e.g., 'Follow Us') — never the raw string 'SOCIAL.SECTIONLABEL'",
+        "social.heading renders as a readable heading (e.g., 'Our Latest Updates') in English, Hindi, and Marathi",
+        "The translation keys in SocialMediaSection.tsx exactly match the keys defined in translations.ts (correct camelCase)",
+        "No raw key string is visible in the SocialMediaSection in any language mode"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SocialMediaSection.tsx",
+          "operation": "modify",
+          "description": "Update all t() translation helper calls to use exact camelCase key names: 'social.sectionLabel' (not 'SOCIAL.SECTIONLABEL') and 'social.heading'. Verify each key matches the translations.ts structure exactly (camelCase dot-notation). Ensure the component correctly receives and uses the t() function from LanguageContext."
+        },
+        {
+          "path": "frontend/src/translations/translations.ts",
+          "operation": "modify",
+          "description": "Add or update both social translation keys for all three language codes (en, hi, mr) with non-empty human-readable strings. English values: 'social.sectionLabel' = 'Follow Us' (or equivalent section label), 'social.heading' = 'Our Latest Updates' (or equivalent heading). Provide appropriate Hindi and Marathi translations for both keys. Ensure no raw key strings, JSON objects, or template literal artifacts remain."
+        }
+      ]
+    },
+    {
+      "id": "REQ-58",
+      "summary": "Fix all five translation keys in ContactSection so they resolve to human-readable text instead of raw key strings, ensuring exact nested dot-path matching",
+      "acceptanceCriteria": [
+        "ContactSection renders 'Get In Touch' (or translated equivalent) as the section heading — never the raw string 'contact.heading'",
+        "contact.subheading renders as a readable sentence in all three language modes",
+        "contact.info.heading renders as 'Contact Information' in English with correct Hindi and Marathi equivalents",
+        "contact.form.heading renders as 'Send an Enquiry' in English with correct Hindi and Marathi equivalents",
+        "contact.form.submit renders as 'Submit' in English with correct Hindi and Marathi equivalents",
+        "The translation keys in ContactSection.tsx exactly match the keys defined in translations.ts (correct casing and nested dot paths)",
+        "No raw key string, escaped character, or JSON fragment is visible in the ContactSection in any language mode"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Update all t() translation helper calls to use exact camelCase nested dot-notation key names: 'contact.heading', 'contact.subheading', 'contact.info.heading', 'contact.form.heading', and 'contact.form.submit'. Verify each key path matches the translations.ts nested structure exactly. Ensure the component correctly receives and uses the t() function from LanguageContext."
+        },
+        {
+          "path": "frontend/src/translations/translations.ts",
+          "operation": "modify",
+          "description": "Add or update all five contact translation keys (including nested keys under contact.info and contact.form) for all three language codes (en, hi, mr) with non-empty human-readable strings. English values: 'contact.heading' = 'Get In Touch', 'contact.subheading' = a concise invitation for international buyers to reach out, 'contact.info.heading' = 'Contact Information', 'contact.form.heading' = 'Send an Enquiry', 'contact.form.submit' = 'Submit'. Provide appropriate Hindi and Marathi translations for all five keys. Ensure the nested object structure (contact.info.*, contact.form.*) is correctly defined. Ensure no raw key strings, JSON objects, or template literal artifacts remain."
         }
       ]
     }

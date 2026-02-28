@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 39,
+  "projectStateVersion": 49,
   "summary": "Website for True Origin Company LLP (TrueOrigin Exports), a professional agricultural export company. The site now uses updated copy: Hero headline 'Premium Agricultural Exports From India to Global Markets', subheadline emphasizing compliance and logistics, and two CTA buttons ('Request Product Specifications', 'Contact Sales'). About section updated to professional exporter copy with Vision and Mission statements. Products section includes Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, and Custom Agri Sourcing. A Quality & Compliance section highlights documentation (COA, lab reports, phytosanitary certs, etc.). Product page structure updated with detailed Moringa Leaf Powder specs for export-grade buyers. Color palette confirmed: Deep Emerald (#0F3D2E), Soft Gold (#C6A75E), Background (#F4F1EA), Text (#1A1A1A). Fonts: Playfair Display or Libre Baskerville for headings, Poppins or Lato for body. Contact emails: info@trueoriginexports.com and sales@trueoriginexports.com. Phone: 9773303026. Website: www.trueoriginintl.com. Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added later. SSL to be enabled.",
   "architectural_notes": [
     "Static/marketing website for a food products company (perishable and non-perishable goods)",
@@ -362,6 +362,62 @@
         "REQ-51"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-in-the-aboutsection-component-fix-the-translation-keys-about-body-about-checklistquality-about-checklistdocumentation-and-about-checklistshipping-so-they-resolve-to-human-readable-text-instead-of-rendering-as-raw-key-strings-ensure-1-the-jsx-in-aboutsection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-used-in-translations-ts-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-these-four-keys-about-body-must-contain-the-full-body-paragraph-about-trueorigin-exports-as-a-professional-export-company-about-checklistquality-must-render-as-quality-assured-about-checklistdocumentation-must-render-as-export-documentation-ready-and-about-checklistshipping-must-render-as-global-shipping-support-with-corresponding-hindi-and-marathi-translations-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-any-of-these-four-keys-in-any-language-mode",
+      "title": "In the AboutSection component, fix the translation keys 'about.body', 'about.checklistQuality', 'about.checklistDocumentation', and 'about.checklistShipping' so they resolve to human-readable text instead of rendering as raw key strings. Ensure: (1) the JSX in AboutSection.tsx calls the t() translation helper with the exact key names used in translations.ts; (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for these four keys — 'about.body' must contain the full body paragraph about TrueOrigin Exports as a professional export company, 'about.checklistQuality' must render as '✔ Quality Assured', 'about.checklistDocumentation' must render as '✔ Export Documentation Ready', and 'about.checklistShipping' must render as '✔ Global Shipping Support' (with corresponding Hindi and Marathi translations). No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these four keys in any language mode.",
+      "reqIds": [
+        "REQ-52"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-herosection-component-fix-the-headline-and-subheadline-so-they-render-as-human-readable-text-instead-of-the-raw-translation-keys-hero-headline-and-hero-subheadline-ensure-1-the-jsx-in-herosection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-both-keys-hero-headline-must-resolve-to-premium-agricultural-exports-from-india-to-global-markets-english-with-corresponding-hindi-and-marathi-translations-and-hero-subheadline-must-resolve-to-trueorigin-exports-delivers-high-quality-responsibly-sourced-natural-food-products-with-complete-compliance-transparency-and-reliable-international-logistics-support-english-with-corresponding-hindi-and-marathi-translations-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-either-of-these-keys-in-any-language-mode",
+      "title": "In the HeroSection component, fix the headline and subheadline so they render as human-readable text instead of the raw translation keys 'hero.headline' and 'hero.subheadline'. Ensure: (1) the JSX in HeroSection.tsx calls the t() translation helper with the exact key names defined in translations.ts; (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for both keys — 'hero.headline' must resolve to 'Premium Agricultural Exports From India to Global Markets' (English) with corresponding Hindi and Marathi translations, and 'hero.subheadline' must resolve to 'TrueOrigin Exports delivers high-quality, responsibly sourced natural food products with complete compliance, transparency, and reliable international logistics support.' (English) with corresponding Hindi and Marathi translations. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for either of these keys in any language mode.",
+      "reqIds": [
+        "REQ-53"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-aboutsection-component-fix-the-translation-keys-about-sectionlabel-currently-rendering-as-about-sectionlabel-and-about-heading-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-aboutsection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-matches-exactly-e-g-about-sectionlabel-not-about-sectionlabel-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-both-keys-about-sectionlabel-must-resolve-to-about-us-english-with-corresponding-hindi-and-marathi-translations-and-about-heading-must-resolve-to-trusted-indian-export-partner-english-with-corresponding-hindi-and-marathi-translations-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-either-of-these-keys-in-any-language-mode",
+      "title": "In the AboutSection component, fix the translation keys 'about.sectionLabel' (currently rendering as 'ABOUT.SECTIONLABEL') and 'about.heading' so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in AboutSection.tsx calls the t() translation helper with the exact key names defined in translations.ts — verify casing matches exactly (e.g., 'about.sectionLabel', not 'ABOUT.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for both keys — 'about.sectionLabel' must resolve to 'About Us' (English) with corresponding Hindi ('हमारे बारे में') and Marathi ('आमच्याबद्दल') translations, and 'about.heading' must resolve to 'Trusted Indian Export Partner' (English) with corresponding Hindi and Marathi translations. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for either of these keys in any language mode.",
+      "reqIds": [
+        "REQ-54"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-productssection-component-fix-all-translation-keys-products-sectionlabel-currently-rendering-as-products-sectionlabel-products-heading-products-supportingline-products-moringatitle-products-curryleavestitle-products-curryleavesdesc-products-freshvegetablestitle-products-freshvegetablesdesc-products-customsourcingtitle-products-customsourcingdesc-products-ctaviewspecs-and-products-farmsubheading-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-productssection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-matches-exactly-e-g-products-sectionlabel-not-products-sectionlabel-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-every-one-of-these-twelve-keys-english-values-must-be-products-sectionlabel-our-products-products-heading-our-export-products-products-supportingline-each-product-is-processed-tested-and-packed-according-to-international-export-standards-products-moringatitle-moringa-leaves-powder-products-curryleavestitle-curry-leaves-products-curryleavesdesc-a-concise-description-of-curry-leaves-as-an-export-product-products-freshvegetablestitle-fresh-vegetables-products-freshvegetablesdesc-a-concise-description-of-fresh-vegetables-as-an-export-product-products-customsourcingtitle-custom-agri-sourcing-products-customsourcingdesc-a-concise-description-of-custom-agricultural-sourcing-products-ctaviewspecs-view-product-specifications-products-farmsubheading-a-concise-subheading-for-the-farm-imagery-subsection-e-g-from-our-farms-corresponding-hindi-and-marathi-translations-must-also-be-present-and-human-readable-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-any-of-these-keys-in-any-language-mode",
+      "title": "In the ProductsSection component, fix all translation keys — 'products.sectionLabel' (currently rendering as 'PRODUCTS.SECTIONLABEL'), 'products.heading', 'products.supportingLine', 'products.moringaTitle', 'products.curryLeavesTitle', 'products.curryLeavesDesc', 'products.freshVegetablesTitle', 'products.freshVegetablesDesc', 'products.customSourcingTitle', 'products.customSourcingDesc', 'products.ctaViewSpecs', and 'products.farmSubheading' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ProductsSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'products.sectionLabel' not 'PRODUCTS.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these twelve keys. English values must be: 'products.sectionLabel' = 'Our Products', 'products.heading' = 'Our Export Products', 'products.supportingLine' = 'Each product is processed, tested, and packed according to international export standards.', 'products.moringaTitle' = 'Moringa Leaves & Powder', 'products.curryLeavesTitle' = 'Curry Leaves', 'products.curryLeavesDesc' = a concise description of curry leaves as an export product, 'products.freshVegetablesTitle' = 'Fresh Vegetables', 'products.freshVegetablesDesc' = a concise description of fresh vegetables as an export product, 'products.customSourcingTitle' = 'Custom Agri Sourcing', 'products.customSourcingDesc' = a concise description of custom agricultural sourcing, 'products.ctaViewSpecs' = 'View Product Specifications', 'products.farmSubheading' = a concise subheading for the farm imagery subsection (e.g. 'From Our Farms'). Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+      "reqIds": [
+        "REQ-55"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-exportcargosection-component-fix-all-translation-keys-exportcargo-sectionlabel-currently-rendering-as-exportcargo-sectionlabel-exportcargo-heading-exportcargo-subheading-exportcargo-highlight1title-exportcargo-highlight1desc-exportcargo-highlight2title-exportcargo-highlight2desc-exportcargo-highlight3title-and-exportcargo-highlight3desc-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-exportcargosection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-matches-exactly-e-g-exportcargo-sectionlabel-not-exportcargo-sectionlabel-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-every-one-of-these-nine-keys-english-values-must-be-exportcargo-sectionlabel-export-cargo-exportcargo-heading-global-exports-exportcargo-subheading-a-concise-supporting-sentence-about-trueorigin-exports-professional-export-and-shipping-capabilities-exportcargo-highlight1title-export-documentation-exportcargo-highlight1desc-a-concise-description-of-trueorigin-s-export-documentation-readiness-exportcargo-highlight2title-secure-packaging-exportcargo-highlight2desc-a-concise-description-of-packaging-standards-exportcargo-highlight3title-global-reach-exportcargo-highlight3desc-a-concise-description-of-international-shipping-capability-corresponding-hindi-and-marathi-translations-must-also-be-present-and-human-readable-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-any-of-these-keys-in-any-language-mode",
+      "title": "In the ExportCargoSection component, fix all translation keys — 'exportCargo.sectionLabel' (currently rendering as 'EXPORTCARGO.SECTIONLABEL'), 'exportCargo.heading', 'exportCargo.subheading', 'exportCargo.highlight1Title', 'exportCargo.highlight1Desc', 'exportCargo.highlight2Title', 'exportCargo.highlight2Desc', 'exportCargo.highlight3Title', and 'exportCargo.highlight3Desc' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ExportCargoSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'exportCargo.sectionLabel' not 'EXPORTCARGO.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these nine keys. English values must be: 'exportCargo.sectionLabel' = 'Export & Cargo', 'exportCargo.heading' = 'Global Exports', 'exportCargo.subheading' = a concise supporting sentence about TrueOrigin Exports' professional export and shipping capabilities, 'exportCargo.highlight1Title' = 'Export Documentation', 'exportCargo.highlight1Desc' = a concise description of TrueOrigin's export documentation readiness, 'exportCargo.highlight2Title' = 'Secure Packaging', 'exportCargo.highlight2Desc' = a concise description of packaging standards, 'exportCargo.highlight3Title' = 'Global Reach', 'exportCargo.highlight3Desc' = a concise description of international shipping capability. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+      "reqIds": [
+        "REQ-56"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-socialmediasection-component-fix-the-translation-keys-social-sectionlabel-currently-rendering-as-social-sectionlabel-and-social-heading-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-socialmediasection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-matches-exactly-e-g-social-sectionlabel-not-social-sectionlabel-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-both-keys-social-sectionlabel-must-resolve-to-follow-us-or-equivalent-section-label-in-english-with-corresponding-hindi-and-marathi-translations-and-social-heading-must-resolve-to-our-latest-updates-or-equivalent-heading-in-english-with-corresponding-hindi-and-marathi-translations-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-either-of-these-keys-in-any-language-mode",
+      "title": "In the SocialMediaSection component, fix the translation keys 'social.sectionLabel' (currently rendering as 'SOCIAL.SECTIONLABEL') and 'social.heading' so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in SocialMediaSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'social.sectionLabel' not 'SOCIAL.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for both keys — 'social.sectionLabel' must resolve to 'Follow Us' (or equivalent section label) in English with corresponding Hindi and Marathi translations, and 'social.heading' must resolve to 'Our Latest Updates' (or equivalent heading) in English with corresponding Hindi and Marathi translations. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for either of these keys in any language mode.",
+      "reqIds": [
+        "REQ-57"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-contactsection-component-fix-all-translation-keys-contact-heading-contact-subheading-contact-info-heading-contact-form-heading-and-contact-form-submit-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-contactsection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-and-dot-notation-path-matches-exactly-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-every-one-of-these-five-keys-english-values-must-be-contact-heading-get-in-touch-contact-subheading-a-concise-invitation-for-international-buyers-to-reach-out-contact-info-heading-contact-information-contact-form-heading-send-an-enquiry-contact-form-submit-submit-corresponding-hindi-and-marathi-translations-must-also-be-present-and-human-readable-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-any-of-these-keys-in-any-language-mode",
+      "title": "In the ContactSection component, fix all translation keys — 'contact.heading', 'contact.subheading', 'contact.info.heading', 'contact.form.heading', and 'contact.form.submit' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ContactSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing and dot-notation path matches exactly); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these five keys. English values must be: 'contact.heading' = 'Get In Touch', 'contact.subheading' = a concise invitation for international buyers to reach out, 'contact.info.heading' = 'Contact Information', 'contact.form.heading' = 'Send an Enquiry', 'contact.form.submit' = 'Submit'. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+      "reqIds": [
+        "REQ-58"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -656,6 +712,48 @@
     {
       "id": "AR-46",
       "summary": "Fix the Hero section 'Contact Sales' CTA button which is still rendering as technical/raw text (e.g., translation key 'Hero.ctacontact' or similar) instead of the human-readable label",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-47",
+      "summary": "Fix AboutSection component: translation keys 'about.body', 'about.checklistQuality', 'about.checklistDocumentation', 'about.checklistShipping' are rendering as raw key strings instead of resolved human-readable text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-48",
+      "summary": "Fix Hero section: 'hero.headline' and 'hero.subheadline' translation keys are rendering as raw key strings instead of the resolved human-readable text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-49",
+      "summary": "Fix AboutSection component: 'ABOUT.SECTIONLABEL' and 'about.heading' translation keys are rendering as raw key strings instead of resolved human-readable text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-50",
+      "summary": "Fix ProductsSection component: translation keys 'PRODUCTS.SECTIONLABEL', 'products.heading', 'products.supportingLine', 'products.moringaTitle', 'products.curryLeavesTitle', 'products.curryLeavesDesc', 'products.freshVegetablesTitle', 'products.freshVegetablesDesc', 'products.customSourcingTitle', 'products.customSourcingDesc', 'products.ctaViewSpecs', and 'products.farmSubheading' are rendering as raw key strings instead of resolved human-readable text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-51",
+      "summary": "Fix ExportCargoSection component: translation keys 'EXPORTCARGO.SECTIONLABEL', 'exportCargo.heading', 'exportCargo.subheading', 'exportCargo.highlight1Title', 'exportCargo.highlight1Desc', 'exportCargo.highlight2Title', 'exportCargo.highlight2Desc', 'exportCargo.highlight3Title', 'exportCargo.highlight3Desc' are rendering as raw key strings instead of resolved human-readable text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-52",
+      "summary": "Fix SocialMediaSection component: translation key 'SOCIAL.SECTIONLABEL' and 'social.heading' are rendering as raw key strings instead of resolved human-readable text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-53",
+      "summary": "Fix ContactSection component: translation keys 'contact.heading', 'contact.subheading', 'contact.info.heading', 'contact.form.heading', 'contact.form.submit' are rendering as raw key strings instead of resolved human-readable text",
       "reqIds": [],
       "status": "pending"
     }

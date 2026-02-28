@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-herosection-component-fix-the-contact-sales-cta-button-so-it-renders-as-the-human-readable-label-contact-sales-english-the-correct-hindi-translation-and-the-correct-marathi-translation-instead-of-the-raw-translation-key-e-g-hero-ctacontactsale-hero-ctacontact-or-any-similar-raw-key-string-ensure-the-translation-key-used-in-herosection-s-jsx-exactly-matches-the-key-defined-in-frontend-src-translations-translations-ts-for-all-three-language-codes-en-hi-mr-and-that-the-translations-ts-values-for-this-key-are-plain-human-readable-strings-not-raw-json-escaped-characters-or-template-literal-artifacts-the-button-must-display-correctly-in-all-three-language-modes",
-      "featureTitle": "In the HeroSection component, fix the 'Contact Sales' CTA button so it renders as the human-readable label 'Contact Sales' (English), the correct Hindi translation, and the correct Marathi translation — instead of the raw translation key (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or any similar raw key string). Ensure the translation key used in HeroSection's JSX exactly matches the key defined in frontend/src/translations/translations.ts for all three language codes (en, hi, mr), and that the translations.ts values for this key are plain human-readable strings (not raw JSON, escaped characters, or template literal artifacts). The button must display correctly in all three language modes.",
+      "featureId": "feature-in-the-exportcargosection-component-fix-all-translation-keys-exportcargo-sectionlabel-currently-rendering-as-exportcargo-sectionlabel-exportcargo-heading-exportcargo-subheading-exportcargo-highlight1title-exportcargo-highlight1desc-exportcargo-highlight2title-exportcargo-highlight2desc-exportcargo-highlight3title-and-exportcargo-highlight3desc-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-exportcargosection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-matches-exactly-e-g-exportcargo-sectionlabel-not-exportcargo-sectionlabel-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-every-one-of-these-nine-keys-english-values-must-be-exportcargo-sectionlabel-export-cargo-exportcargo-heading-global-exports-exportcargo-subheading-a-concise-supporting-sentence-about-trueorigin-exports-professional-export-and-shipping-capabilities-exportcargo-highlight1title-export-documentation-exportcargo-highlight1desc-a-concise-description-of-trueorigin-s-export-documentation-readiness-exportcargo-highlight2title-secure-packaging-exportcargo-highlight2desc-a-concise-description-of-packaging-standards-exportcargo-highlight3title-global-reach-exportcargo-highlight3desc-a-concise-description-of-international-shipping-capability-corresponding-hindi-and-marathi-translations-must-also-be-present-and-human-readable-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-any-of-these-keys-in-any-language-mode",
+      "featureTitle": "In the ExportCargoSection component, fix all translation keys — 'exportCargo.sectionLabel' (currently rendering as 'EXPORTCARGO.SECTIONLABEL'), 'exportCargo.heading', 'exportCargo.subheading', 'exportCargo.highlight1Title', 'exportCargo.highlight1Desc', 'exportCargo.highlight2Title', 'exportCargo.highlight2Desc', 'exportCargo.highlight3Title', and 'exportCargo.highlight3Desc' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ExportCargoSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'exportCargo.sectionLabel' not 'EXPORTCARGO.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these nine keys. English values must be: 'exportCargo.sectionLabel' = 'Export & Cargo', 'exportCargo.heading' = 'Global Exports', 'exportCargo.subheading' = a concise supporting sentence about TrueOrigin Exports' professional export and shipping capabilities, 'exportCargo.highlight1Title' = 'Export Documentation', 'exportCargo.highlight1Desc' = a concise description of TrueOrigin's export documentation readiness, 'exportCargo.highlight2Title' = 'Secure Packaging', 'exportCargo.highlight2Desc' = a concise description of packaging standards, 'exportCargo.highlight3Title' = 'Global Reach', 'exportCargo.highlight3Desc' = a concise description of international shipping capability. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
       "files": [
         "frontend/src/translations/translations.ts"
       ],
@@ -16,7 +16,45 @@
         "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-51"
+        "REQ-56"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-socialmediasection-component-fix-the-translation-keys-social-sectionlabel-currently-rendering-as-social-sectionlabel-and-social-heading-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-socialmediasection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-matches-exactly-e-g-social-sectionlabel-not-social-sectionlabel-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-both-keys-social-sectionlabel-must-resolve-to-follow-us-or-equivalent-section-label-in-english-with-corresponding-hindi-and-marathi-translations-and-social-heading-must-resolve-to-our-latest-updates-or-equivalent-heading-in-english-with-corresponding-hindi-and-marathi-translations-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-either-of-these-keys-in-any-language-mode",
+      "featureTitle": "In the SocialMediaSection component, fix the translation keys 'social.sectionLabel' (currently rendering as 'SOCIAL.SECTIONLABEL') and 'social.heading' so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in SocialMediaSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'social.sectionLabel' not 'SOCIAL.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for both keys — 'social.sectionLabel' must resolve to 'Follow Us' (or equivalent section label) in English with corresponding Hindi and Marathi translations, and 'social.heading' must resolve to 'Our Latest Updates' (or equivalent heading) in English with corresponding Hindi and Marathi translations. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for either of these keys in any language mode.",
+      "files": [
+        "frontend/src/translations/translations.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-57"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-contactsection-component-fix-all-translation-keys-contact-heading-contact-subheading-contact-info-heading-contact-form-heading-and-contact-form-submit-so-they-resolve-to-human-readable-text-instead-of-raw-key-strings-ensure-1-the-jsx-in-contactsection-tsx-calls-the-t-translation-helper-with-the-exact-key-names-defined-in-translations-ts-verify-casing-and-dot-notation-path-matches-exactly-2-in-frontend-src-translations-translations-ts-all-three-language-codes-en-hi-mr-have-non-empty-plain-human-readable-string-values-for-every-one-of-these-five-keys-english-values-must-be-contact-heading-get-in-touch-contact-subheading-a-concise-invitation-for-international-buyers-to-reach-out-contact-info-heading-contact-information-contact-form-heading-send-an-enquiry-contact-form-submit-submit-corresponding-hindi-and-marathi-translations-must-also-be-present-and-human-readable-no-raw-key-string-json-object-escaped-character-or-template-literal-artifact-may-appear-as-visible-text-for-any-of-these-keys-in-any-language-mode",
+      "featureTitle": "In the ContactSection component, fix all translation keys — 'contact.heading', 'contact.subheading', 'contact.info.heading', 'contact.form.heading', and 'contact.form.submit' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ContactSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing and dot-notation path matches exactly); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these five keys. English values must be: 'contact.heading' = 'Get In Touch', 'contact.subheading' = a concise invitation for international buyers to reach out, 'contact.info.heading' = 'Contact Information', 'contact.form.heading' = 'Send an Enquiry', 'contact.form.submit' = 'Submit'. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+      "files": [
+        "frontend/src/translations/translations.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-58"
       ],
       "confidence": "high"
     }

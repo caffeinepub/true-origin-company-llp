@@ -1,11 +1,11 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-28T06:02:08.999Z",
-  "summary": "The diff modifies frontend/src/translations/translations.ts to add the missing 'hero.ctaContactSales' key in all three language codes (en, hi, mr), and the frontend-file-summaries.txt confirms that HeroSection.tsx was also updated. The fix aligns the translation key used in HeroSection JSX with the key defined in translations.ts, ensuring the 'Contact Sales' button renders human-readable text in all three language modes. REQ-51 appears to be fully addressed.",
+  "generatedAt": "2026-02-28T06:50:22.455Z",
+  "summary": "The diff shows modifications to translations.ts, ExportCargoSection.tsx (via file summary), SocialMediaSection.tsx (via file summary), and ContactSection.tsx (via file summary). All three components now use useLanguage/t() to render translated text, and translations.ts has been updated with all required keys across en/hi/mr. The implementation appears to cover all three requirements (REQ-56, REQ-57, REQ-58) based on the file summaries and truncated translations.ts content. No hallucinated features were detected.",
   "missing_requirements": [],
   "hallucinated_features": [],
-  "confidence": 0.88,
+  "confidence": 0.82,
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/translations/translations.ts",
