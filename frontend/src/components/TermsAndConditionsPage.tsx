@@ -1,93 +1,68 @@
-import { useEffect } from 'react';
-import { Link } from '@tanstack/react-router';
-import { ArrowLeft, FileText } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from "@tanstack/react-router";
+import { useLanguage } from "../contexts/LanguageContext";
+
+const sections = [
+  { titleKey: "terms.section1Title", contentKey: "terms.section1Content" },
+  { titleKey: "terms.section2Title", contentKey: "terms.section2Content" },
+  { titleKey: "terms.section3Title", contentKey: "terms.section3Content" },
+  { titleKey: "terms.section4Title", contentKey: "terms.section4Content" },
+  { titleKey: "terms.section5Title", contentKey: "terms.section5Content" },
+  { titleKey: "terms.section6Title", contentKey: "terms.section6Content" },
+  { titleKey: "terms.section7Title", contentKey: "terms.section7Content" },
+  { titleKey: "terms.section8Title", contentKey: "terms.section8Content" },
+];
 
 export default function TermsAndConditionsPage() {
   const { t } = useLanguage();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  const sections = [
-    { title: t('terms.s1.title'), body: t('terms.s1.body') },
-    { title: t('terms.s2.title'), body: t('terms.s2.body') },
-    { title: t('terms.s3.title'), body: t('terms.s3.body') },
-    { title: t('terms.s4.title'), body: t('terms.s4.body') },
-    { title: t('terms.s5.title'), body: t('terms.s5.body') },
-    { title: t('terms.s6.title'), body: t('terms.s6.body') },
-    { title: t('terms.s7.title'), body: t('terms.s7.body') },
-    { title: t('terms.s8.title'), body: t('terms.s8.body') },
-  ];
-
   return (
-    <main className="pt-28 pb-20 bg-cream min-h-screen">
-      <div className="max-w-3xl mx-auto px-6 lg:px-10">
+    <div className="min-h-screen bg-parchment pt-24 pb-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back link */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-forest/60 hover:text-forest text-sm font-medium mb-8 transition-colors group"
+          className="inline-flex items-center gap-2 text-moss hover:text-forest text-sm font-medium mb-8 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-          Back to Home
+          ← {t("terms.backHome")}
         </Link>
 
         {/* Header */}
         <div className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-forest/10 flex items-center justify-center">
-              <FileText className="w-5 h-5 text-forest" />
-            </div>
-            <span className="text-xs font-medium tracking-widest uppercase text-moss">
-              True Origin Company LLP
-            </span>
-          </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-forest mb-4">
-            {t('terms.heading')}
+          <h1 className="text-4xl font-playfair font-bold text-forest mb-3">
+            {t("terms.pageTitle")}
           </h1>
-          <p className="text-forest/60 text-sm">{t('terms.effectiveDate')}</p>
-        </div>
-
-        {/* Intro */}
-        <div className="bg-parchment border border-sage/30 rounded-2xl p-6 mb-8">
-          <p className="text-forest/80 leading-relaxed">{t('terms.intro')}</p>
+          <p className="text-forest/50 text-sm">{t("terms.lastUpdated")}</p>
+          <p className="mt-4 text-forest/70 leading-relaxed">{t("terms.intro")}</p>
         </div>
 
         {/* Sections */}
-        <div className="flex flex-col gap-8">
-          {sections.map((section, idx) => (
-            <div key={idx} className="border-b border-sage/20 pb-8 last:border-0">
-              <h2 className="font-display text-xl font-semibold text-forest mb-3">
-                {section.title}
+        <div className="space-y-8">
+          {sections.map(({ titleKey, contentKey }, index) => (
+            <div
+              key={titleKey}
+              className="bg-cream rounded-2xl p-6 border border-moss/15 shadow-sm"
+            >
+              <h2 className="text-xl font-playfair font-bold text-forest mb-3">
+                {index + 1}. {t(titleKey)}
               </h2>
-              <p className="text-forest/75 leading-relaxed">{section.body}</p>
+              <p className="text-forest/70 leading-relaxed">{t(contentKey)}</p>
             </div>
           ))}
         </div>
 
         {/* Contact callout */}
-        <div className="mt-10 bg-forest rounded-2xl p-6 text-center">
-          <p className="text-cream/80 text-sm mb-3">
-            Questions about these terms? Contact us at:
+        <div className="mt-12 bg-forest text-cream rounded-2xl p-8 text-center">
+          <p className="text-cream/90 mb-2">
+            {t("terms.contactCta")}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="mailto:info@trueoriginexports.com"
-              className="text-gold hover:text-gold/80 text-sm font-medium transition-colors"
-            >
-              info@trueoriginexports.com
-            </a>
-            <span className="hidden sm:block text-cream/30">·</span>
-            <a
-              href="mailto:sales@trueoriginexports.com"
-              className="text-gold hover:text-gold/80 text-sm font-medium transition-colors"
-            >
-              sales@trueoriginexports.com
-            </a>
-          </div>
+          <a
+            href="mailto:info@trueoriginexports.com"
+            className="text-gold font-semibold hover:underline"
+          >
+            info@trueoriginexports.com
+          </a>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

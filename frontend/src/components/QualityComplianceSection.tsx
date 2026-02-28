@@ -1,79 +1,66 @@
-import { useLanguage } from '../contexts/LanguageContext';
-import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { useLanguage } from "../contexts/LanguageContext";
+import { Link } from "@tanstack/react-router";
+
+const docs = [
+  "quality.doc1",
+  "quality.doc2",
+  "quality.doc3",
+  "quality.doc4",
+  "quality.doc5",
+  "quality.doc6",
+];
 
 export default function QualityComplianceSection() {
   const { t } = useLanguage();
 
-  const docs = [
-    t('quality.doc1'),
-    t('quality.doc2'),
-    t('quality.doc3'),
-    t('quality.doc4'),
-    t('quality.doc5'),
-    t('quality.doc6'),
-  ];
-
-  const handleGetQuote = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="quality" className="py-20 bg-deepEmerald">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section Label */}
+    <section id="quality" className="py-20 bg-parchment">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section label */}
         <div className="text-center mb-4">
-          <span className="font-poppins text-xs font-semibold tracking-widest uppercase text-softGold">
-            {t('quality.sectionLabel')}
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-moss border border-moss/30 rounded-full px-4 py-1">
+            {t("quality.sectionLabel")}
           </span>
         </div>
 
         {/* Heading */}
-        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-white text-center mb-4">
-          {t('quality.heading')}
+        <h2 className="text-3xl md:text-4xl font-playfair font-bold text-forest text-center mb-4">
+          {t("quality.heading")}
         </h2>
 
-        {/* Decorative Divider */}
-        <div className="flex justify-center mb-8">
-          <div className="w-16 h-0.5 bg-softGold" />
-        </div>
-
-        {/* Intro */}
-        <p className="font-poppins text-cream-100 text-center text-base mb-10 max-w-2xl mx-auto opacity-90">
-          {t('quality.intro')}
+        {/* Intro paragraph */}
+        <p className="text-center text-forest/70 max-w-2xl mx-auto mb-4 text-base leading-relaxed">
+          {t("quality.intro")}
         </p>
 
-        {/* Documentation Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-          {docs.map((doc, idx) => (
+        {/* Supporting copy */}
+        <p className="text-center text-forest/60 max-w-xl mx-auto mb-12 text-sm leading-relaxed">
+          {t("quality.supportingCopy")}
+        </p>
+
+        {/* Documentation grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
+          {docs.map((key) => (
             <div
-              key={idx}
-              className="flex items-start gap-3 bg-white/10 border border-softGold/30 p-5 hover:bg-white/15 transition-colors duration-300"
+              key={key}
+              className="bg-cream border border-moss/20 rounded-xl p-5 flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow"
             >
-              <ShieldCheck className="text-softGold flex-shrink-0 mt-0.5" size={20} />
-              <span className="font-poppins text-white text-sm font-medium leading-relaxed">
-                {doc}
+              <span className="w-2.5 h-2.5 rounded-full bg-moss flex-shrink-0" />
+              <span className="text-forest font-medium text-sm leading-snug">
+                {t(key)}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Supporting Copy */}
-        <p className="font-poppins text-cream-200 text-center text-sm mb-10 max-w-xl mx-auto italic opacity-80">
-          {t('quality.supportingCopy')}
-        </p>
-
-        {/* CTA Button */}
+        {/* CTA */}
         <div className="text-center">
-          <button
-            onClick={handleGetQuote}
-            className="inline-flex items-center gap-2 px-10 py-4 bg-softGold text-deepEmerald font-poppins font-bold text-base hover:bg-gold-400 transition-colors duration-300 shadow-gold"
+          <Link
+            to="/export-certification"
+            className="inline-block bg-forest text-cream font-semibold px-8 py-3 rounded-full hover:bg-moss transition-colors text-sm tracking-wide"
           >
-            {t('quality.ctaQuote')}
-            <ArrowRight size={18} />
-          </button>
+            {t("quality.ctaQuote")}
+          </Link>
         </div>
       </div>
     </section>

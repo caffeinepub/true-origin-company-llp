@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 33,
+  "projectStateVersion": 39,
   "summary": "Website for True Origin Company LLP (TrueOrigin Exports), a professional agricultural export company. The site now uses updated copy: Hero headline 'Premium Agricultural Exports From India to Global Markets', subheadline emphasizing compliance and logistics, and two CTA buttons ('Request Product Specifications', 'Contact Sales'). About section updated to professional exporter copy with Vision and Mission statements. Products section includes Moringa Leaves & Powder, Curry Leaves, Fresh Vegetables, and Custom Agri Sourcing. A Quality & Compliance section highlights documentation (COA, lab reports, phytosanitary certs, etc.). Product page structure updated with detailed Moringa Leaf Powder specs for export-grade buyers. Color palette confirmed: Deep Emerald (#0F3D2E), Soft Gold (#C6A75E), Background (#F4F1EA), Text (#1A1A1A). Fonts: Playfair Display or Libre Baskerville for headings, Poppins or Lato for body. Contact emails: info@trueoriginexports.com and sales@trueoriginexports.com. Phone: 9773303026. Website: www.trueoriginintl.com. Social media links (Instagram, LinkedIn, YouTube, Facebook) to be added later. SSL to be enabled.",
   "architectural_notes": [
     "Static/marketing website for a food products company (perishable and non-perishable goods)",
@@ -22,7 +22,8 @@
     "Hamburger menu dropdown background is not consistently white — becomes transparent or inconsistent when background page is scrolled",
     "Privacy Policy page content is rendering as technical/raw text instead of properly formatted content",
     "Mobile hamburger 'Product Specifications' link incorrectly navigates to Export Certification details instead of product specifications",
-    "Multiple sections may still have text rendering as raw translation keys, escaped characters, or JSON artifacts instead of human-readable content"
+    "All text across the entire website is rendering in technical/raw format after Version 16 deployment — all sections affected",
+    "Hero section 'Contact Sales' CTA button still renders as technical/raw text (translation key not resolving)"
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -337,6 +338,30 @@
         "REQ-40"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-audit-the-centralized-translations-file-frontend-src-translations-translations-ts-for-all-three-language-codes-en-hi-mr-and-ensure-every-translation-value-is-a-plain-human-readable-string-replace-any-raw-json-objects-escaped-characters-template-literal-artifacts-untranslated-key-strings-or-stringified-arrays-with-proper-readable-prose-every-key-present-in-the-english-en-object-must-have-a-corresponding-non-empty-human-readable-value-in-both-hi-hindi-and-mr-marathi-so-that-switching-languages-never-causes-a-raw-key-fallback-to-appear-on-screen",
+      "title": "Audit the centralized translations file (frontend/src/translations/translations.ts) for all three language codes (en, hi, mr) and ensure every translation value is a plain, human-readable string. Replace any raw JSON objects, escaped characters, template literal artifacts, untranslated key strings, or stringified arrays with proper readable prose. Every key present in the English (en) object must have a corresponding non-empty, human-readable value in both hi (Hindi) and mr (Marathi) so that switching languages never causes a raw key fallback to appear on screen.",
+      "reqIds": [
+        "REQ-49"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-audit-every-component-that-consumes-the-language-context-navbar-herosection-aboutsection-productssection-qualitycompliancesection-exportcargosection-socialmediasection-contactsection-footer-exportcertificationpage-privacypolicypage-and-termsandconditionspage-and-fix-any-location-where-a-raw-translation-key-escaped-character-sequence-json-fragment-or-template-literal-artifact-is-rendered-as-visible-text-instead-of-the-resolved-human-readable-string-each-component-must-call-the-t-or-equivalent-translation-helper-correctly-and-pass-the-right-key-so-the-resolved-string-is-displayed-in-all-three-language-modes",
+      "title": "Audit every component that consumes the language context — NavBar, HeroSection, AboutSection, ProductsSection, QualityComplianceSection, ExportCargoSection, SocialMediaSection, ContactSection, Footer, ExportCertificationPage, PrivacyPolicyPage, and TermsAndConditionsPage — and fix any location where a raw translation key, escaped character sequence, JSON fragment, or template literal artifact is rendered as visible text instead of the resolved human-readable string. Each component must call the t() (or equivalent) translation helper correctly and pass the right key so the resolved string is displayed in all three language modes.",
+      "reqIds": [
+        "REQ-50"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-herosection-component-fix-the-contact-sales-cta-button-so-it-renders-as-the-human-readable-label-contact-sales-english-the-correct-hindi-translation-and-the-correct-marathi-translation-instead-of-the-raw-translation-key-e-g-hero-ctacontactsale-hero-ctacontact-or-any-similar-raw-key-string-ensure-the-translation-key-used-in-herosection-s-jsx-exactly-matches-the-key-defined-in-frontend-src-translations-translations-ts-for-all-three-language-codes-en-hi-mr-and-that-the-translations-ts-values-for-this-key-are-plain-human-readable-strings-not-raw-json-escaped-characters-or-template-literal-artifacts-the-button-must-display-correctly-in-all-three-language-modes",
+      "title": "In the HeroSection component, fix the 'Contact Sales' CTA button so it renders as the human-readable label 'Contact Sales' (English), the correct Hindi translation, and the correct Marathi translation — instead of the raw translation key (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or any similar raw key string). Ensure the translation key used in HeroSection's JSX exactly matches the key defined in frontend/src/translations/translations.ts for all three language codes (en, hi, mr), and that the translations.ts values for this key are plain human-readable strings (not raw JSON, escaped characters, or template literal artifacts). The button must display correctly in all three language modes.",
+      "reqIds": [
+        "REQ-51"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -586,6 +611,52 @@
       "reqIds": [
         "REQ-43"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-41",
+      "summary": "Audit the centralized translations file (frontend/src/translations/translations.ts) for all three language codes (en, hi, mr) and ensure every translation value is a plain, human-readable string. Replace any raw JSON objects, escaped characters, template literal artifacts, untranslated key strings, or stringified arrays with proper readable prose. Every key present in the English (en) object must have a corresponding non-empty, human-readable value in both hi (Hindi) and mr (Marathi) so that switching languages never causes a raw key fallback to appear on screen.",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-42",
+      "summary": "Audit every component that consumes the language context — NavBar, HeroSection, AboutSection, ProductsSection, QualityComplianceSection, ExportCargoSection, SocialMediaSection, ContactSection, Footer, ExportCertificationPage, PrivacyPolicyPage, and TermsAndConditionsPage — and fix any location where a raw translation key, escaped character sequence, JSON fragment, or template literal artifact is rendered as visible text instead of the resolved human-readable string. Each component must call the t() (or equivalent) translation helper correctly and pass the right key so the resolved string is displayed.",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-43",
+      "summary": "Fix the TermsAndConditionsPage component so that all content sections render as properly formatted, human-readable text in English, Hindi, and Marathi. Locate all translation keys consumed by the component in the centralized translations file and ensure their values are plain readable prose — not raw JSON, escaped characters, template literal artifacts, or untranslated key strings. Every section heading, paragraph, list item, and label must display as normal readable text.",
+      "reqIds": [
+        "REQ-46"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-44",
+      "summary": "Fix the ExportCertificationPage component so that all content — certifications list, quality control steps, and product specification cards (including the Moringa Leaf Powder export-grade spec card) — renders as properly formatted, human-readable text in English, Hindi, and Marathi. Ensure spec field labels, values, packaging options, and documentation items all display using the existing styled card/table layout with resolved translation strings.",
+      "reqIds": [
+        "REQ-47"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-45",
+      "summary": "Fix the QualityComplianceSection component so that the section heading ('International Quality Standards'), all six documentation item labels, the supporting copy, and the CTA button ('Get a Quote Within 24 Hours') render as human-readable text using correctly resolved translation strings in all three language modes.",
+      "reqIds": [
+        "REQ-48"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-46",
+      "summary": "Fix the Hero section 'Contact Sales' CTA button which is still rendering as technical/raw text (e.g., translation key 'Hero.ctacontact' or similar) instead of the human-readable label",
+      "reqIds": [],
       "status": "pending"
     }
   ],

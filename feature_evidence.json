@@ -1,4 +1,24 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-in-the-herosection-component-fix-the-contact-sales-cta-button-so-it-renders-as-the-human-readable-label-contact-sales-english-the-correct-hindi-translation-and-the-correct-marathi-translation-instead-of-the-raw-translation-key-e-g-hero-ctacontactsale-hero-ctacontact-or-any-similar-raw-key-string-ensure-the-translation-key-used-in-herosection-s-jsx-exactly-matches-the-key-defined-in-frontend-src-translations-translations-ts-for-all-three-language-codes-en-hi-mr-and-that-the-translations-ts-values-for-this-key-are-plain-human-readable-strings-not-raw-json-escaped-characters-or-template-literal-artifacts-the-button-must-display-correctly-in-all-three-language-modes",
+      "featureTitle": "In the HeroSection component, fix the 'Contact Sales' CTA button so it renders as the human-readable label 'Contact Sales' (English), the correct Hindi translation, and the correct Marathi translation — instead of the raw translation key (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or any similar raw key string). Ensure the translation key used in HeroSection's JSX exactly matches the key defined in frontend/src/translations/translations.ts for all three language codes (en, hi, mr), and that the translations.ts values for this key are plain human-readable strings (not raw JSON, escaped characters, or template literal artifacts). The button must display correctly in all three language modes.",
+      "files": [
+        "frontend/src/translations/translations.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-51"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

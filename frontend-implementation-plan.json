@@ -1,112 +1,29 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix all text rendering to human-readable format across the entire site",
+  "title": "Fix Hero 'Contact Sales' CTA button rendering as raw translation key",
   "requirements": [
     {
-      "id": "REQ-41",
-      "summary": "Audit and fix the centralized translations file to ensure all translation values are plain, human-readable strings with no JSON objects, escaped characters, template literal artifacts, or untranslated key strings",
+      "id": "REQ-51",
+      "summary": "Fix the 'Contact Sales' CTA button in HeroSection to render human-readable translations instead of raw translation keys in all three languages (English, Hindi, Marathi)",
       "acceptanceCriteria": [
-        "Every value in the translations object for 'en', 'hi', and 'mr' is a plain string of readable text.",
-        "No translation value contains raw JSON, escaped characters (e.g., \\n, \\\"), template literal syntax, or untranslated key names.",
-        "Switching between English, Hindi, and Marathi in the language selector renders correct readable text in all three modes."
+        "The 'Contact Sales' CTA button in HeroSection renders the human-readable label 'Contact Sales' when the language is set to English.",
+        "The button renders the correct Hindi translation when the language is set to Hindi — no raw key or artifact is visible.",
+        "The button renders the correct Marathi translation when the language is set to Marathi — no raw key or artifact is visible.",
+        "The translation key used in HeroSection JSX exactly matches the key present in translations.ts for all three language codes.",
+        "No raw translation key string (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or similar) is ever visible on screen for this button.",
+        "No other HeroSection content, layout, or functionality is changed."
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/translations/translations.ts",
-          "operation": "modify",
-          "description": "Audit all translation values across all three language codes (en, hi, mr). Replace any raw JSON objects, escaped characters (\\n, \\\", etc.), template literal syntax, stringified arrays, or untranslated key strings with clean, readable prose. Ensure every nested translation value is a plain string suitable for direct rendering. Verify that company name 'True Origin Company LLP' and contact detail values (phone, email, website URL) remain unchanged across all languages."
-        }
-      ]
-    },
-    {
-      "id": "REQ-42",
-      "summary": "Audit and fix all components consuming the language context to ensure they call t() correctly and render resolved translation strings instead of raw keys, escaped characters, JSON fragments, or template literal artifacts",
-      "acceptanceCriteria": [
-        "No component renders a raw translation key (e.g., 'hero.headline' or 'nav.contact') as visible on-screen text.",
-        "No component renders escaped characters or JSON fragments as visible text.",
-        "All headings, body paragraphs, labels, button text, list items, and alt text display as clean, readable prose in all three language modes.",
-        "The ExportCertificationPage product spec cards display all field names, values, packaging options, and documentation items as properly styled, readable text.",
-        "The PrivacyPolicyPage and TermsAndConditionsPage display all section headings, paragraphs, and list items as readable prose.",
-        "The NavBar desktop and mobile menu display all nav link labels as readable text in English, Hindi, and Marathi.",
-        "The QualityComplianceSection, HeroSection, AboutSection, ProductsSection, ExportCargoSection, SocialMediaSection, ContactSection, and Footer all display fully readable text in all language modes."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Review all uses of the language context and t() function in the NavBar rendering (desktop and mobile menu). Ensure all navigation link labels call t() correctly and do not render raw keys or escaped characters. Verify that language-aware route links display properly translated text."
-        },
         {
           "path": "frontend/src/components/HeroSection.tsx",
           "operation": "modify",
-          "description": "Audit all translation key calls (headline, subheadline, CTA button text, scroll indicator text). Ensure t() is called correctly for all visible text. Replace any raw key strings, escaped characters, or JSON fragments with proper t() calls that resolve to readable prose."
+          "description": "Review the current translation key used for the 'Contact Sales' CTA button in the JSX. Correct the key if it is malformed (e.g., 'Hero.ctaContactSale', 'Hero.ctacontact', or similar) to match the exact key defined in translations.ts. Ensure the button's text content uses the t() function with the corrected key and that no other content, styling, or link target is changed."
         },
-        {
-          "path": "frontend/src/components/AboutSection.tsx",
-          "operation": "modify",
-          "description": "Review checklist items, operations list entries, and vision/mission card text. Ensure all calls to t() resolve to plain readable strings. Fix any locations where raw translation keys, escaped characters, or template literal artifacts are being rendered instead of resolved translation values."
-        },
-        {
-          "path": "frontend/src/components/ProductsSection.tsx",
-          "operation": "modify",
-          "description": "Audit all product card titles, descriptions, and CTA text. Verify that each product (moringa, curry leaves, vegetables, custom sourcing) renders properly translated text via t(). Fix any instances of raw keys, escaped characters, or JSON fragments appearing as visible text."
-        },
-        {
-          "path": "frontend/src/components/QualityComplianceSection.tsx",
-          "operation": "modify",
-          "description": "Review section heading, certification/documentation item labels, and CTA button text. Ensure all visible text uses t() correctly and renders as readable prose. Replace any raw translation keys or escaped character sequences with proper translation lookups."
-        },
-        {
-          "path": "frontend/src/components/ExportCargoSection.tsx",
-          "operation": "modify",
-          "description": "Audit section heading and highlights grid text. Verify that all translation calls resolve to plain readable strings. Fix any locations where raw keys, template literal syntax, or escaped characters are being rendered as visible text."
-        },
-        {
-          "path": "frontend/src/components/SocialMediaSection.tsx",
-          "operation": "modify",
-          "description": "Review section heading, video card labels, and social media link aria-labels. Ensure all t() calls produce readable text. Replace any raw translation keys or JSON fragments with properly resolved translation strings."
-        },
-        {
-          "path": "frontend/src/components/ContactSection.tsx",
-          "operation": "modify",
-          "description": "Audit enquiry form field labels, placeholder text, submit button text, and contact info panel labels (address, phone, email). Ensure all translation lookups produce plain readable strings. Verify that contact detail labels are translated but the values (phone number, email addresses, website URL) remain unchanged. Fix any raw keys or escaped characters appearing as visible text."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Review brand tagline, contact detail labels, quick-nav link labels, and copyright text. Ensure all calls to t() resolve to readable prose. Fix any instances where raw translation keys, template literal artifacts, or escaped characters are being rendered instead of resolved strings."
-        },
-        {
-          "path": "frontend/src/components/ExportCertificationPage.tsx",
-          "operation": "modify",
-          "description": "Audit page heading, certification names, QC process step titles and descriptions, and per-product specification cards (field names, values, packaging options, documentation items). Ensure every visible text element uses t() correctly and renders as clean, readable prose. Fix any locations where raw translation keys, JSON fragments, stringified arrays, or escaped characters appear as on-screen text."
-        },
-        {
-          "path": "frontend/src/components/PrivacyPolicyPage.tsx",
-          "operation": "modify",
-          "description": "Review page heading, intro paragraph, numbered section headings, section content paragraphs, list items, and contact callout text. Ensure all translation lookups produce readable strings. Fix any raw keys, escaped characters, or template literal syntax appearing as visible text."
-        },
-        {
-          "path": "frontend/src/components/TermsAndConditionsPage.tsx",
-          "operation": "modify",
-          "description": "Audit page heading, intro block text, all eight section headings, section content paragraphs, list items, and contact callout with email links. Ensure every visible text element uses t() correctly and renders as plain readable prose. Replace any raw translation keys, JSON fragments, or escaped character sequences with properly resolved translation strings."
-        }
-      ]
-    },
-    {
-      "id": "REQ-43",
-      "summary": "Add complete Hindi (hi) and Marathi (mr) translations for any key that currently has a missing, empty, or placeholder value, ensuring every English key has a corresponding non-empty, human-readable value in both hi and mr",
-      "acceptanceCriteria": [
-        "Every translation key defined under 'en' also has a non-empty value under 'hi' and 'mr'.",
-        "Switching the language selector to Hindi or Marathi never causes any visible raw key string on any page or component.",
-        "The LanguageContext t() fallback to English is a safety net only and is not needed for any currently defined key."
-      ],
-      "file_operations": [
         {
           "path": "frontend/src/translations/translations.ts",
           "operation": "modify",
-          "description": "Compare the 'en' translation object against 'hi' and 'mr'. For every key present in 'en', add a corresponding non-empty, human-readable Hindi translation under 'hi' and a Marathi translation under 'mr'. Ensure no key has a missing, empty, or placeholder value in either Hindi or Marathi. Verify that switching to Hindi or Marathi in the language selector will never cause a raw key fallback to be displayed on any page or component."
+          "description": "Locate the translation key for the 'Contact Sales' CTA button used by HeroSection (e.g., 'Hero.ctaContactSales' or the corrected key identified in HeroSection.tsx). Ensure that this key exists in the nested translations object for all three language codes (en, hi, mr) and that each value is a plain human-readable string: 'Contact Sales' for English, the correct Hindi translation, and the correct Marathi translation. Remove any raw JSON syntax, escaped characters, template literal artifacts, or incorrect key names that would cause a raw key to display on screen."
         }
       ]
     }
