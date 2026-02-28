@@ -116,18 +116,13 @@ export default function ContactSection() {
                   <div className="text-xs font-medium tracking-wide uppercase text-cream/50 mb-0.5">
                     {t('contact.website')}
                   </div>
-                  <a
-                    href="https://www.trueoriginintl.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cream/85 text-sm leading-relaxed hover:text-gold transition-colors"
-                  >
-                    www.trueoriginintl.com
-                  </a>
+                  <div className="text-cream/85 text-sm leading-relaxed">
+                    {t('contact.info.website')}
+                  </div>
                 </div>
               </div>
 
-              {/* Business Hours */}
+              {/* Hours */}
               <div className="flex gap-4 items-start">
                 <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-cream/10 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-gold" />
@@ -142,70 +137,46 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-
-            {/* Decorative farm image */}
-            <div className="mt-10 rounded-2xl overflow-hidden opacity-70">
-              <img
-                src="/assets/generated/moringa-leaf.dim_800x800.png"
-                alt="Moringa farm"
-                className="w-full h-44 object-cover"
-              />
-            </div>
           </div>
 
-          {/* Enquiry Form */}
-          <div className="bg-cream/8 backdrop-blur-sm border border-cream/15 rounded-3xl p-8">
+          {/* Contact Form */}
+          <div className="bg-cream/5 border border-cream/10 rounded-2xl p-8">
             <h3 className="font-display text-2xl font-semibold text-cream mb-6">
               {t('contact.form.heading')}
             </h3>
 
             {submitted ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center">
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Send className="w-7 h-7 text-gold" />
                 </div>
-                <h4 className="font-display text-xl font-semibold text-cream">
-                  {t('contact.success.heading')}
+                <h4 className="text-cream font-semibold text-xl mb-2">
+                  {t('contact.success.title')}
                 </h4>
-                <p className="text-cream/65 text-sm max-w-xs leading-relaxed">
-                  {t('contact.success.message')}
+                <p className="text-cream/65 text-sm">
+                  {t('contact.success.desc')}
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <Label htmlFor="name" className="text-cream/70 text-xs uppercase tracking-wide">
-                      {t('contact.form.name.label')}
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      required
-                      placeholder={t('contact.form.name.placeholder')}
-                      className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold/50 focus:ring-gold/20"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <Label htmlFor="phone" className="text-cream/70 text-xs uppercase tracking-wide">
-                      {t('contact.form.phone.label')}
-                    </Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="+91 XXXXX XXXXX"
-                      className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold/50 focus:ring-gold/20"
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <Label htmlFor="name" className="text-cream/70 text-xs font-medium tracking-wide uppercase mb-1.5 block">
+                    {t('contact.form.name')}
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder={t('contact.form.namePlaceholder')}
+                    required
+                    className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold focus:ring-gold/20 rounded-xl"
+                  />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="email" className="text-cream/70 text-xs uppercase tracking-wide">
-                    {t('contact.form.email.label')}
+                <div>
+                  <Label htmlFor="email" className="text-cream/70 text-xs font-medium tracking-wide uppercase mb-1.5 block">
+                    {t('contact.form.email')}
                   </Label>
                   <Input
                     id="email"
@@ -213,31 +184,45 @@ export default function ContactSection() {
                     type="email"
                     value={form.email}
                     onChange={handleChange}
+                    placeholder={t('contact.form.emailPlaceholder')}
                     required
-                    placeholder="your@email.com"
-                    className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold/50 focus:ring-gold/20"
+                    className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold focus:ring-gold/20 rounded-xl"
                   />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="message" className="text-cream/70 text-xs uppercase tracking-wide">
-                    {t('contact.form.message.label')}
+                <div>
+                  <Label htmlFor="phone" className="text-cream/70 text-xs font-medium tracking-wide uppercase mb-1.5 block">
+                    Phone (Optional)
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+91 XXXXX XXXXX"
+                    className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold focus:ring-gold/20 rounded-xl"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="message" className="text-cream/70 text-xs font-medium tracking-wide uppercase mb-1.5 block">
+                    {t('contact.form.message')}
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
+                    placeholder={t('contact.form.messagePlaceholder')}
                     required
                     rows={5}
-                    placeholder={t('contact.form.message.placeholder')}
-                    className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold/50 focus:ring-gold/20 resize-none"
+                    className="bg-cream/10 border-cream/20 text-cream placeholder:text-cream/30 focus:border-gold focus:ring-gold/20 rounded-xl resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-1 w-full py-3 bg-gold text-forest font-semibold text-sm rounded-xl hover:bg-gold/90 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                  className="w-full bg-gold text-forest font-semibold py-3 px-6 rounded-xl hover:bg-gold/90 transition-colors flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   {t('contact.form.submit')}

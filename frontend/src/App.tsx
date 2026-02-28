@@ -1,7 +1,7 @@
-import { RouterProvider, createRouter, createRoute, createRootRoute, Link, Outlet, useNavigate } from '@tanstack/react-router';
+import { RouterProvider, createRouter, createRoute, createRootRoute, Outlet, useNavigate } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import LanguageSelector from './components/LanguageSelector';
 import HeroSection from './components/HeroSection';
@@ -16,6 +16,14 @@ import TermsAndConditionsPage from './components/TermsAndConditionsPage';
 import ExportCertificationPage from './components/ExportCertificationPage';
 
 const queryClient = new QueryClient();
+
+function WhyChooseUsRedirect() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate({ to: '/' });
+  }, [navigate]);
+  return null;
+}
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -124,20 +132,23 @@ function NavBar() {
                 {t('nav.home')}
               </button>
 
-              {/* About */}
-              <button
-                onClick={() => scrollToSection('about')}
-                className="w-full text-left px-4 py-3 text-forest font-medium rounded-lg hover:bg-cream transition-colors"
-              >
-                {t('nav.about')}
-              </button>
-
               {/* About Us */}
               <button
                 onClick={() => scrollToSection('about')}
                 className="w-full text-left px-4 py-3 text-forest font-medium rounded-lg hover:bg-cream transition-colors"
               >
                 {t('nav.aboutUs')}
+              </button>
+
+              {/* Why Choose Us */}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate({ to: '/why-choose-us' });
+                }}
+                className="w-full text-left px-4 py-3 text-forest font-medium rounded-lg hover:bg-cream transition-colors"
+              >
+                {t('nav.whyChooseUs')}
               </button>
 
               {/* Products */}
@@ -181,6 +192,28 @@ function NavBar() {
                 className="w-full text-left px-4 py-3 text-forest font-medium rounded-lg hover:bg-cream transition-colors"
               >
                 {t('nav.productSpecifications')}
+              </button>
+
+              {/* Privacy Policy */}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate({ to: '/privacy-policy' });
+                }}
+                className="w-full text-left px-4 py-3 text-forest font-medium rounded-lg hover:bg-cream transition-colors"
+              >
+                {t('nav.privacyPolicy')}
+              </button>
+
+              {/* Terms & Conditions */}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate({ to: '/terms-and-conditions' });
+                }}
+                className="w-full text-left px-4 py-3 text-forest font-medium rounded-lg hover:bg-cream transition-colors"
+              >
+                {t('nav.termsConditions')}
               </button>
 
               {/* Contact */}
@@ -268,11 +301,18 @@ const exportCertRoute = createRoute({
   component: ExportCertificationPage,
 });
 
+const whyChooseUsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/why-choose-us',
+  component: WhyChooseUsRedirect,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   privacyRoute,
   termsRoute,
   exportCertRoute,
+  whyChooseUsRoute,
 ]);
 
 const router = createRouter({ routeTree });

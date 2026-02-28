@@ -1,12 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Fix raw translation key rendering in ExportCargoSection, SocialMediaSection, and ContactSection so all keys resolve to human-readable text in English, Hindi, and Marathi.
+**Goal:** Add "Why Choose Us", "Privacy Policy", and "Terms & Conditions" links to the mobile hamburger menu in the TrueOrigin Exports app.
 
 **Planned changes:**
-- In `ExportCargoSection.tsx`, ensure all nine translation keys (`exportCargo.sectionLabel`, `exportCargo.heading`, `exportCargo.subheading`, `exportCargo.highlight1Title`, `exportCargo.highlight1Desc`, `exportCargo.highlight2Title`, `exportCargo.highlight2Desc`, `exportCargo.highlight3Title`, `exportCargo.highlight3Desc`) use the correct camelCase key names when calling `t()`
-- In `SocialMediaSection.tsx`, ensure `social.sectionLabel` and `social.heading` use the correct camelCase key names when calling `t()`
-- In `ContactSection.tsx`, ensure `contact.heading`, `contact.subheading`, `contact.info.heading`, `contact.form.heading`, and `contact.form.submit` use the correct camelCase key names when calling `t()`
-- In `translations.ts`, add or correct all of the above keys with human-readable string values for `en`, `hi`, and `mr` language codes
+- Add a "Why Choose Us" link in the mobile hamburger menu after "About Us" and before "Products", navigating to `/why-choose-us`, closing the menu on tap
+- Add a "Privacy Policy" link in the mobile hamburger menu immediately before "Contact Us", navigating to `/privacy-policy`, closing the menu on tap
+- Add a "Terms & Conditions" link in the mobile hamburger menu after "Privacy Policy" and before "Contact Us", navigating to `/terms-and-conditions`, closing the menu on tap
+- Add translation keys `nav.whyChooseUs`, `nav.privacyPolicy`, and `nav.termsConditions` for English, Hindi, and Marathi in `translations.ts`
 
-**User-visible outcome:** All three sections (ExportCargoSection, SocialMediaSection, ContactSection) display proper human-readable text instead of raw key strings in all three language modes (English, Hindi, Marathi).
+**User-visible outcome:** Mobile users opening the hamburger menu will see three new navigation links — "Why Choose Us", "Privacy Policy", and "Terms & Conditions" — in the correct positions, which close the menu and navigate to the appropriate routes when tapped.

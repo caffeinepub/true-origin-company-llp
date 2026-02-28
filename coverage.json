@@ -1,45 +1,53 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-28T06:50:22.460Z",
+  "generatedAt": "2026-02-28T10:55:17.384Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 4,
+    "implemented": 4,
     "items": [
       {
-        "id": "REQ-56",
-        "summary": "In the ExportCargoSection component, fix all translation keys — 'exportCargo.sectionLabel' (currently rendering as 'EXPORTCARGO.SECTIONLABEL'), 'exportCargo.heading', 'exportCargo.subheading', 'exportCargo.highlight1Title', 'exportCargo.highlight1Desc', 'exportCargo.highlight2Title', 'exportCargo.highlight2Desc', 'exportCargo.highlight3Title', and 'exportCargo.highlight3Desc' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ExportCargoSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'exportCargo.sectionLabel' not 'EXPORTCARGO.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these nine keys. English values must be: 'exportCargo.sectionLabel' = 'Export & Cargo', 'exportCargo.heading' = 'Global Exports', 'exportCargo.subheading' = a concise supporting sentence about TrueOrigin Exports' professional export and shipping capabilities, 'exportCargo.highlight1Title' = 'Export Documentation', 'exportCargo.highlight1Desc' = a concise description of TrueOrigin's export documentation readiness, 'exportCargo.highlight2Title' = 'Secure Packaging', 'exportCargo.highlight2Desc' = a concise description of packaging standards, 'exportCargo.highlight3Title' = 'Global Reach', 'exportCargo.highlight3Desc' = a concise description of international shipping capability. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+        "id": "REQ-1",
+        "summary": "In the mobile hamburger menu (defined in frontend/src/App.tsx), add a 'Why Choose Us' link navigating to /why-choose-us, positioned after 'About Us' and before 'Products'. The link must close the mobile menu when tapped and use the translation key nav.whyChooseUs.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ExportCargoSection.tsx",
-          "frontend/src/translations/translations.ts"
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/translations/translations.ts"
+          "frontend/src/App.tsx"
         ]
       },
       {
-        "id": "REQ-57",
-        "summary": "In the SocialMediaSection component, fix the translation keys 'social.sectionLabel' (currently rendering as 'SOCIAL.SECTIONLABEL') and 'social.heading' so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in SocialMediaSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'social.sectionLabel' not 'SOCIAL.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for both keys — 'social.sectionLabel' must resolve to 'Follow Us' (or equivalent section label) in English with corresponding Hindi and Marathi translations, and 'social.heading' must resolve to 'Our Latest Updates' (or equivalent heading) in English with corresponding Hindi and Marathi translations. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for either of these keys in any language mode.",
+        "id": "REQ-2",
+        "summary": "In the mobile hamburger menu, add a 'Privacy Policy' link navigating to /privacy-policy, positioned immediately before 'Contact Us'. The link must close the mobile menu when tapped and use the translation key nav.privacyPolicy.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/SocialMediaSection.tsx",
-          "frontend/src/translations/translations.ts"
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/translations/translations.ts"
+          "frontend/src/App.tsx"
         ]
       },
       {
-        "id": "REQ-58",
-        "summary": "In the ContactSection component, fix all translation keys — 'contact.heading', 'contact.subheading', 'contact.info.heading', 'contact.form.heading', and 'contact.form.submit' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ContactSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing and dot-notation path matches exactly); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these five keys. English values must be: 'contact.heading' = 'Get In Touch', 'contact.subheading' = a concise invitation for international buyers to reach out, 'contact.info.heading' = 'Contact Information', 'contact.form.heading' = 'Send an Enquiry', 'contact.form.submit' = 'Submit'. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+        "id": "REQ-3",
+        "summary": "In the mobile hamburger menu, add a 'Terms & Conditions' link navigating to /terms-and-conditions, positioned after 'Privacy Policy' and before 'Contact Us'. The link must close the mobile menu when tapped and use the translation key nav.termsConditions.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ContactSection.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Add translation keys nav.whyChooseUs, nav.privacyPolicy, and nav.termsConditions to frontend/src/translations/translations.ts for all three supported languages: English (en), Hindi (hi), and Marathi (mr). English values: 'Why Choose Us', 'Privacy Policy', 'Terms & Conditions'. Provide appropriate Hindi and Marathi translations.",
+        "status": "implemented",
+        "plannedFiles": [
           "frontend/src/translations/translations.ts"
         ],
         "matchedFiles": [
@@ -53,6 +61,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
     "frontend/src/translations/translations.ts",
     "project_state.json",
     "scratch/component-selection.json",

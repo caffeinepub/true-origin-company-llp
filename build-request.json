@@ -1,95 +1,95 @@
 {
   "kind": "build_request",
-  "title": "Fix ExportCargoSection, SocialMediaSection, and ContactSection raw translation key rendering",
+  "title": "Add Why Choose Us, Privacy Policy, and Terms & Conditions to mobile hamburger menu",
   "projectName": "TrueOrigin Exports",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-56",
-      "text": "In the ExportCargoSection component, fix all translation keys — 'exportCargo.sectionLabel' (currently rendering as 'EXPORTCARGO.SECTIONLABEL'), 'exportCargo.heading', 'exportCargo.subheading', 'exportCargo.highlight1Title', 'exportCargo.highlight1Desc', 'exportCargo.highlight2Title', 'exportCargo.highlight2Desc', 'exportCargo.highlight3Title', and 'exportCargo.highlight3Desc' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ExportCargoSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'exportCargo.sectionLabel' not 'EXPORTCARGO.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these nine keys. English values must be: 'exportCargo.sectionLabel' = 'Export & Cargo', 'exportCargo.heading' = 'Global Exports', 'exportCargo.subheading' = a concise supporting sentence about TrueOrigin Exports' professional export and shipping capabilities, 'exportCargo.highlight1Title' = 'Export Documentation', 'exportCargo.highlight1Desc' = a concise description of TrueOrigin's export documentation readiness, 'exportCargo.highlight2Title' = 'Secure Packaging', 'exportCargo.highlight2Desc' = a concise description of packaging standards, 'exportCargo.highlight3Title' = 'Global Reach', 'exportCargo.highlight3Desc' = a concise description of international shipping capability. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+      "id": "REQ-1",
+      "text": "In the mobile hamburger menu (defined in frontend/src/App.tsx), add a 'Why Choose Us' link navigating to /why-choose-us, positioned after 'About Us' and before 'Products'. The link must close the mobile menu when tapped and use the translation key nav.whyChooseUs.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-5"
         ],
         "quotes": [
-          "EXPORTCARGO.SECTIONLABEL",
-          "exportCargo.heading",
-          "exportCargo.subheading",
-          "exportCargo.highlight1Title",
-          "exportCargo.highlight1Desc",
-          "exportCargo.highlight2Title",
-          "exportCargo.highlight2Desc",
-          "exportCargo.highlight3Title",
-          "exportCargo.highlight3Desc"
+          "Add a Why Choose Us link in the mobile menu, positioned after About Us and before Products, navigating to /why-choose-us"
         ]
       },
       "acceptanceCriteria": [
-        "ExportCargoSection renders 'Export & Cargo' (or translated equivalent) as the section label — never the raw string 'EXPORTCARGO.SECTIONLABEL'",
-        "exportCargo.heading renders as 'Global Exports' in English, with correct Hindi and Marathi equivalents",
-        "exportCargo.subheading renders as a readable sentence in all three language modes",
-        "All three highlight title/desc pairs (highlight1, highlight2, highlight3) render as readable English, Hindi, and Marathi text",
-        "No raw key string, escaped character, or JSON fragment is visible in the ExportCargoSection at any viewport size in any language mode",
-        "The translation keys in ExportCargoSection.tsx exactly match the keys defined in translations.ts (correct camelCase, no uppercase mismatch)"
+        "A 'Why Choose Us' link appears in the mobile hamburger menu after 'About Us' and before 'Products'",
+        "Tapping the link navigates to /why-choose-us",
+        "Tapping the link closes the mobile menu",
+        "The link text is driven by the nav.whyChooseUs translation key"
       ]
     },
     {
-      "id": "REQ-57",
-      "text": "In the SocialMediaSection component, fix the translation keys 'social.sectionLabel' (currently rendering as 'SOCIAL.SECTIONLABEL') and 'social.heading' so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in SocialMediaSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing matches exactly, e.g. 'social.sectionLabel' not 'SOCIAL.SECTIONLABEL'); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for both keys — 'social.sectionLabel' must resolve to 'Follow Us' (or equivalent section label) in English with corresponding Hindi and Marathi translations, and 'social.heading' must resolve to 'Our Latest Updates' (or equivalent heading) in English with corresponding Hindi and Marathi translations. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for either of these keys in any language mode.",
+      "id": "REQ-2",
+      "text": "In the mobile hamburger menu, add a 'Privacy Policy' link navigating to /privacy-policy, positioned immediately before 'Contact Us'. The link must close the mobile menu when tapped and use the translation key nav.privacyPolicy.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-5"
         ],
         "quotes": [
-          "SOCIAL.SECTIONLABEL",
-          "social.heading"
+          "Add a Privacy Policy link in the mobile menu, positioned immediately before Contact Us, navigating to /privacy-policy"
         ]
       },
       "acceptanceCriteria": [
-        "SocialMediaSection renders the section label as human-readable text (e.g., 'Follow Us') — never the raw string 'SOCIAL.SECTIONLABEL'",
-        "social.heading renders as a readable heading (e.g., 'Our Latest Updates') in English, Hindi, and Marathi",
-        "The translation keys in SocialMediaSection.tsx exactly match the keys defined in translations.ts (correct camelCase)",
-        "No raw key string is visible in the SocialMediaSection in any language mode"
+        "A 'Privacy Policy' link appears in the mobile hamburger menu immediately before 'Contact Us'",
+        "Tapping the link navigates to /privacy-policy",
+        "Tapping the link closes the mobile menu",
+        "The link text is driven by the nav.privacyPolicy translation key"
       ]
     },
     {
-      "id": "REQ-58",
-      "text": "In the ContactSection component, fix all translation keys — 'contact.heading', 'contact.subheading', 'contact.info.heading', 'contact.form.heading', and 'contact.form.submit' — so they resolve to human-readable text instead of raw key strings. Ensure: (1) the JSX in ContactSection.tsx calls the t() translation helper with the exact key names defined in translations.ts (verify casing and dot-notation path matches exactly); (2) in frontend/src/translations/translations.ts, all three language codes (en, hi, mr) have non-empty, plain human-readable string values for every one of these five keys. English values must be: 'contact.heading' = 'Get In Touch', 'contact.subheading' = a concise invitation for international buyers to reach out, 'contact.info.heading' = 'Contact Information', 'contact.form.heading' = 'Send an Enquiry', 'contact.form.submit' = 'Submit'. Corresponding Hindi and Marathi translations must also be present and human-readable. No raw key string, JSON object, escaped character, or template literal artifact may appear as visible text for any of these keys in any language mode.",
+      "id": "REQ-3",
+      "text": "In the mobile hamburger menu, add a 'Terms & Conditions' link navigating to /terms-and-conditions, positioned after 'Privacy Policy' and before 'Contact Us'. The link must close the mobile menu when tapped and use the translation key nav.termsConditions.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-5"
         ],
         "quotes": [
-          "contact.heading",
-          "contact.subheading",
-          "contact.info.heading",
-          "contact.form.heading",
-          "contact.form.submit"
+          "Add a Terms & Conditions link in the mobile menu, positioned after Privacy Policy and before Contact Us, navigating to /terms-and-conditions"
         ]
       },
       "acceptanceCriteria": [
-        "ContactSection renders 'Get In Touch' (or translated equivalent) as the section heading — never the raw string 'contact.heading'",
-        "contact.subheading renders as a readable sentence in all three language modes",
-        "contact.info.heading renders as 'Contact Information' in English with correct Hindi and Marathi equivalents",
-        "contact.form.heading renders as 'Send an Enquiry' in English with correct Hindi and Marathi equivalents",
-        "contact.form.submit renders as 'Submit' in English with correct Hindi and Marathi equivalents",
-        "The translation keys in ContactSection.tsx exactly match the keys defined in translations.ts (correct casing and nested dot paths)",
-        "No raw key string, escaped character, or JSON fragment is visible in the ContactSection in any language mode"
+        "A 'Terms & Conditions' link appears in the mobile hamburger menu after 'Privacy Policy' and before 'Contact Us'",
+        "Tapping the link navigates to /terms-and-conditions",
+        "Tapping the link closes the mobile menu",
+        "The link text is driven by the nav.termsConditions translation key"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add translation keys nav.whyChooseUs, nav.privacyPolicy, and nav.termsConditions to frontend/src/translations/translations.ts for all three supported languages: English (en), Hindi (hi), and Marathi (mr). English values: 'Why Choose Us', 'Privacy Policy', 'Terms & Conditions'. Provide appropriate Hindi and Marathi translations.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Add translation keys nav.whyChooseUs, nav.privacyPolicy, and nav.termsConditions in English, Hindi, and Marathi to translations.ts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "nav.whyChooseUs, nav.privacyPolicy, and nav.termsConditions keys exist in the en, hi, and mr translation maps",
+        "All three keys return non-empty appropriate strings for each language",
+        "No existing translation keys are removed or altered"
       ]
     }
   ],
   "constraints": [
-    "Do not change any component other than ExportCargoSection.tsx, SocialMediaSection.tsx, ContactSection.tsx, and frontend/src/translations/translations.ts",
-    "Company name 'True Origin Company LLP' must never be translated and must remain in English across all language modes",
-    "All translation key names must use the exact camelCase dot-notation already established in translations.ts — do not introduce uppercase keys"
+    "Changes are scoped to the mobile hamburger menu only; do not modify the desktop navigation bar",
+    "Do not alter existing mobile menu links or their routes",
+    "All new links must reuse the same close-menu handler pattern used by existing mobile menu items"
   ],
   "nonGoals": [
-    "Do not modify the NavBar, HeroSection, AboutSection, ProductsSection, QualityComplianceSection, Footer, ExportCertificationPage, PrivacyPolicyPage, or TermsAndConditionsPage components",
-    "Do not alter any visual layout, color palette, or typography in ExportCargoSection, SocialMediaSection, or ContactSection",
-    "Do not add new features or sections to the website",
-    "Do not change the backend"
+    "Adding these links to the desktop navigation bar",
+    "Adding these links to the Footer",
+    "Creating or modifying WhyChooseUsPage, PrivacyPolicyPage, or TermsAndConditionsPage components",
+    "Any backend changes"
   ],
   "imageRequirements": {
     "required": [],
