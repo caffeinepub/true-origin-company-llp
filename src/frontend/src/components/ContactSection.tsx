@@ -24,7 +24,7 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const whatsappNumber = "919773303026";
+    const whatsappNumber = "919773300381";
     const text = `New Enquiry from Pure Origin LLP Website%0A%0A*Name:* ${encodeURIComponent(form.name)}%0A*Email:* ${encodeURIComponent(form.email)}%0A*Phone:* ${encodeURIComponent(form.phone || "Not provided")}%0A*Message:* ${encodeURIComponent(form.message)}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(whatsappUrl, "_blank");
@@ -86,10 +86,10 @@ export default function ContactSection() {
                     {t("contact.phone.label")}
                   </div>
                   <a
-                    href="tel:+919773303026"
+                    href="tel:+919773300381"
                     className="text-cream/85 text-sm leading-relaxed hover:text-gold transition-colors"
                   >
-                    +91 97733 03026
+                    +91 97733 00381
                   </a>
                 </div>
               </div>

@@ -53,10 +53,10 @@ export default function Footer() {
             </p>
             <div className="mt-4 flex flex-col gap-1.5">
               <a
-                href="tel:+919773303026"
+                href="tel:+919773300381"
                 className="text-cream/50 hover:text-gold text-sm transition-colors"
               >
-                +91 97733 03026
+                +91 97733 00381
               </a>
               <a
                 href="mailto:info@pureoriginexports.com"
