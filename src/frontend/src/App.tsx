@@ -82,7 +82,7 @@ function NavBar() {
             className="flex items-center gap-2 focus:outline-none"
           >
             <img
-              src="/assets/generated/pure-origin-logo-transparent.dim_400x100.png"
+              src="/assets/generated/pure-origin-logo-golden-transparent.dim_400x100.png"
               alt="Pure Origin LLP"
               className="h-10 w-auto"
             />

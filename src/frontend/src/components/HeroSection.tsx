@@ -42,21 +42,6 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 mb-6">
-          <span
-            className="inline-block w-2 h-2 rounded-full bg-softGold"
-            style={{ border: "none" }}
-          />
-          <span className="text-softGold font-poppins text-sm font-semibold tracking-widest uppercase">
-            {t("hero.badge")}
-          </span>
-          <span
-            className="inline-block w-2 h-2 rounded-full bg-softGold"
-            style={{ border: "none" }}
-          />
-        </div>
-
         {/* Headline */}
         <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
           {t("hero.headline")}
