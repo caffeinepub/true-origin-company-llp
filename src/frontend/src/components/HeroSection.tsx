@@ -40,8 +40,8 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      {/* Content — pt-20 on mobile to clear fixed navbar */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20 md:pt-0">
         {/* Headline */}
         <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
           {t("hero.headline")}

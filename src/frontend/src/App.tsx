@@ -7,7 +7,7 @@ import {
   createRouter,
   useNavigate,
 } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
@@ -75,17 +75,22 @@ function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo — back arrow + Home label */}
           <button
             type="button"
             onClick={() => scrollToSection("hero")}
             className="flex items-center gap-2 focus:outline-none"
           >
-            <img
-              src="/assets/generated/pure-origin-logo-golden-transparent.dim_400x100.png"
-              alt="Pure Origin LLP"
-              className="h-10 w-auto"
+            <ArrowLeft
+              className={`w-5 h-5 ${isScrolled ? "text-forest" : "text-softGold"}`}
             />
+            <span
+              className={`font-poppins font-semibold text-sm ${
+                isScrolled ? "text-forest" : "text-white"
+              }`}
+            >
+              {t("nav.home")}
+            </span>
           </button>
 
           {/* Desktop Nav */}
