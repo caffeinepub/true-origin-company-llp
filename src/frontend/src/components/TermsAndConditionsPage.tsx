@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const sections = [
@@ -23,7 +24,8 @@ export default function TermsAndConditionsPage() {
           to="/"
           className="inline-flex items-center gap-2 text-moss hover:text-forest text-sm font-medium mb-8 transition-colors"
         >
-          ← {t("terms.backHome")}
+          <ArrowLeft className="w-4 h-4" />
+          Home
         </Link>
 
         {/* Header */}
