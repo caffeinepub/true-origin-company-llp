@@ -6,6 +6,7 @@ import {
   createRoute,
   createRouter,
   useNavigate,
+  useRouterState,
 } from "@tanstack/react-router";
 import { ArrowLeft, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -37,6 +38,9 @@ function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const routerState = useRouterState();
+  const currentPath = routerState.location.pathname;
+  const isSubPage = currentPath !== "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -75,23 +79,28 @@ function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo — back arrow + Home label */}
-          <button
-            type="button"
-            onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-2 focus:outline-none"
-          >
-            <ArrowLeft
-              className={`w-5 h-5 ${isScrolled ? "text-forest" : "text-softGold"}`}
-            />
-            <span
-              className={`font-poppins font-semibold text-sm ${
-                isScrolled ? "text-forest" : "text-white"
-              }`}
+          {/* Back arrow + Home label — only shown on sub-pages */}
+          {isSubPage && (
+            <button
+              type="button"
+              onClick={() => navigate({ to: "/" })}
+              className="flex items-center gap-2 focus:outline-none"
             >
-              {t("nav.home")}
-            </span>
-          </button>
+              <ArrowLeft
+                className={`w-5 h-5 ${isScrolled ? "text-forest" : "text-softGold"}`}
+              />
+              <span
+                className={`font-poppins font-semibold text-sm ${
+                  isScrolled ? "text-forest" : "text-white"
+                }`}
+              >
+                {t("nav.home")}
+              </span>
+            </button>
+          )}
+
+          {/* Spacer when on home page so nav items stay right-aligned */}
+          {!isSubPage && <div />}
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
