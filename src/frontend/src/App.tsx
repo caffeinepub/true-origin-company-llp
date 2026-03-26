@@ -81,11 +81,12 @@ function NavBar() {
             onClick={() => scrollToSection("hero")}
             className="flex items-center gap-2 focus:outline-none"
           >
-            <img
-              src="/assets/generated/logo.dim_400x300.png"
-              alt="Pure Origin Exports"
-              className="h-10 w-auto"
-            />
+            <span
+              className="text-xl font-bold"
+              style={{ color: isScrolled ? "#0F3D2E" : "#ffffff" }}
+            >
+              Pure Origin LLP
+            </span>
           </button>
 
           {/* Desktop Nav */}
