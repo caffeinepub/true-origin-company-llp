@@ -79,28 +79,25 @@ function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Back arrow + Home label — only shown on sub-pages */}
-          {isSubPage && (
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/" })}
-              className="flex items-center gap-2 focus:outline-none"
+          {/* Back arrow + Home label — always visible */}
+          <button
+            type="button"
+            onClick={() =>
+              isSubPage ? navigate({ to: "/" }) : scrollToSection("hero")
+            }
+            className="flex items-center gap-2 focus:outline-none"
+          >
+            <ArrowLeft
+              className={`w-5 h-5 ${isScrolled ? "text-forest" : "text-softGold"}`}
+            />
+            <span
+              className={`font-poppins font-semibold text-sm ${
+                isScrolled ? "text-forest" : "text-white"
+              }`}
             >
-              <ArrowLeft
-                className={`w-5 h-5 ${isScrolled ? "text-forest" : "text-softGold"}`}
-              />
-              <span
-                className={`font-poppins font-semibold text-sm ${
-                  isScrolled ? "text-forest" : "text-white"
-                }`}
-              >
-                {t("nav.home")}
-              </span>
-            </button>
-          )}
-
-          {/* Spacer when on home page so nav items stay right-aligned */}
-          {!isSubPage && <div />}
+              {t("nav.home")}
+            </span>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
