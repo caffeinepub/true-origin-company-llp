@@ -47,7 +47,7 @@ export default function ProductsSection() {
 
   const farmImages = [
     {
-      src: "/assets/generated/moringa-farm.dim_800x500.png",
+      src: "/assets/uploads/img_5071-019d2c30-4a32-728a-835f-9ec644eca07a-1.jpeg",
       altKey: "products.moringaFarmAlt",
       labelKey: "products.moringaFarmLabel",
     },

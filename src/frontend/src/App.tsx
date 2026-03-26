@@ -83,7 +83,7 @@ function NavBar() {
           >
             <img
               src="/assets/generated/logo.dim_400x300.png"
-              alt="True Origin Exports"
+              alt="Pure Origin Exports"
               className="h-10 w-auto"
             />
           </button>

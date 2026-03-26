@@ -20,7 +20,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     "hero.badge": "Premium Agricultural Exports",
-    "hero.heading": "True Origin Company LLP",
+    "hero.heading": "Pure Origin LLP",
     "hero.headline":
       "Premium Agricultural Exports From India to Global Markets",
     "hero.subheadline":
@@ -36,14 +36,14 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.sectionLabel": "Our Story",
     "about.heading": "Rooted in Tradition, Growing for the World",
     "about.body":
-      "True Origin Company LLP is a professionally managed agricultural export company based in Maharashtra, India. We specialize in sourcing, processing, and exporting premium quality moringa, curry leaves, fresh vegetables, and other natural food products to international markets. Our team combines deep agricultural expertise with rigorous quality standards to ensure every shipment meets the expectations of our global partners.",
+      "Pure Origin LLP is a professionally managed agricultural export company based in India. We specialize in sourcing, processing, and exporting premium quality moringa, curry leaves, fresh vegetables, and other natural food products to international markets. Our team combines deep agricultural expertise with rigorous quality standards to ensure every shipment meets the expectations of our global partners.",
     "about.paragraph1":
-      "True Origin Company LLP was founded with a singular vision: to bring the authentic flavors and nutritional richness of Indian agriculture to global markets. Based in Maharashtra, we work directly with local farmers to source the finest moringa, curry leaves, and fresh vegetables.",
+      "Pure Origin LLP was founded with a singular vision: to bring the authentic flavors and nutritional richness of Indian agriculture to global markets. Based in India, we work directly with local farmers to source the finest moringa, curry leaves, and fresh vegetables.",
     "about.paragraph2":
       "Our commitment to quality begins at the farm and extends through every step of processing, packaging, and export. We believe that the best products come from the best practices — sustainable farming, fair trade, and meticulous quality control.",
     "about.operationsHeading": "Our Operations",
     "about.op1":
-      "Direct farm sourcing from verified agricultural partners across Maharashtra",
+      "Direct farm sourcing from verified agricultural partners across India",
     "about.op2":
       "In-house processing, cleaning, and grading to international export standards",
     "about.op3":
@@ -61,7 +61,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "about.missionText":
       "To deliver safe, high-quality, and compliant products while creating long-term value for our international partners.",
     "about.closingStatement":
-      "From the farms of Maharashtra to tables around the world — quality you can trust.",
+      "From the farms of India to tables around the world — quality you can trust.",
     "about.stat1Label": "Years of Experience",
     "about.stat2Label": "Export Countries",
     "about.stat3Label": "Farmer Partners",
@@ -83,7 +83,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "products.sectionLabel": "Our Products",
     "products.heading": "Premium Agricultural Products",
     "products.subheading":
-      "Sourced directly from Maharashtra's finest farms, our products meet the highest international quality standards.",
+      "Sourced directly from India's finest farms, our products meet the highest international quality standards.",
     "products.supportingLine":
       "Each product is processed, tested, and packed according to international export standards.",
     "products.moringaTitle": "Moringa Leaf Powder",
@@ -91,7 +91,7 @@ export const translations: Record<Language, Record<string, string>> = {
       "Premium quality moringa leaf powder, rich in nutrients and carefully processed to preserve natural goodness. Available in export-grade packaging.",
     "products.curryLeavesTitle": "Curry Leaves",
     "products.curryLeavesDesc":
-      "Fresh and dried curry leaves with intense aroma, sourced from dedicated farms in Maharashtra. Vacuum-sealed for maximum freshness.",
+      "Fresh and dried curry leaves with intense aroma, sourced from dedicated farms in India. Vacuum-sealed for maximum freshness.",
     "products.freshVegetablesTitle": "Fresh Vegetables",
     "products.freshVegetablesDesc":
       "Seasonal fresh vegetables including okra, bitter gourd, and more — export-ready and quality certified for international markets.",
@@ -109,22 +109,22 @@ export const translations: Record<Language, Record<string, string>> = {
     "products.moringa.badge": "Export Grade",
     "products.curry.name": "Curry Leaves",
     "products.curry.desc":
-      "Fresh and dried curry leaves with intense aroma, sourced from dedicated farms in Maharashtra.",
+      "Fresh and dried curry leaves with intense aroma, sourced from dedicated farms in India.",
     "products.curry.badge": "Fresh & Dried",
     "products.vegetables.name": "Fresh Vegetables",
     "products.vegetables.desc":
       "Seasonal fresh vegetables including okra, bitter gourd, and more, export-ready and quality certified.",
     "products.vegetables.badge": "Seasonal",
     "products.farms.heading": "Straight From Our Farms",
-    "products.farms.moringa.alt": "Moringa farm in Maharashtra",
+    "products.farms.moringa.alt": "Moringa farm in India",
     "products.farms.moringa.label": "Moringa Farm",
-    "products.farms.curry.alt": "Curry leaves farm in Maharashtra",
+    "products.farms.curry.alt": "Curry leaves farm in India",
     "products.farms.curry.label": "Curry Leaves Farm",
-    "products.farms.okra.alt": "Okra farm in Maharashtra",
+    "products.farms.okra.alt": "Okra farm in India",
     "products.farms.okra.label": "Okra Farm",
-    "products.moringaFarmAlt": "Moringa farm in Maharashtra",
-    "products.curryLeavesFarmAlt": "Curry leaves farm in Maharashtra",
-    "products.okraFarmAlt": "Okra farm in Maharashtra",
+    "products.moringaFarmAlt": "Moringa farm in India",
+    "products.curryLeavesFarmAlt": "Curry leaves farm in India",
+    "products.okraFarmAlt": "Okra farm in India",
 
     // Export Cargo
     "exportCargo.sectionLabel": "Export Operations",
@@ -140,7 +140,7 @@ export const translations: Record<Language, Record<string, string>> = {
       "Export-grade packaging with food-safe materials, tamper-evident sealing, and proper labeling to meet international transit and import requirements.",
     "exportCargo.highlight3Title": "Global Reach",
     "exportCargo.highlight3Desc":
-      "Established shipping routes and logistics partnerships connecting our Maharashtra farms to buyers across Asia, Europe, the Middle East, and beyond.",
+      "Established shipping routes and logistics partnerships connecting our indian farms to buyers across Asia, Europe, the Middle East, and beyond.",
     "exportCargo.highlight1.title": "Certified Packaging",
     "exportCargo.highlight1.desc":
       "Export-grade packaging meeting international standards for safe transit.",
@@ -236,13 +236,13 @@ export const translations: Record<Language, Record<string, string>> = {
     "contact.subheading":
       "Reach out to us for export inquiries, product information, or partnership opportunities.",
     "contact.info.heading": "Contact Information",
-    "contact.info.address": "Maharashtra, India",
+    "contact.info.address": "India",
     "contact.info.phone": "+91 97733 03026",
     "contact.info.email": "info@pureoriginexports.com",
     "contact.info.website": "www.pureoriginexports.com",
     "contact.info.hours": "Mon–Sat: 9:00 AM – 6:00 PM IST",
     "contact.address.label": "Address",
-    "contact.address.value": "Maharashtra, India",
+    "contact.address.value": "India",
     "contact.phone.label": "Phone",
     "contact.email.label": "Email",
     "contact.website": "Website",
@@ -266,7 +266,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "privacy.title": "Privacy Policy",
     "privacy.lastUpdated": "Last Updated: January 2025",
     "privacy.intro":
-      "True Origin Company LLP is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.",
+      "Pure Origin LLP is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information.",
     "privacy.section1Title": "Information We Collect",
     "privacy.section1Content":
       "We collect information you provide directly to us, such as when you fill out our contact form, request product specifications, or communicate with us via email or phone. This may include your name, email address, company name, phone number, and any other information you choose to provide.",
@@ -287,32 +287,32 @@ export const translations: Record<Language, Record<string, string>> = {
       "You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at info@pureoriginexports.com.",
     "privacy.section7Title": "Contact Us",
     "privacy.section7Content":
-      "If you have questions about this Privacy Policy, please contact us at info@pureoriginexports.com or write to us at our registered address in Maharashtra, India.",
+      "If you have questions about this Privacy Policy, please contact us at info@pureoriginexports.com or write to us at our registered address in India.",
 
     // Terms & Conditions
     "terms.title": "Terms & Conditions",
     "terms.pageTitle": "Terms & Conditions",
     "terms.lastUpdated": "Last Updated: January 2025",
     "terms.intro":
-      "By accessing and using the True Origin Company LLP website, you accept and agree to be bound by the following terms and conditions.",
+      "By accessing and using the Pure Origin LLP website, you accept and agree to be bound by the following terms and conditions.",
     "terms.section1Title": "Acceptance of Terms",
     "terms.section1Content":
       "By using this website, you confirm that you are at least 18 years of age and agree to comply with all applicable laws and regulations.",
     "terms.section2Title": "Products and Services",
     "terms.section2Content":
-      "True Origin Company LLP provides agricultural export products and related services. All product descriptions, specifications, and pricing are subject to change without notice.",
+      "Pure Origin LLP provides agricultural export products and related services. All product descriptions, specifications, and pricing are subject to change without notice.",
     "terms.section3Title": "Export Compliance",
     "terms.section3Content":
       "All exports are conducted in compliance with Indian export regulations and the import regulations of the destination country. Buyers are responsible for ensuring compliance with their local import laws.",
     "terms.section4Title": "Intellectual Property",
     "terms.section4Content":
-      "All content on this website, including text, images, logos, and graphics, is the property of True Origin Company LLP and is protected by applicable intellectual property laws.",
+      "All content on this website, including text, images, logos, and graphics, is the property of Pure Origin LLP and is protected by applicable intellectual property laws.",
     "terms.section5Title": "Limitation of Liability",
     "terms.section5Content":
-      "True Origin Company LLP shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or services beyond the value of the transaction.",
+      "Pure Origin LLP shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or services beyond the value of the transaction.",
     "terms.section6Title": "Governing Law",
     "terms.section6Content":
-      "These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Maharashtra, India.",
+      "These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.",
     "terms.section7Title": "Changes to Terms",
     "terms.section7Content":
       "We reserve the right to modify these terms at any time. Continued use of the website after changes constitutes acceptance of the new terms.",

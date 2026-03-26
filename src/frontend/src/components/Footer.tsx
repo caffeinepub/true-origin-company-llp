@@ -40,11 +40,11 @@ export default function Footer() {
               type="button"
               onClick={() => handleNavClick("#home")}
               className="block mb-5"
-              aria-label="True Origin Exports – scroll to top"
+              aria-label="Pure Origin Exports – scroll to top"
             >
               <img
                 src="/assets/generated/logo.dim_400x300.png"
-                alt="True Origin Exports"
+                alt="Pure Origin Exports"
                 className="h-20 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
               />
             </button>
